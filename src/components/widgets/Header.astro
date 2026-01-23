@@ -18,6 +18,15 @@ interface Link {
 
 interface MenuLink extends Link {
   links?: Array<MenuLink>;
+  mega?: {
+    viewAllText?: string;
+    viewAllHref?: string;
+    sections?: Array<MenuLink>;
+    tiles?: Array<{
+      section: string;
+      items: Array<{ title: string; href: string }>;
+    }>;
+  };
 }
 
 export interface Props {
@@ -84,7 +93,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, href, links, mega }) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
@@ -95,21 +104,68 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
-                      <li>
-                        <a
-                          class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
-                          ]}
-                          href={href2}
-                        >
-                          {text2}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  {mega ? (
+                    <div class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/95 md:min-w-[680px] drop-shadow-xl">
+                      <div class="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] p-4 md:p-6">
+                        <div class="border-b md:border-b-0 md:border-r border-gray-100 dark:border-slate-700 pb-4 md:pb-0 md:pr-4">
+                          <ul class="space-y-1">
+                            {mega.sections?.map(({ text: sectionText, href: sectionHref }) => (
+                              <li>
+                                <a
+                                  class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-link dark:hover:text-white"
+                                  href={sectionHref}
+                                >
+                                  {sectionText}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                          {mega.viewAllHref && (
+                            <a
+                              class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-link hover:underline"
+                              href={mega.viewAllHref}
+                            >
+                              {mega.viewAllText ?? 'View All'}
+                              <Icon name="tabler:arrow-up-right" class="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
+                        <div class="space-y-5">
+                          {mega.tiles?.map(({ section, items }) => (
+                            <div class="space-y-3">
+                              <p class="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{section}</p>
+                              <div class="grid gap-3 sm:grid-cols-2">
+                                {items.map(({ title: itemTitle, href: itemHref }) => (
+                                  <a
+                                    class="block rounded-lg border border-gray-100 dark:border-slate-700 bg-white/60 dark:bg-slate-800/70 px-3 py-2 text-sm font-medium text-default hover:border-link hover:text-link transition"
+                                    href={itemHref}
+                                  >
+                                    {itemTitle}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                      {links.map(({ text: text2, href: href2 }) => (
+                        <li>
+                          <a
+                            class:list={[
+                              'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                              { 'aw-link-active': href2 === currentPath },
+                            ]}
+                            href={href2}
+                          >
+                            {text2}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </>
               ) : (
                 <a
