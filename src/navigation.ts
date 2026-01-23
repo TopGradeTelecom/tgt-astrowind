@@ -2,7 +2,14 @@ import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    { text: 'IT Solutions', href: getPermalink('/services#it-solutions') },
+    {
+      text: 'IT Solutions',
+      links: [
+        { text: 'Managed IT', href: getPermalink('/services#managed-it') },
+        { text: 'Managed Network', href: getPermalink('/services#managed-network') },
+        { text: 'Professional Services', href: getPermalink('/services#professional-services') },
+      ],
+    },
     { text: 'Unified Communications', href: getPermalink('/services#unified-communications') },
     { text: 'Security Solutions', href: getPermalink('/services#security-solutions') },
     { text: 'Company', href: getPermalink('/about') },
