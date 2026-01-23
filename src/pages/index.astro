@@ -7,13 +7,11 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Top Grade Tech -- Premier US-Based IT, Networks & Telecom Solutions',
+  title: 'Top Grade Tech -- Managed IT, Security, and Communications',
   ignoreTitleTemplate: true,
 };
 ---
@@ -39,7 +37,7 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Top Grade Tech</span> delivers reliability through simplicity with exceptional managed IT, networks, and telecom solutions.</span
+        <span class="font-semibold">Top Grade Tech</span> delivers reliability through simplicity with managed IT, cybersecurity, and communications solutions.</span
       >
       <span class="block mb-1 sm:hidden font-bold text-blue-600">Top Grade Tech: Reliability Through Simplicity.</span>
       Trusted by businesses across the US for managed IT services, premium hardware solutions, and fully managed telecom services with unrivaled support.
@@ -54,44 +52,42 @@ const metadata = {
 
   <Features
     id="features"
-    tagline="Why Top Grade Tech"
-    title="What Sets Us Apart"
-    subtitle="Industry-leading expertise backed by exceptional US-based customer support and comprehensive solutions tailored to your business needs."
+    tagline="Core Services"
+    title="Everything You Need to Run Securely"
+    subtitle="Managed IT, cybersecurity, and communications services designed to keep your business operating efficiently."
     items={[
       {
-        title: 'Exceptional US-Based Support',
+        title: 'Managed IT Services',
         description:
-          'Talk to real US-based technicians who understand your business. No outsourcing, no language barriers -- just dedicated local support.',
+          '24/7 monitoring, proactive maintenance, patching, and endpoint management to keep your systems healthy.',
         icon: 'tabler:headset',
       },
       {
-        title: 'Premium Hardware Solutions',
-        description:
-          'Access to enterprise-grade hardware and equipment sourced to ensure maximum reliability and performance for your operations.',
-        icon: 'tabler:server-2',
+        title: 'IT Service Desk',
+        description: 'Responsive support for your team, from password resets to complex technical escalations.',
+        icon: 'tabler:lifebuoy',
       },
       {
-        title: 'Unrivaled System Reliability',
+        title: 'Cybersecurity',
         description:
-          'Our proactive monitoring and preventive maintenance ensure your systems stay up and running 24/7/365 with minimal downtime.',
+          'Threat monitoring, endpoint protection, and security best practices that reduce risk and improve resilience.',
         icon: 'tabler:shield-check',
       },
       {
-        title: 'Intuitive and Tailored VoIP Phones',
+        title: 'Cloud & Microsoft 365',
         description:
-          'Purpose-built communication solutions that are simple to use yet powerful enough to meet enterprise demands.',
+          'Email, collaboration, and cloud productivity solutions that keep your team connected anywhere.',
         icon: 'tabler:phone',
       },
       {
-        title: 'Complimentary Staff Training',
-        description:
-          'We invest in your team with comprehensive training programs to maximize adoption and efficiency of new systems.',
-        icon: 'tabler:book',
+        title: 'Video Conferencing',
+        description: 'Modern conferencing and meeting tools that improve collaboration and reduce travel.',
+        icon: 'tabler:video',
       },
       {
-        title: 'Fully Managed Telecom Solutions',
+        title: 'Physical Security',
         description:
-          'End-to-end telecom management so you can focus on your business while we handle the infrastructure and support.',
+          'Video surveillance, access control, and intelligent sensors for a safer and more secure workplace.',
         icon: 'tabler:network',
       },
     ]}
@@ -102,22 +98,19 @@ const metadata = {
   <Content
     isReversed
     tagline="Our Approach"
-    title="Built on Trust and Expertise"
+    title="Proactive, Documented, and Measurable"
     items={[
       {
-        title: 'Local Support Team',
-        description:
-          'Our US-based technicians are available to provide personalized assistance and strategic guidance for your IT infrastructure.',
+        title: 'Monitoring and Alerting',
+        description: 'We watch your critical systems 24/7 and address issues before they impact operations.',
       },
       {
-        title: 'Proactive Maintenance',
-        description:
-          'We monitor your systems continuously to identify and resolve potential issues before they impact your business.',
+        title: 'Lifecycle Management',
+        description: 'Patch, update, and optimize devices on a predictable schedule.',
       },
       {
-        title: 'Scalable Solutions',
-        description:
-          "Whether you're a small business or a growing enterprise, our solutions grow with you without disruption.",
+        title: 'Structured Service Desk',
+        description: 'Tiered support that keeps response times fast and resolutions clear.',
       },
     ]}
     image={{
@@ -141,23 +134,20 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Managed IT Services',
-        description: 'Comprehensive IT support and management, keeping your systems running smoothly so you can focus on growing your business.',
+        title: 'Add-On Services',
+        description: 'Backup, cloud infrastructure, and advanced security tooling that scale with your needs.',
       },
       {
-        title: 'Network Infrastructure',
-        description:
-          'Robust and secure network solutions designed to support your operations, with 24/7 monitoring and proactive maintenance.',
+        title: 'Collaboration Tools',
+        description: 'Microsoft 365 and meeting platforms that reduce friction across teams.',
       },
       {
-        title: 'Telecom Services',
-        description:
-          'Reliable communication solutions tailored to your needs, from VoIP to connectivity services that keep your team connected.',
+        title: 'Infrastructure and Connectivity',
+        description: 'Network planning, hardware, and connectivity support built for reliability.',
       },
       {
-        title: 'Security & Compliance',
-        description:
-          'Protect your business with enterprise-grade security measures and ensure compliance with industry standards and regulations.',
+        title: 'Security and Compliance',
+        description: 'Policies, monitoring, and controls that help reduce risk and protect data.',
       },
     ]}
     image={{
@@ -177,27 +167,24 @@ const metadata = {
   <Content
     isReversed
     isAfterContent
-    tagline="Our Services"
-    title="Complete IT & Telecom Solutions"
+    tagline="Security Solutions"
+    title="Protect People, Places, and Assets"
     items={[
       {
-        title: 'Exceptional US-Based Support',
-        description:
-          'Direct access to knowledgeable US-based technicians who understand your business and provide personalized solutions.',
+        title: 'Video Surveillance',
+        description: 'Cloud-managed cameras with searchable footage and actionable alerts.',
       },
       {
-        title: 'Premium Hardware Solutions',
-        description:
-          'Enterprise-quality equipment and infrastructure designed for reliability, performance, and longevity.',
+        title: 'Access Control',
+        description: 'Modern door access systems with centralized management.',
       },
       {
-        title: 'Unrivaled System Reliability',
-        description:
-          '24/7 monitoring, proactive maintenance, and rapid response times to ensure your systems stay operational.',
+        title: 'Environmental Sensors',
+        description: 'Real-time monitoring for safety, occupancy, and facility insights.',
       },
       {
-        title: 'Fully Managed Telecom',
-        description: 'Complete management of your communication infrastructure so you can focus on what matters -- growing your business.',
+        title: 'Mobile Surveillance',
+        description: 'Rapid-deploy security options for remote sites and temporary locations.',
       },
     ]}
     image={{
@@ -219,7 +206,7 @@ const metadata = {
 
   <Features2
     title="Why Choose Top Grade Tech"
-    subtitle="Industry-leading expertise and customer-focused support you can trust"
+    subtitle="US-based support with clear processes and accountable service."
     tagline="Core Strengths"
     items={[
       {
@@ -228,33 +215,28 @@ const metadata = {
         icon: 'flat-color-icons:approval',
       },
       {
-        title: 'Proactive Maintenance',
-        description:
-          'Prevent issues before they happen with our proactive monitoring and preventive maintenance programs.',
+        title: 'Proactive Monitoring',
+        description: 'Continuous monitoring helps prevent outages and reduce downtime.',
         icon: 'flat-color-icons:database',
       },
       {
-        title: 'Scalable Solutions',
-        description:
-          'Grow with confidence. Our services scale with your business needs, from startups to enterprises.',
+        title: 'Scalable Services',
+        description: 'Add or adjust services as your needs evolve.',
         icon: 'flat-color-icons:currency-exchange',
       },
       {
         title: 'Expert Team',
-        description:
-          'Certified technicians with years of experience in managed IT, networking, and telecommunications.',
+        description: 'Certified technicians with deep experience across IT, security, and communications.',
         icon: 'flat-color-icons:business-contact',
       },
       {
         title: 'Predictable Pricing',
-        description:
-          'Transparent, predictable monthly costs eliminate surprise IT expenses and improve your bottom line.',
+        description: 'Clear monthly costs and straightforward scoping.',
         icon: 'flat-color-icons:advertising',
       },
       {
         title: 'Seamless Migration',
-        description:
-          'Smooth transitions to new systems with minimal downtime and comprehensive training for your team.',
+        description: 'Onboarding plans that minimize disruption and accelerate adoption.',
         icon: 'flat-color-icons:template',
       },
     ]}
@@ -270,26 +252,26 @@ const metadata = {
     title="Getting Started with Top Grade Tech"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Consultation</span>',
+        title: 'Step 1: <span class="font-medium">Discovery</span>',
         description:
-          "We'll meet with your team to understand your current IT infrastructure, challenges, and goals to design the perfect solution.",
+          "We review your current environment and priorities to map the right solution mix.",
         icon: 'tabler:headset',
       },
       {
-        title: 'Step 2: <span class="font-medium">Solution Design</span>',
+        title: 'Step 2: <span class="font-medium">Plan</span>',
         description:
-          'Our experts develop a tailored solution that addresses your specific needs with managed IT, networking, and telecom services.',
+          'We build a phased plan for managed IT, security, and communications improvements.',
         icon: 'tabler:pencil',
       },
       {
-        title: 'Step 3: <span class="font-medium">Implementation & Training</span>',
+        title: 'Step 3: <span class="font-medium">Launch</span>',
         description:
-          'We handle the setup and provide comprehensive training to your staff, ensuring a smooth transition with zero disruption.',
+          'We deploy, train your staff, and provide ongoing support.',
         icon: 'tabler:school',
       },
       {
         title: 'Ready to Grow!',
-        description: 'Now focus on your business while we handle your IT infrastructure with 24/7 support.',
+        description: 'Focus on your business while we handle day-to-day operations.',
         icon: 'tabler:check',
       },
     ]}
@@ -310,7 +292,7 @@ const metadata = {
       {
         title: 'Why should I choose Top Grade Tech over other IT providers?',
         description:
-          'We offer exceptional US-based support, premium hardware solutions, unrivaled reliability, and fully managed services -- all designed around the principle of reliability through simplicity.',
+          'We deliver US-based support, proactive monitoring, and a full stack of IT, security, and communications services built around reliability through simplicity.',
       },
       {
         title: 'Do you provide 24/7 support?',
