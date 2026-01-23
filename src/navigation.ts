@@ -37,9 +37,10 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/topgradetechservices' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://twitter.com/TopGradeTech' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/TopGradeTech' },
+    { ariaLabel: 'Location', icon: 'tabler:map-pin', href: 'https://www.google.com/maps/place/Top+Grade+Tech/@38.2855949,-104.5749359,15z/data=!4m2!3m1!1s0x0:0x283b8df7d7d84338?sa=X&ved=2ahUKEwizhJj85diDAxVpOTQIHVr1BiMQ_BJ6BAhHEAA&hl=en' },
   ],
   footNote: `
     Top Grade Tech - All rights reserved.
