@@ -105,7 +105,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
                   {mega ? (
-                    <div class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/95 md:min-w-[680px] drop-shadow-xl">
+                    <div
+                      class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/95 md:min-w-[680px] drop-shadow-xl"
+                      data-mega
+                    >
                       <div class="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] p-4 md:p-6">
                         <div class="border-b md:border-b-0 md:border-r border-gray-100 dark:border-slate-700 pb-4 md:pb-0 md:pr-4">
                           <ul class="space-y-1">
@@ -114,6 +117,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                                 <a
                                   class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-link dark:hover:text-white"
                                   href={sectionHref}
+                                  data-mega-section={sectionText}
                                 >
                                   {sectionText}
                                 </a>
@@ -131,8 +135,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                           )}
                         </div>
                         <div class="space-y-5">
-                          {mega.tiles?.map(({ section, items }) => (
-                            <div class="space-y-3">
+                          {mega.tiles?.map(({ section, items }, index) => (
+                            <div class:list={[{ hidden: index !== 0 }, 'space-y-3']} data-mega-panel={section}>
                               <p class="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{section}</p>
                               <div class="grid gap-3 sm:grid-cols-2">
                                 {items.map(({ title: itemTitle, href: itemHref }) => (
@@ -211,3 +215,47 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     </div>
   </div>
 </header>
+
+<style is:inline>
+  [data-mega-section].mega-active {
+    background: rgb(243 244 246);
+    color: rgb(2 61 170);
+  }
+
+  .dark [data-mega-section].mega-active {
+    background: rgb(55 65 81);
+    color: rgb(255 255 255);
+  }
+</style>
+
+<script is:inline>
+  const megaMenus = document.querySelectorAll('[data-mega]');
+  megaMenus.forEach((menu) => {
+    const sectionLinks = menu.querySelectorAll('[data-mega-section]');
+    const panels = menu.querySelectorAll('[data-mega-panel]');
+    if (!sectionLinks.length || !panels.length) return;
+
+    const showPanel = (section) => {
+      panels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.getAttribute('data-mega-panel') !== section);
+      });
+      sectionLinks.forEach((link) => {
+        link.classList.toggle('mega-active', link.getAttribute('data-mega-section') === section);
+      });
+    };
+
+    const defaultSection = sectionLinks[0].getAttribute('data-mega-section');
+    if (defaultSection) showPanel(defaultSection);
+
+    sectionLinks.forEach((link) => {
+      link.addEventListener('mouseenter', () => {
+        const section = link.getAttribute('data-mega-section');
+        if (section) showPanel(section);
+      });
+      link.addEventListener('focus', () => {
+        const section = link.getAttribute('data-mega-section');
+        if (section) showPanel(section);
+      });
+    });
+  });
+</script>
