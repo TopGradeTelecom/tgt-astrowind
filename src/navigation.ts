@@ -4,6 +4,42 @@ export const headerData = {
   links: [
     {
       text: 'IT Solutions',
+      mega: {
+        viewAllText: 'View All',
+        viewAllHref: getPermalink('/services#it-solutions'),
+        sections: [
+          { text: 'Managed IT', href: getPermalink('/services#managed-it') },
+          { text: 'Managed Network', href: getPermalink('/services#managed-network') },
+          { text: 'Professional Services', href: getPermalink('/services#professional-services') },
+        ],
+        tiles: [
+          {
+            section: 'Managed IT',
+            items: [
+              { title: 'IT Systems Proactive Monitoring', href: getPermalink('/services#managed-it') },
+              { title: 'IT Systems Maintenance', href: getPermalink('/services#managed-it') },
+              { title: '24/7 US-Based Support', href: getPermalink('/services#managed-it') },
+              { title: 'Vulnerability Scanning', href: getPermalink('/services#managed-it') },
+              { title: 'Managed Backups', href: getPermalink('/services#managed-it') },
+            ],
+          },
+          {
+            section: 'Managed Network',
+            items: [
+              { title: 'Internet & Power Redundancy', href: getPermalink('/services#managed-network') },
+              { title: 'Infrastructure as a Service', href: getPermalink('/services#managed-network') },
+              { title: 'Structured Cabling', href: getPermalink('/services#managed-network') },
+            ],
+          },
+          {
+            section: 'Professional Services',
+            items: [
+              { title: 'IT Projects', href: getPermalink('/services#professional-services') },
+              { title: 'IT Consulting', href: getPermalink('/services#professional-services') },
+            ],
+          },
+        ],
+      },
       links: [
         { text: 'Managed IT', href: getPermalink('/services#managed-it') },
         { text: 'Managed Network', href: getPermalink('/services#managed-network') },
