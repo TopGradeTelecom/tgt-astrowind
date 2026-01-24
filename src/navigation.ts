@@ -91,7 +91,12 @@ export const headerData = {
     { text: 'Company', href: getPermalink('/about') },
     { text: 'Support', href: getPermalink('/contact') },
   ],
-  actions: [{ text: 'Request a Consultation', href: getPermalink('/contact') }],
+  actions: [
+    {
+      text: 'Request a Consultation',
+      href: 'https://outlook.office.com/book/Scheduling@topgradetech.com/?ismsaljsauthenabled',
+    },
+  ],
 };
 
 export const footerData = {
