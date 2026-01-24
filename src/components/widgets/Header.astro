@@ -24,7 +24,7 @@ interface MenuLink extends Link {
     sections?: Array<MenuLink>;
     tiles?: Array<{
       section: string;
-      items: Array<{ title: string; href: string }>;
+      items: Array<{ title: string; description?: string; href: string }>;
     }>;
   };
 }
@@ -139,12 +139,15 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                             <div class:list={[{ hidden: index !== 0 }, 'space-y-3']} data-mega-panel={section}>
                               <p class="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{section}</p>
                               <div class="grid gap-3 sm:grid-cols-2">
-                                {items.map(({ title: itemTitle, href: itemHref }) => (
+                                {items.map(({ title: itemTitle, description: itemDescription, href: itemHref }) => (
                                   <a
-                                    class="block rounded-lg border border-gray-100 dark:border-slate-700 bg-white/60 dark:bg-slate-800/70 px-3 py-2 text-sm font-medium text-default hover:border-link hover:text-link transition"
+                                    class="block rounded-lg border border-gray-100 dark:border-slate-700 bg-white/60 dark:bg-slate-800/70 px-3 py-2 text-sm text-default hover:border-link hover:text-link transition"
                                     href={itemHref}
                                   >
-                                    {itemTitle}
+                                    <span class="font-medium block">{itemTitle}</span>
+                                    {itemDescription && (
+                                      <span class="text-xs text-muted dark:text-slate-400 block mt-1">{itemDescription}</span>
+                                    )}
                                   </a>
                                 ))}
                               </div>

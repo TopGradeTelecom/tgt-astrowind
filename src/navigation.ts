@@ -16,26 +16,66 @@ export const headerData = {
           {
             section: 'Managed IT',
             items: [
-              { title: 'IT Systems Proactive Monitoring', href: getPermalink('/services#managed-it') },
-              { title: 'IT Systems Maintenance', href: getPermalink('/services#managed-it') },
-              { title: '24/7 US-Based Support', href: getPermalink('/services#managed-it') },
-              { title: 'Vulnerability Scanning', href: getPermalink('/services#managed-it') },
-              { title: 'Managed Backups', href: getPermalink('/services#managed-it') },
+              {
+                title: 'IT Systems Proactive Monitoring',
+                description: '24/7 visibility into critical systems and alerts.',
+                href: getPermalink('/services#managed-it'),
+              },
+              {
+                title: 'IT Systems Maintenance',
+                description: 'Patch, update, and optimize devices on schedule.',
+                href: getPermalink('/services#managed-it'),
+              },
+              {
+                title: '24/7 US-Based Support',
+                description: 'Live help when issues appear, day or night.',
+                href: getPermalink('/services#managed-it'),
+              },
+              {
+                title: 'Vulnerability Scanning',
+                description: 'Identify and prioritize security weaknesses.',
+                href: getPermalink('/services#managed-it'),
+              },
+              {
+                title: 'Managed Backups',
+                description: 'Automated backups with verified recovery.',
+                href: getPermalink('/services#managed-it'),
+              },
             ],
           },
           {
             section: 'Managed Network',
             items: [
-              { title: 'Internet & Power Redundancy', href: getPermalink('/services#managed-network') },
-              { title: 'Infrastructure as a Service', href: getPermalink('/services#managed-network') },
-              { title: 'Structured Cabling', href: getPermalink('/services#managed-network') },
+              {
+                title: 'Internet & Power Redundancy',
+                description: 'Failover design for continuous operations.',
+                href: getPermalink('/services#managed-network'),
+              },
+              {
+                title: 'Infrastructure as a Service',
+                description: 'Scalable infrastructure aligned to your needs.',
+                href: getPermalink('/services#managed-network'),
+              },
+              {
+                title: 'Structured Cabling',
+                description: 'Clean, reliable cabling built to scale.',
+                href: getPermalink('/services#managed-network'),
+              },
             ],
           },
           {
             section: 'Professional Services',
             items: [
-              { title: 'IT Projects', href: getPermalink('/services#professional-services') },
-              { title: 'IT Consulting', href: getPermalink('/services#professional-services') },
+              {
+                title: 'IT Projects',
+                description: 'Planned deployments delivered on time.',
+                href: getPermalink('/services#professional-services'),
+              },
+              {
+                title: 'IT Consulting',
+                description: 'Strategy and roadmaps for smarter IT.',
+                href: getPermalink('/services#professional-services'),
+              },
             ],
           },
         ],
