@@ -232,33 +232,41 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 </style>
 
 <script is:inline>
-  const megaMenus = document.querySelectorAll('[data-mega]');
-  megaMenus.forEach((menu) => {
-    const sectionLinks = menu.querySelectorAll('[data-mega-section]');
-    const panels = menu.querySelectorAll('[data-mega-panel]');
-    if (!sectionLinks.length || !panels.length) return;
+  const initMegaMenus = () => {
+    const megaMenus = document.querySelectorAll('[data-mega]');
+    megaMenus.forEach((menu) => {
+      if (menu.dataset.megaInit === 'true') return;
+      menu.dataset.megaInit = 'true';
 
-    const showPanel = (section) => {
-      panels.forEach((panel) => {
-        panel.classList.toggle('hidden', panel.getAttribute('data-mega-panel') !== section);
-      });
+      const sectionLinks = menu.querySelectorAll('[data-mega-section]');
+      const panels = menu.querySelectorAll('[data-mega-panel]');
+      if (!sectionLinks.length || !panels.length) return;
+
+      const showPanel = (section) => {
+        panels.forEach((panel) => {
+          panel.classList.toggle('hidden', panel.getAttribute('data-mega-panel') !== section);
+        });
+        sectionLinks.forEach((link) => {
+          link.classList.toggle('mega-active', link.getAttribute('data-mega-section') === section);
+        });
+      };
+
+      const defaultSection = sectionLinks[0].getAttribute('data-mega-section');
+      if (defaultSection) showPanel(defaultSection);
+
       sectionLinks.forEach((link) => {
-        link.classList.toggle('mega-active', link.getAttribute('data-mega-section') === section);
-      });
-    };
-
-    const defaultSection = sectionLinks[0].getAttribute('data-mega-section');
-    if (defaultSection) showPanel(defaultSection);
-
-    sectionLinks.forEach((link) => {
-      link.addEventListener('mouseenter', () => {
-        const section = link.getAttribute('data-mega-section');
-        if (section) showPanel(section);
-      });
-      link.addEventListener('focus', () => {
-        const section = link.getAttribute('data-mega-section');
-        if (section) showPanel(section);
+        link.addEventListener('mouseenter', () => {
+          const section = link.getAttribute('data-mega-section');
+          if (section) showPanel(section);
+        });
+        link.addEventListener('focus', () => {
+          const section = link.getAttribute('data-mega-section');
+          if (section) showPanel(section);
+        });
       });
     });
-  });
+  };
+
+  initMegaMenus();
+  document.addEventListener('astro:after-swap', initMegaMenus);
 </script>
