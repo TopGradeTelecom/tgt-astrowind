@@ -3,7 +3,7 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'IT Solutions',
+      text: 'IT',
       mega: {
         viewAllText: 'View All',
         viewAllHref: getPermalink('/services#it-solutions'),
@@ -86,8 +86,8 @@ export const headerData = {
         { text: 'Professional Services', href: getPermalink('/services#professional-services') },
       ],
     },
-    { text: 'Unified Communications', href: getPermalink('/services#unified-communications') },
-    { text: 'Security Solutions', href: getPermalink('/services#security-solutions') },
+    { text: 'Communications', href: getPermalink('/services#unified-communications') },
+    { text: 'Security', href: getPermalink('/services#security-solutions') },
     { text: 'Company', href: getPermalink('/about') },
     { text: 'Support', href: getPermalink('/contact') },
   ],
