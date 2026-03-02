@@ -15,8 +15,8 @@ const metadata = {
 
   <Hero
     tagline="Services"
-    title="Managed IT, Security, and Communications"
-    subtitle="A complete service stack that helps you run securely, support users quickly, and scale with confidence."
+    title="Managed IT, Cybersecurity, and Communications"
+    subtitle="A complete service stack focused on preventing downtime, stopping attacks, and protecting revenue-critical operations."
     actions={[{ variant: 'primary', text: 'Talk to an Expert', href: '/contact' }]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
@@ -30,22 +30,22 @@ const metadata = {
 
   <Features2
     title="IT Solutions"
-    subtitle="Structured services that keep your business running and protected."
+    subtitle="Structured services that keep operations online, secure, and revenue-generating."
     columns={3}
     items={[
       {
         title: 'Managed IT',
-        description: 'Proactive monitoring, maintenance, and support for core systems.',
+        description: 'Proactive monitoring, maintenance, and support that prevent operational interruptions.',
         icon: 'tabler:settings',
       },
       {
-        title: 'Managed Network',
-        description: 'Reliable connectivity, redundancy, and network infrastructure.',
+        title: 'Network & Infrastructure',
+        description: 'Resilient connectivity and redundancy engineered to minimize downtime risk.',
         icon: 'tabler:network',
       },
       {
-        title: 'Professional Services',
-        description: 'Project delivery and consulting for complex initiatives.',
+        title: 'Projects & Strategy',
+        description: 'Execution and planning aligned to continuity, security, and revenue protection.',
         icon: 'tabler:clipboard-check',
       },
     ]}
@@ -55,83 +55,173 @@ const metadata = {
 
   <Features2
     title="Managed IT"
-    subtitle="Complete coverage for day-to-day operations and critical systems."
+    subtitle="Day-to-day coverage built to prevent outages and protect critical workflows."
     columns={3}
     items={[
       {
-        title: 'IT Systems Proactive Monitoring',
-        description: '24/7 monitoring to detect issues before they impact your team.',
+        title: '24/7 Monitoring & Alerting',
+        description: '24/7 monitoring and rapid response to stop issues before they impact revenue.',
         icon: 'tabler:activity',
       },
       {
-        title: 'IT Systems Maintenance',
-        description: 'Patching, updates, and lifecycle planning to reduce risk.',
-        icon: 'tabler:tool',
-      },
-      {
-        title: '24/7 US-Based Support',
-        description: 'Live support from technicians who understand your environment.',
+        title: 'US-Based Help Desk',
+        description: 'Live support that restores user productivity quickly and limits interruption.',
         icon: 'tabler:headset',
       },
       {
-        title: 'Vulnerability Scanning',
-        description: 'Ongoing scans that surface and prioritize security risks.',
-        icon: 'tabler:shield-search',
+        title: 'Patch & Endpoint Management',
+        description: 'Patching, hardening, and endpoint controls that reduce outage and attack risk.',
+        icon: 'tabler:tool',
       },
       {
-        title: 'Managed Backups',
-        description: 'Automated backups and recovery testing for continuity.',
-        icon: 'tabler:database',
+        title: 'Microsoft 365 Administration',
+        description: 'Reliable Microsoft 365 administration to keep identity, email, and collaboration stable.',
+        icon: 'tabler:apps',
       },
     ]}
   />
 
+  <div id="network-infrastructure" class="scroll-mt-24"></div>
   <div id="managed-network" class="scroll-mt-24"></div>
 
   <Features2
-    title="Managed Network"
-    subtitle="Reliable connectivity designed for performance and uptime."
+    title="Network & Infrastructure"
+    subtitle="Resilient connectivity engineered for continuous operations and minimal downtime."
     columns={3}
     items={[
       {
+        title: 'Managed Network',
+        description: 'Continuous network management that protects performance, availability, and security.',
+        icon: 'tabler:network',
+      },
+      {
         title: 'Internet & Power Redundancy',
-        description: 'Failover design that keeps you online during outages.',
+        description: 'Failover design that keeps critical systems online during outages.',
         icon: 'tabler:plug',
       },
       {
-        title: 'Infrastructure as a Service',
-        description: 'Scalable infrastructure options aligned to your needs.',
+        title: 'Cloud Infrastructure (IaaS)',
+        description: 'Scalable infrastructure with redundancy options for critical workloads.',
         icon: 'tabler:server',
       },
       {
         title: 'Structured Cabling',
-        description: 'Clean, reliable cabling that supports growth and stability.',
+        description: 'Standards-based cabling that improves reliability and speeds issue isolation.',
         icon: 'tabler:network',
       },
     ]}
   />
 
+  <div id="projects-strategy" class="scroll-mt-24"></div>
   <div id="professional-services" class="scroll-mt-24"></div>
 
   <Features2
-    title="Professional Services"
-    subtitle="Specialized expertise for upgrades, migrations, and strategic initiatives."
+    title="Projects & Strategy"
+    subtitle="Strategic initiatives executed with continuity, security, and business risk reduction in mind."
     columns={3}
     items={[
       {
-        title: 'IT Projects',
-        description: 'Planned deployments, upgrades, and rollouts delivered on schedule.',
+        title: 'Technology Projects',
+        description: 'Planned deployments with change control that minimize disruption to daily operations.',
         icon: 'tabler:clipboard-check',
       },
       {
-        title: 'IT Consulting',
-        description: 'Strategic guidance and roadmaps aligned to your business goals.',
+        title: 'IT Consulting & Roadmaps',
+        description: 'Roadmaps that prioritize uptime, cyber risk reduction, and revenue protection.',
         icon: 'tabler:bulb',
+      },
+      {
+        title: 'vCIO Services',
+        description: 'Executive planning and budgeting aligned to business continuity goals.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Vendor & License Management',
+        description: 'Coordinate vendors and licensing to eliminate gaps that create outage or security exposure.',
+        icon: 'tabler:adjustments-horizontal',
       },
     ]}
   />
 
   <div id="unified-communications" class="scroll-mt-24"></div>
+
+  <div id="reliable-phone-systems" class="scroll-mt-24"></div>
+
+  <Features2
+    title="Reliable Phone Systems"
+    subtitle="Business voice engineered for uptime so calls, customers, and revenue are never missed."
+    columns={3}
+    items={[
+      {
+        title: 'Reliable Phone Systems',
+        description: 'Cloud and hybrid voice platforms built for high availability and dependable call quality.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Auto Attendants and Call Routing',
+        description: 'Route callers quickly to reduce delays and protect front-line revenue.',
+        icon: 'tabler:arrows-shuffle',
+      },
+      {
+        title: 'Business Texting and Voicemail',
+        description: 'SMS and voicemail-to-email tools that keep customer communication moving during peak demand.',
+        icon: 'tabler:clipboard-list',
+      },
+    ]}
+  />
+
+  <div id="call-management" class="scroll-mt-24"></div>
+  <div id="call-recording" class="scroll-mt-24"></div>
+
+  <Features2
+    title="Call Management and Recording"
+    subtitle="Controls and visibility that reduce missed opportunities and protect call-driven revenue."
+    columns={3}
+    items={[
+      {
+        title: 'Call Recording',
+        description: 'Policy-based recording that supports quality control, accountability, and risk reduction.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Call Analytics and Reporting',
+        description: 'Track answer times, abandonment, and trends to prevent service bottlenecks.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Queue and Overflow Optimization',
+        description: 'Optimize queue and overflow routing so customer calls are handled without interruption.',
+        icon: 'tabler:settings',
+      },
+    ]}
+  />
+
+  <div id="collaboration-tools" class="scroll-mt-24"></div>
+  <div id="microsoft-teams" class="scroll-mt-24"></div>
+  <div id="sharepoint" class="scroll-mt-24"></div>
+
+  <Features2
+    title="Collaboration with Microsoft Teams and SharePoint"
+    subtitle="Keep communication, files, and response workflows available during daily work and incidents."
+    columns={3}
+    items={[
+      {
+        title: 'Microsoft Teams',
+        description: 'Consolidate chat, meetings, and calling with policies that support secure continuity.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'SharePoint',
+        description: 'Centralize documents and permissions so teams maintain reliable access to critical information.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Connected Workflows',
+        description: 'Connect Teams and SharePoint to keep execution moving when time-sensitive work is on the line.',
+        icon: 'tabler:activity',
+      },
+    ]}
+  />
 
   <!-- Content Widget **************** -->
 
@@ -140,22 +230,22 @@ const metadata = {
     items={[
       {
         title: 'Discovery and Documentation',
-        description: 'We document systems, risks, and priorities to create a clear plan.',
+        description: 'We document systems, downtime risks, attack surfaces, and recovery priorities.',
         icon: 'tabler:clipboard-list',
       },
       {
         title: 'Standardized Operations',
-        description: 'Consistent processes reduce downtime and improve user experience.',
+        description: 'Consistent runbooks reduce outages, speed response, and keep teams productive.',
         icon: 'tabler:arrows-shuffle',
       },
       {
         title: 'Measurable Outcomes',
-        description: 'Service reports help you understand performance and trends.',
+        description: 'Service reporting tracks uptime, response performance, and risk reduction outcomes.',
         icon: 'tabler:chart-bar',
       },
       {
         title: 'Security by Design',
-        description: 'Security is built into every layer of support and delivery.',
+        description: 'Security controls are embedded across operations to disrupt attacks early.',
         icon: 'tabler:shield-lock',
       },
     ]}
@@ -166,11 +256,108 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">How We Deliver</h3>
-      We align technology to your goals with proactive support and clear accountability.
+      We align technology and security operations to protect availability, resilience, and revenue.
     </Fragment>
   </Content>
 
   <div id="security-solutions" class="scroll-mt-24"></div>
+  <div id="cybersecurity-solutions" class="scroll-mt-24"></div>
+  <div id="surveillance-cameras" class="scroll-mt-24"></div>
+  <div id="access-control" class="scroll-mt-24"></div>
+  <div id="vulnerability-scanning" class="scroll-mt-24"></div>
+  <div id="limited-attack-surfaces" class="scroll-mt-24"></div>
+  <div id="ransomware-prevention" class="scroll-mt-24"></div>
+  <div id="endpoint-detection-response" class="scroll-mt-24"></div>
+  <div id="email-phishing-protection" class="scroll-mt-24"></div>
+  <div id="data-protection" class="scroll-mt-24"></div>
+  <div id="email-archiving" class="scroll-mt-24"></div>
+  <div id="backup-recovery" class="scroll-mt-24"></div>
+  <div id="security-awareness-training" class="scroll-mt-24"></div>
+  <div id="incident-response-planning" class="scroll-mt-24"></div>
+
+  <Features2
+    title="Cybersecurity Solutions"
+    subtitle="Layered protection built to thwart attacks before they interrupt business operations."
+    columns={3}
+    items={[
+      {
+        title: 'Vulnerability Scanning',
+        description: 'Continuously discover and prioritize exploitable weaknesses before attackers can use them.',
+        icon: 'tabler:shield-search',
+      },
+      {
+        title: 'Ransomware Prevention',
+        description: 'Layer endpoint, identity, and backup controls to prevent spread and business shutdowns.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Limited Attack Surfaces',
+        description: 'Reduce exposed ports, stale accounts, and unnecessary services attackers rely on.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Endpoint Detection and Response',
+        description: 'Detect suspicious behavior fast and contain threats before disruption spreads.',
+        icon: 'tabler:activity',
+      },
+      {
+        title: 'Email and Phishing Protection',
+        description: 'Block malicious email and reduce account takeover risk from phishing attempts.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Security Awareness Training',
+        description: 'Train users to recognize and report threats before incidents escalate.',
+        icon: 'tabler:school',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Data Protection"
+    subtitle="Retention and recovery controls that protect revenue-critical data and accelerate restoration."
+    columns={3}
+    items={[
+      {
+        title: 'Email Archiving',
+        description: 'Archive business email for compliance, eDiscovery, and continuity during disputes or incidents.',
+        icon: 'tabler:archive',
+      },
+      {
+        title: 'Backups and Recovery',
+        description: 'Recover quickly from deletion, outages, or attacks with tested restore workflows.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Immutable Backup Strategy',
+        description: 'Immutable and offsite backups protect recovery points from ransomware tampering.',
+        icon: 'tabler:shield-lock',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Cybersecurity Readiness"
+    subtitle="Operational readiness that keeps your team resilient as threats evolve."
+    columns={3}
+    items={[
+      {
+        title: 'Multi-Factor Authentication',
+        description: 'Require strong verification to protect identities and critical systems from unauthorized access.',
+        icon: 'tabler:key',
+      },
+      {
+        title: 'Incident Response Planning',
+        description: 'Define containment and recovery playbooks to reduce downtime during security incidents.',
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title: 'Security Baselines and Hardening',
+        description: 'Apply hardened standards across endpoints and servers to shrink attack surface.',
+        icon: 'tabler:settings',
+      },
+    ]}
+  />
 
   <!-- Content Widget **************** -->
 
@@ -179,22 +366,22 @@ const metadata = {
     items={[
       {
         title: 'Flexible Service Bundles',
-        description: 'Select only the services you need with room to grow.',
+        description: 'Choose the services that best protect uptime and revenue, with room to expand.',
         icon: 'tabler:adjustments-horizontal',
       },
       {
         title: 'US-Based Support',
-        description: 'Responsive help from people who understand your environment.',
+        description: 'Responsive US-based experts who act fast when continuity is at risk.',
         icon: 'tabler:headset',
       },
       {
         title: 'Predictable Costs',
-        description: 'Clear monthly pricing and defined service scope.',
+        description: 'Clear monthly pricing for proactive protection and continuity planning.',
         icon: 'tabler:coin',
       },
       {
         title: 'Fast Onboarding',
-        description: 'Smooth transition with minimal disruption.',
+        description: 'Structured onboarding that protects day-one operations and minimizes disruption.',
         icon: 'tabler:rocket',
       },
     ]}
@@ -205,7 +392,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
-      Stability, security, and visibility without the overhead of a large internal team.
+      Uptime, security, and business continuity without the overhead of a large internal team.
     </Fragment>
   </Content>
 
@@ -215,11 +402,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Request a Consultation',
-        href: 'https://outlook.office.com/book/Scheduling@topgradetech.com/?ismsaljsauthenabled',
+        text: 'Request a Conversation',
+        href: 'https://meetings-na2.hubspot.com/zachary-price',
       },
     ]}
-    title="Build the right service mix"
-    subtitle="Tell us your goals and we will recommend a plan that fits your business."
+    title="Protect Operations from Downtime and Attacks"
+    subtitle="Tell us your goals and risk priorities, and we will design a plan focused on uninterrupted operations and revenue protection."
   />
 </Layout>

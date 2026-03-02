@@ -1,12 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import { headerData } from '~/navigation';
 
 const metadata = {
   title: 'Contact',
 };
+
+const getStartedLink = headerData.actions?.find((action) => action.text === 'Get Started')?.href;
 ---
 
 <Layout metadata={metadata}>
@@ -14,64 +16,37 @@ const metadata = {
 
   <HeroText tagline="Contact" title="Let's Connect!" />
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
   <!-- Features2 Widget ************** -->
 
   <Features2
     title="We are here to help!"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
         title: 'Contact sales',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'Reach out for pricing, solution design, and implementation planning for your business. You can also book an appointment directly with our team.',
+        icon: 'tabler:calendar-event',
+        ...(getStartedLink
+          ? {
+              callToAction: {
+                text: 'Get Started',
+                href: getStartedLink,
+                target: '_blank',
+                variant: 'primary',
+              },
+            }
+          : {}),
       },
       {
         title: 'Technical support',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
+          'For incidents, outages, and technical troubleshooting, contact us right away.<br /><br />Ticket Email: <a href="mailto:support@topgradetech.com" class="underline">support@topgradetech.com</a><br />Toll-Free: <a href="tel:+18559470067" class="underline">(855) 947-0067</a>',
         icon: 'tabler:headset',
       },
       {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        title: 'Locations',
+        description:
+          'Pueblo HQ: <a href="tel:+17197660944" class="underline">(719) 766-0944</a><br />Denver Office: <a href="tel:+17208807521" class="underline">(720) 880-7521</a><br />HQ Location: 2001 Oakshire Lane, Suite C, Pueblo, CO 81001',
         icon: 'tabler:map-pin',
       },
     ]}

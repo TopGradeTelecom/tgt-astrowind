@@ -100,6 +100,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   <button
                     type="button"
                     class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    data-dropdown-trigger
+                    aria-expanded="false"
+                    aria-haspopup="true"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
@@ -108,6 +111,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                     <div
                       class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/95 md:min-w-[680px] drop-shadow-xl"
                       data-mega
+                      data-dropdown-menu
                     >
                       <div class="grid gap-6 md:grid-cols-[220px_minmax(0,1fr)] p-4 md:p-6">
                         <div class="border-b md:border-b-0 md:border-r border-gray-100 dark:border-slate-700 pb-4 md:pb-0 md:pr-4">
@@ -124,15 +128,6 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                               </li>
                             ))}
                           </ul>
-                          {mega.viewAllHref && (
-                            <a
-                              class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-link hover:underline"
-                              href={mega.viewAllHref}
-                            >
-                              {mega.viewAllText ?? 'View All'}
-                              <Icon name="tabler:arrow-up-right" class="w-4 h-4" />
-                            </a>
-                          )}
                         </div>
                         <div class="space-y-5">
                           {mega.tiles?.map(({ section, items }, index) => (
@@ -157,7 +152,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       </div>
                     </div>
                   ) : (
-                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    <ul
+                      class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+                      data-dropdown-menu
+                    >
                       {links.map(({ text: text2, href: href2 }) => (
                         <li>
                           <a
@@ -224,6 +222,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 </header>
 
 <style is:inline>
+  .dropdown-menu {
+    box-shadow:
+      0 0 0 1px rgb(15 23 42 / 8%),
+      0 1rem 2.5rem rgb(2 6 23 / 20%);
+  }
+
+  .dropdown-menu[data-mega] {
+    transform: translateX(var(--mega-shift-x, 0px));
+  }
+
   [data-mega-section].mega-active {
     background: rgb(243 244 246);
     color: rgb(2 61 170);
@@ -233,14 +241,118 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     background: rgb(55 65 81);
     color: rgb(255 255 255);
   }
+
+  .dark .dropdown-menu {
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 12%),
+      0 1rem 2.5rem rgb(255 255 255 / 10%);
+  }
 </style>
 
 <script is:inline>
+  const closeDropdown = (dropdown) => {
+    if (!(dropdown instanceof HTMLElement)) return;
+    const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+    if (trigger instanceof HTMLElement) {
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    dropdown.classList.remove('dropdown-open');
+  };
+
+  const closeAllDropdowns = (exceptDropdown = null) => {
+    document.querySelectorAll('.dropdown.dropdown-open').forEach((dropdown) => {
+      if (exceptDropdown && dropdown === exceptDropdown) return;
+      closeDropdown(dropdown);
+    });
+  };
+
+  const initDropdowns = () => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach((dropdown) => {
+      if (!(dropdown instanceof HTMLElement) || dropdown.dataset.dropdownInit === 'true') return;
+      dropdown.dataset.dropdownInit = 'true';
+
+      const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+      if (!(trigger instanceof HTMLButtonElement)) return;
+
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = dropdown.classList.contains('dropdown-open');
+        if (isOpen) {
+          closeDropdown(dropdown);
+          return;
+        }
+
+        closeAllDropdowns(dropdown);
+        dropdown.classList.add('dropdown-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        dropdown.dispatchEvent(new CustomEvent('aw:dropdown-open'));
+      });
+
+      dropdown.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element) || !target.closest('a')) return;
+        closeDropdown(dropdown);
+      });
+    });
+
+    if (window.awDropdownEventsBound === true) return;
+    window.awDropdownEventsBound = true;
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element) || target.closest('.dropdown')) return;
+      closeAllDropdowns();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAllDropdowns();
+      }
+    });
+  };
+
   const initMegaMenus = () => {
     const megaMenus = document.querySelectorAll('[data-mega]');
     megaMenus.forEach((menu) => {
       if (menu.dataset.megaInit === 'true') return;
       menu.dataset.megaInit = 'true';
+
+      const dropdownParent = menu.closest('.dropdown');
+
+      const adjustHorizontalPosition = () => {
+        if (!(menu instanceof HTMLElement)) return;
+
+        menu.style.setProperty('--mega-shift-x', '0px');
+
+        const rect = menu.getBoundingClientRect();
+        if (!rect.width) return;
+
+        const viewportPadding = 12;
+        let shift = 0;
+
+        if (rect.right > window.innerWidth - viewportPadding) {
+          shift -= rect.right - (window.innerWidth - viewportPadding);
+        }
+
+        if (rect.left + shift < viewportPadding) {
+          shift += viewportPadding - (rect.left + shift);
+        }
+
+        menu.style.setProperty('--mega-shift-x', `${shift}px`);
+      };
+
+      const queuePositionAdjust = () => {
+        window.requestAnimationFrame(adjustHorizontalPosition);
+      };
+
+      dropdownParent?.addEventListener('mouseenter', queuePositionAdjust);
+      dropdownParent?.addEventListener('focusin', queuePositionAdjust);
+      dropdownParent?.addEventListener('aw:dropdown-open', queuePositionAdjust);
+      window.addEventListener('resize', queuePositionAdjust);
 
       const sectionLinks = menu.querySelectorAll('[data-mega-section]');
       const panels = menu.querySelectorAll('[data-mega-panel]');
@@ -257,20 +369,33 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
       const defaultSection = sectionLinks[0].getAttribute('data-mega-section');
       if (defaultSection) showPanel(defaultSection);
+      queuePositionAdjust();
 
       sectionLinks.forEach((link) => {
         link.addEventListener('mouseenter', () => {
           const section = link.getAttribute('data-mega-section');
-          if (section) showPanel(section);
+          if (section) {
+            showPanel(section);
+            queuePositionAdjust();
+          }
         });
         link.addEventListener('focus', () => {
           const section = link.getAttribute('data-mega-section');
-          if (section) showPanel(section);
+          if (section) {
+            showPanel(section);
+            queuePositionAdjust();
+          }
         });
       });
     });
   };
 
+  initDropdowns();
   initMegaMenus();
-  document.addEventListener('astro:after-swap', initMegaMenus);
+  closeAllDropdowns();
+  document.addEventListener('astro:after-swap', () => {
+    initDropdowns();
+    initMegaMenus();
+    closeAllDropdowns();
+  });
 </script>

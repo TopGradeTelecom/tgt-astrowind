@@ -1,0 +1,836 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section
+  class="w-full rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 md:p-6 shadow-xl"
+  data-downtime-widget
+>
+  <div class="flex items-center gap-2">
+    <Icon name="tabler:calculator" class="w-5 h-5 text-primary" />
+    <p class="text-lg font-bold">Downtime Cost Calculator</p>
+  </div>
+  <p class="text-sm text-muted mt-2">
+    Estimate outage cost from phone downtime, email issues, computer problems, and related IT disruptions using sales
+    and employee productivity impact plus estimated annual downtime hours.
+  </p>
+
+  <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+    <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Calculator Mode</p>
+    <div class="inline-flex rounded-lg border border-gray-200 dark:border-slate-700 p-1" role="tablist" aria-label="Calculator Mode">
+      <button
+        type="button"
+        class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
+        data-downtime-mode-btn="simple"
+        aria-pressed="true"
+      >
+        Simplified
+      </button>
+      <button
+        type="button"
+        class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
+        data-downtime-mode-btn="advanced"
+        aria-pressed="false"
+      >
+        Advanced
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-4" data-downtime-simple>
+    <p class="text-xs text-muted" data-downtime-step-progress>Step 1 of 8</p>
+    <form class="mt-3 space-y-3" data-downtime-simple-form>
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="1">
+        <label class="text-xs text-muted block">
+          Currency To Use
+          <select
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            data-downtime-simple-input
+            data-field="currency"
+          >
+            <option value="USD" selected>Dollars (USD)</option>
+            <option value="CAD">Canadian Dollars (CAD)</option>
+            <option value="EUR">Euros (EUR)</option>
+            <option value="GBP">British Pounds (GBP)</option>
+            <option value="AUD">Australian Dollars (AUD)</option>
+          </select>
+          <span class="block mt-1 text-[0.6875rem] text-muted">Select a currency to display the results in.</span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="2">
+        <label class="text-xs text-muted block">
+          Annual Revenue
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="text"
+            inputmode="decimal"
+            value="2500000"
+            data-downtime-simple-input
+            data-field="annualRevenue"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Enter annual revenue for your organization or a key application.
+          </span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="3">
+        <label class="text-xs text-muted block">
+          # Employees Affected
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="1"
+            value="20"
+            data-downtime-simple-input
+            data-field="employeesAffected"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Enter the number of employees who could be affected by an outage.
+          </span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="4">
+        <label class="text-xs text-muted block">
+          Average Employee Cost Per Hour
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="0.01"
+            value="43.31"
+            data-downtime-simple-input
+            data-field="employeeCostPerHour"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Include salary, benefits, and overhead. Industry averages can be preset from BLS ECEC data.
+          </span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="5">
+        <label class="text-xs text-muted block">
+          Impact to Sales
+          <span class="font-medium text-default ml-1" data-downtime-simple-output="salesImpactCurrent">65%</span>
+          <input
+            class="mt-2 w-full accent-primary"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="65"
+            data-downtime-simple-input
+            data-field="salesImpact"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Roughly estimate how much an IT outage impacts revenue generation.
+          </span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="6">
+        <label class="text-xs text-muted block">
+          Impact to Productivity
+          <span class="font-medium text-default ml-1" data-downtime-simple-output="productivityImpactCurrent">65%</span>
+          <input
+            class="mt-2 w-full accent-primary"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="65"
+            data-downtime-simple-input
+            data-field="productivityImpact"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Estimate how much outage reduces employee productivity.
+          </span>
+        </label>
+      </div>
+
+      <div class="rounded-xl border border-gray-200 dark:border-slate-700 p-4" data-downtime-step="0">
+        <label class="text-xs text-muted block">
+          Industry
+          <select
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            data-downtime-simple-input
+            data-field="industryBenchmark"
+          >
+            <option value="general" selected>General Business (Median annual downtime: 77 hours)</option>
+            <option value="healthcare">Healthcare (Annual downtime baseline: 77 hours)</option>
+            <option value="education">Education (Median annual downtime: 158 hours)</option>
+            <option value="retail">Retail (Median annual downtime: 164 hours)</option>
+            <option value="custom">Custom Estimate</option>
+          </select>
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Selecting an industry presets downtime hours from New Relic benchmarks and labor cost averages. You can
+            adjust values manually.
+          </span>
+        </label>
+      </div>
+
+      <div class="hidden rounded-xl border border-rose-100 dark:border-rose-900/40 bg-rose-50/70 dark:bg-rose-950/20 p-4" data-downtime-step="7">
+        <label class="text-xs text-muted block">
+          Estimated Annual Downtime Hours
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="0.5"
+            value="77"
+            data-downtime-simple-input
+            data-field="annualDowntimeHours"
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Estimate total unplanned outage hours in a typical year with your current setup. Include phone outages,
+            email disruptions, computer failures, and incidents where systems are down or too slow for normal work.
+          </span>
+        </label>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button
+          type="button"
+          class="rounded-md border border-gray-300 dark:border-slate-600 px-3 py-1.5 text-xs font-semibold text-default disabled:opacity-50 disabled:cursor-not-allowed"
+          data-downtime-step-back
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          class="rounded-md bg-primary text-white px-3 py-1.5 text-xs font-semibold hover:opacity-90 transition"
+          data-downtime-step-next
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-4 hidden" data-downtime-advanced>
+    <form class="space-y-3" data-downtime-form>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <label class="text-xs text-muted">
+          Industry
+          <select
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            name="industryBenchmark"
+            data-downtime-input
+          >
+            <option value="general" selected>General Business (Median annual downtime: 77 hours)</option>
+            <option value="healthcare">Healthcare (Annual downtime baseline: 77 hours)</option>
+            <option value="education">Education (Median annual downtime: 158 hours)</option>
+            <option value="retail">Retail (Median annual downtime: 164 hours)</option>
+            <option value="custom">Custom Estimate</option>
+          </select>
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Selecting an industry pre-fills downtime hours and labor cost defaults. You can still adjust manually.
+          </span>
+        </label>
+        <p class="text-xs text-muted rounded-xl border border-gray-200 dark:border-slate-700 p-3">
+          Downtime benchmarks: General 77 hours/year (median), Education 158 hours/year (median), Retail 164
+          hours/year (median). Healthcare uses a 77 hours/year baseline because annual-hour median is not published in
+          the same dataset; 33.6% report weekly high-impact outages. Labor cost defaults: General $43.31/hour
+          (cross-industry average of listed sectors), Healthcare $48.39/hour, Education $55.31/hour, Retail
+          $26.22/hour.
+        </p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <label class="text-xs text-muted">
+          Currency To Use
+          <select
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            name="currency"
+            data-downtime-input
+          >
+            <option value="USD" selected>Dollars (USD)</option>
+            <option value="CAD">Canadian Dollars (CAD)</option>
+            <option value="EUR">Euros (EUR)</option>
+            <option value="GBP">British Pounds (GBP)</option>
+            <option value="AUD">Australian Dollars (AUD)</option>
+          </select>
+          <span class="block mt-1 text-[0.6875rem] text-muted">Select a currency to display the results in.</span>
+        </label>
+        <label class="text-xs text-muted">
+          Annual Revenue
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="text"
+            inputmode="decimal"
+            name="annualRevenue"
+            value="2500000"
+            data-downtime-input
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Enter annual revenue for your organization or a key application.
+          </span>
+        </label>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <label class="text-xs text-muted">
+          # Employees Affected
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="1"
+            name="employeesAffected"
+            value="20"
+            data-downtime-input
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Enter the number of employees who could be affected by an outage.
+          </span>
+        </label>
+        <label class="text-xs text-muted">
+          Average Employee Cost Per Hour
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="0.01"
+            name="employeeCostPerHour"
+            value="43.31"
+            data-downtime-input
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Include salary, benefits, and overhead. Industry averages can be preset from BLS ECEC data.
+          </span>
+        </label>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <label class="text-xs text-muted rounded-xl border border-gray-200 dark:border-slate-700 p-3">
+          <span class="font-medium text-default">Impact to Sales: </span>
+          <span data-downtime-output="salesImpactValue">65%</span>
+          <input
+            class="mt-2 w-full accent-primary"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            name="salesImpact"
+            value="65"
+            data-downtime-input
+          />
+          <span class="block mt-2 text-[0.6875rem] text-muted">
+            Current value: <span data-downtime-output="salesImpactCurrent">65%</span>
+          </span>
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Roughly estimate how much an IT outage impacts revenue generation.
+          </span>
+        </label>
+
+        <label class="text-xs text-muted rounded-xl border border-gray-200 dark:border-slate-700 p-3">
+          <span class="font-medium text-default">Impact to Productivity: </span>
+          <span data-downtime-output="productivityImpactValue">65%</span>
+          <input
+            class="mt-2 w-full accent-primary"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            name="productivityImpact"
+            value="65"
+            data-downtime-input
+          />
+          <span class="block mt-2 text-[0.6875rem] text-muted">
+            Current value: <span data-downtime-output="productivityImpactCurrent">65%</span>
+          </span>
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Estimate how much outage reduces employee productivity.
+          </span>
+        </label>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-1">
+        <label class="text-xs text-muted rounded-xl border border-rose-100 dark:border-rose-900/40 bg-rose-50/70 dark:bg-rose-950/20 p-3">
+          Estimated Annual Downtime Hours
+          <input
+            class="mt-1 w-full rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-default"
+            type="number"
+            min="0"
+            step="0.5"
+            name="annualDowntimeHours"
+            value="77"
+            data-downtime-input
+          />
+          <span class="block mt-1 text-[0.6875rem] text-muted">
+            Estimate total unplanned outage hours in a typical year with your current setup. Include phone outages,
+            email disruptions, computer failures, and incidents where systems are down or too slow for normal work.
+          </span>
+        </label>
+      </div>
+    </form>
+  </div>
+
+  <div class="mt-4 hidden grid gap-2 sm:grid-cols-2" data-downtime-results>
+    <div class="rounded-lg border border-gray-200 dark:border-slate-700 px-3 py-2">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Sales Impact Cost / Hour</p>
+      <p class="text-sm font-semibold mt-1" data-downtime-output="salesRiskPerHour">$0</p>
+    </div>
+    <div class="rounded-lg border border-gray-200 dark:border-slate-700 px-3 py-2">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Productivity Impact Cost / Hour</p>
+      <p class="text-sm font-semibold mt-1" data-downtime-output="productivityRiskPerHour">$0</p>
+    </div>
+    <div class="rounded-lg border border-gray-200 dark:border-slate-700 px-3 py-2">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Total Outage Cost / Hour</p>
+      <p class="text-sm font-semibold mt-1" data-downtime-output="totalRiskPerHour">$0</p>
+    </div>
+    <div class="rounded-lg border border-gray-200 dark:border-slate-700 px-3 py-2">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Estimated Annual Downtime</p>
+      <p class="text-sm font-semibold mt-1" data-downtime-output="annualDowntimeHours">0 hours/year</p>
+    </div>
+    <div class="rounded-lg border border-gray-200 dark:border-slate-700 px-3 py-2">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Estimated Annual Downtime Cost</p>
+      <p class="text-sm font-semibold mt-1" data-downtime-output="annualLoss">$0</p>
+    </div>
+    <div class="sm:col-span-2 rounded-xl border border-emerald-200 dark:border-emerald-800/40 bg-emerald-50/70 dark:bg-emerald-950/20 p-4">
+      <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Potential Savings With Managed IT</p>
+      <p class="text-xs text-muted mt-1" data-downtime-output="mspMetricsLine">
+        Benchmark MSP metrics: 27% fewer incidents and 22% faster recovery.
+      </p>
+      <div class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg border border-emerald-200 dark:border-emerald-800/50 bg-white/70 dark:bg-slate-900/60 px-3 py-2">
+          <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Potential Annual Savings</p>
+          <p class="text-sm font-semibold mt-1 text-emerald-700 dark:text-emerald-300" data-downtime-output="mspAnnualSavings">$0</p>
+        </div>
+        <div class="rounded-lg border border-emerald-200 dark:border-emerald-800/50 bg-white/70 dark:bg-slate-900/60 px-3 py-2">
+          <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Projected Annual Outage Cost</p>
+          <p class="text-sm font-semibold mt-1" data-downtime-output="mspProjectedAnnualLoss">$0</p>
+        </div>
+        <div class="rounded-lg border border-emerald-200 dark:border-emerald-800/50 bg-white/70 dark:bg-slate-900/60 px-3 py-2">
+          <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Downtime Hours Avoided</p>
+          <p class="text-sm font-semibold mt-1" data-downtime-output="mspHoursAvoided">0 hours/year</p>
+        </div>
+        <div class="rounded-lg border border-emerald-200 dark:border-emerald-800/50 bg-white/70 dark:bg-slate-900/60 px-3 py-2">
+          <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Estimated Downtime Reduction</p>
+          <p class="text-sm font-semibold mt-1" data-downtime-output="mspDowntimeReduction">0%</p>
+        </div>
+      </div>
+      <p class="text-[0.6875rem] text-muted mt-2">
+        This model applies benchmark MSP gains from fewer incidents and faster recovery to your selected annual
+        downtime estimate.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-3 hidden rounded-xl border border-primary/25 bg-primary/5 dark:bg-primary/10 px-4 py-3" data-downtime-summary>
+    <p class="text-[0.65rem] uppercase tracking-[0.08em] text-muted">Estimated Annual Downtime Cost</p>
+    <p class="text-2xl font-bold mt-1 text-rose-700 dark:text-rose-300" data-downtime-output="annualLossAmount">$0</p>
+    <p class="text-xs text-muted mt-1" data-downtime-output="annualLossLabel">
+      Based on the downtime and impact assumptions above.
+    </p>
+  </div>
+
+  <p class="mt-3 text-[0.6875rem] text-muted">
+    Estimate only. Revenue is normalized over 2,080 working hours/year and does not include penalties,
+    reputational damage, SLA credits, or recovery project costs. Benchmarks use New Relic 2024 outage reporting and
+    BLS ECEC June 2025 compensation averages.
+  </p>
+</section>
+
+<script is:inline>
+  const initDowntimeCalculator = () => {
+    const widgets = document.querySelectorAll('[data-downtime-widget]');
+    const allowedCurrencies = new Set(['USD', 'CAD', 'EUR', 'GBP', 'AUD']);
+    const benchmarkProfiles = {
+      general: { defaultHours: 77, defaultEmployeeCostPerHour: 43.31 },
+      healthcare: { defaultHours: 77, defaultEmployeeCostPerHour: 48.39 },
+      education: { defaultHours: 158, defaultEmployeeCostPerHour: 55.31 },
+      retail: { defaultHours: 164, defaultEmployeeCostPerHour: 26.22 },
+      custom: { defaultHours: 77 },
+    };
+    const mspBenchmarkProfiles = {
+      general: { incidentReduction: 0.27, fasterRecovery: 0.22 },
+      healthcare: { incidentReduction: 0.24, fasterRecovery: 0.2 },
+      education: { incidentReduction: 0.21, fasterRecovery: 0.18 },
+      retail: { incidentReduction: 0.3, fasterRecovery: 0.25 },
+      custom: { incidentReduction: 0.27, fasterRecovery: 0.22 },
+    };
+    const allowedBenchmarks = new Set(Object.keys(benchmarkProfiles));
+    const fieldNames = [
+      'currency',
+      'annualRevenue',
+      'employeesAffected',
+      'employeeCostPerHour',
+      'salesImpact',
+      'productivityImpact',
+      'industryBenchmark',
+      'annualDowntimeHours',
+    ];
+
+    const fieldRules = {
+      currency: { fallback: 'USD', min: 0, max: 0, isCurrency: true },
+      annualRevenue: { fallback: 2500000, min: 0, max: Number.POSITIVE_INFINITY },
+      employeesAffected: { fallback: 20, min: 0, max: Number.POSITIVE_INFINITY },
+      employeeCostPerHour: { fallback: 43.31, min: 0, max: Number.POSITIVE_INFINITY },
+      salesImpact: { fallback: 65, min: 0, max: 100 },
+      productivityImpact: { fallback: 65, min: 0, max: 100 },
+      industryBenchmark: { fallback: 'general', min: 0, max: 0, isBenchmark: true },
+      annualDowntimeHours: { fallback: 77, min: 0, max: Number.POSITIVE_INFINITY },
+    };
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    widgets.forEach((widget) => {
+      if (!(widget instanceof HTMLElement) || widget.dataset.downtimeInit === 'true') return;
+      widget.dataset.downtimeInit = 'true';
+
+      const advancedForm = widget.querySelector('[data-downtime-form]');
+      const simpleForm = widget.querySelector('[data-downtime-simple-form]');
+      const simpleSection = widget.querySelector('[data-downtime-simple]');
+      const advancedSection = widget.querySelector('[data-downtime-advanced]');
+      const resultsSection = widget.querySelector('[data-downtime-results]');
+      const summarySection = widget.querySelector('[data-downtime-summary]');
+      const modeButtons = widget.querySelectorAll('[data-downtime-mode-btn]');
+      const output = (name) => widget.querySelector(`[data-downtime-output="${name}"]`);
+
+      if (!(advancedForm instanceof HTMLFormElement) || !(simpleForm instanceof HTMLFormElement)) return;
+
+      const salesRiskPerHourOutput = output('salesRiskPerHour');
+      const productivityRiskPerHourOutput = output('productivityRiskPerHour');
+      const totalRiskPerHourOutput = output('totalRiskPerHour');
+      const annualDowntimeHoursOutput = output('annualDowntimeHours');
+      const annualLossOutput = output('annualLoss');
+      const annualLossAmountOutput = output('annualLossAmount');
+      const annualLossLabelOutput = output('annualLossLabel');
+      const salesImpactValueOutput = output('salesImpactValue');
+      const productivityImpactValueOutput = output('productivityImpactValue');
+      const salesImpactCurrentOutput = output('salesImpactCurrent');
+      const productivityImpactCurrentOutput = output('productivityImpactCurrent');
+      const mspMetricsLineOutput = output('mspMetricsLine');
+      const mspAnnualSavingsOutput = output('mspAnnualSavings');
+      const mspProjectedAnnualLossOutput = output('mspProjectedAnnualLoss');
+      const mspHoursAvoidedOutput = output('mspHoursAvoided');
+      const mspDowntimeReductionOutput = output('mspDowntimeReduction');
+      const simpleSalesImpactCurrentOutput = widget.querySelector('[data-downtime-simple-output="salesImpactCurrent"]');
+      const simpleProductivityImpactCurrentOutput = widget.querySelector(
+        '[data-downtime-simple-output="productivityImpactCurrent"]'
+      );
+
+      if (
+        !salesRiskPerHourOutput ||
+        !productivityRiskPerHourOutput ||
+        !totalRiskPerHourOutput ||
+        !annualDowntimeHoursOutput ||
+        !annualLossOutput ||
+        !annualLossAmountOutput ||
+        !annualLossLabelOutput ||
+        !salesImpactValueOutput ||
+        !productivityImpactValueOutput ||
+        !salesImpactCurrentOutput ||
+        !productivityImpactCurrentOutput ||
+        !mspMetricsLineOutput ||
+        !mspAnnualSavingsOutput ||
+        !mspProjectedAnnualLossOutput ||
+        !mspHoursAvoidedOutput ||
+        !mspDowntimeReductionOutput
+      ) {
+        return;
+      }
+
+      const fieldElements = {};
+      fieldNames.forEach((name) => {
+        fieldElements[name] = {
+          advanced: advancedForm.querySelector(`[name="${name}"]`),
+          simple: simpleForm.querySelector(`[data-downtime-simple-input][data-field="${name}"]`),
+        };
+      });
+
+      const normalizeValue = (name, rawValue) => {
+        const rule = fieldRules[name];
+        if (!rule) return rawValue;
+
+        if (rule.isCurrency) {
+          const currencyValue = String(rawValue || '').toUpperCase();
+          return allowedCurrencies.has(currencyValue) ? currencyValue : rule.fallback;
+        }
+
+        if (rule.isBenchmark) {
+          const benchmarkValue = String(rawValue || '').toLowerCase();
+          return allowedBenchmarks.has(benchmarkValue) ? benchmarkValue : rule.fallback;
+        }
+
+        const parsed = Number.parseFloat(String(rawValue).replace(/[^0-9.-]/g, ''));
+        if (!Number.isFinite(parsed)) return rule.fallback;
+        return clamp(parsed, rule.min, rule.max);
+      };
+
+      const setElementValue = (element, value, fieldName) => {
+        if (!(element instanceof HTMLInputElement) && !(element instanceof HTMLSelectElement)) return;
+
+        if (fieldName === 'annualRevenue' && document.activeElement === element) return;
+
+        const nextValue = String(value);
+        if (element.value !== nextValue) {
+          element.value = nextValue;
+        }
+      };
+
+      const state = {};
+      fieldNames.forEach((name) => {
+        const advancedField = fieldElements[name]?.advanced;
+        const initialValue =
+          advancedField instanceof HTMLInputElement || advancedField instanceof HTMLSelectElement
+            ? advancedField.value
+            : fieldRules[name].fallback;
+        state[name] = normalizeValue(name, initialValue);
+      });
+
+      const syncRangeLabels = () => {
+        const salesDisplay = `${Number(state.salesImpact).toFixed(0)}%`;
+        const productivityDisplay = `${Number(state.productivityImpact).toFixed(0)}%`;
+
+        salesImpactValueOutput.textContent = salesDisplay;
+        productivityImpactValueOutput.textContent = productivityDisplay;
+        salesImpactCurrentOutput.textContent = salesDisplay;
+        productivityImpactCurrentOutput.textContent = productivityDisplay;
+
+        if (simpleSalesImpactCurrentOutput) simpleSalesImpactCurrentOutput.textContent = salesDisplay;
+        if (simpleProductivityImpactCurrentOutput) simpleProductivityImpactCurrentOutput.textContent = productivityDisplay;
+      };
+
+      const createCurrencyFormatter = (currencyCode) => {
+        let formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 0,
+        });
+        try {
+          formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: currencyCode,
+            maximumFractionDigits: 0,
+          });
+        } catch {}
+        return formatter;
+      };
+
+      const syncAnnualRevenueInputs = () => {
+        const revenueFormatter = createCurrencyFormatter(state.currency);
+        const revenueDisplay = revenueFormatter.format(Number(state.annualRevenue));
+        const revenueRefs = fieldElements.annualRevenue;
+
+        if (revenueRefs?.advanced instanceof HTMLInputElement && document.activeElement !== revenueRefs.advanced) {
+          revenueRefs.advanced.value = revenueDisplay;
+        }
+        if (revenueRefs?.simple instanceof HTMLInputElement && document.activeElement !== revenueRefs.simple) {
+          revenueRefs.simple.value = revenueDisplay;
+        }
+      };
+
+      const syncInputs = (_source = '') => {
+        fieldNames.forEach((name) => {
+          const refs = fieldElements[name];
+          if (!refs) return;
+          setElementValue(refs.advanced, state[name], name);
+          setElementValue(refs.simple, state[name], name);
+        });
+      };
+
+      const update = () => {
+        const currencyFormatter = createCurrencyFormatter(state.currency);
+
+        const annualRevenue = Number(state.annualRevenue);
+        const employeesAffected = Number(state.employeesAffected);
+        const employeeCostPerHour = Number(state.employeeCostPerHour);
+        const salesImpact = Number(state.salesImpact);
+        const productivityImpact = Number(state.productivityImpact);
+        const annualDowntimeHours = Number(state.annualDowntimeHours);
+
+        const annualWorkingHours = 2080;
+        const salesRiskPerHour = (annualRevenue / annualWorkingHours) * (salesImpact / 100);
+        const productivityRiskPerHour = employeesAffected * employeeCostPerHour * (productivityImpact / 100);
+        const totalRiskPerHour = salesRiskPerHour + productivityRiskPerHour;
+
+        const annualLoss = totalRiskPerHour * annualDowntimeHours;
+        const mspProfile = mspBenchmarkProfiles[state.industryBenchmark] || mspBenchmarkProfiles.general;
+        const projectedDowntimeHours =
+          annualDowntimeHours * (1 - mspProfile.incidentReduction) * (1 - mspProfile.fasterRecovery);
+        const projectedAnnualLoss = totalRiskPerHour * projectedDowntimeHours;
+        const mspAnnualSavings = Math.max(annualLoss - projectedAnnualLoss, 0);
+        const mspHoursAvoided = Math.max(annualDowntimeHours - projectedDowntimeHours, 0);
+        const mspDowntimeReduction = annualDowntimeHours > 0 ? (mspHoursAvoided / annualDowntimeHours) * 100 : 0;
+
+        salesRiskPerHourOutput.textContent = currencyFormatter.format(salesRiskPerHour);
+        productivityRiskPerHourOutput.textContent = currencyFormatter.format(productivityRiskPerHour);
+        totalRiskPerHourOutput.textContent = currencyFormatter.format(totalRiskPerHour);
+        annualDowntimeHoursOutput.textContent = `${annualDowntimeHours.toFixed(1)} hours/year`;
+        annualLossOutput.textContent = currencyFormatter.format(annualLoss);
+        annualLossAmountOutput.textContent = currencyFormatter.format(annualLoss);
+        annualLossLabelOutput.textContent = 'Based on the downtime and impact assumptions above.';
+        mspMetricsLineOutput.textContent = `Benchmark MSP metrics: ${Math.round(
+          mspProfile.incidentReduction * 100
+        )}% fewer incidents and ${Math.round(mspProfile.fasterRecovery * 100)}% faster recovery.`;
+        mspAnnualSavingsOutput.textContent = currencyFormatter.format(mspAnnualSavings);
+        mspProjectedAnnualLossOutput.textContent = currencyFormatter.format(projectedAnnualLoss);
+        mspHoursAvoidedOutput.textContent = `${mspHoursAvoided.toFixed(1)} hours/year`;
+        mspDowntimeReductionOutput.textContent = `${mspDowntimeReduction.toFixed(0)}%`;
+
+        syncRangeLabels();
+        syncAnnualRevenueInputs();
+      };
+
+      const setState = (name, rawValue, source = '') => {
+        if (!(name in fieldRules)) return;
+        state[name] = normalizeValue(name, rawValue);
+
+        if (name === 'industryBenchmark' && state.industryBenchmark !== 'custom') {
+          const selectedProfile = benchmarkProfiles[state.industryBenchmark];
+          if (selectedProfile) {
+            state.annualDowntimeHours = normalizeValue('annualDowntimeHours', selectedProfile.defaultHours);
+            if (typeof selectedProfile.defaultEmployeeCostPerHour === 'number') {
+              state.employeeCostPerHour = normalizeValue(
+                'employeeCostPerHour',
+                selectedProfile.defaultEmployeeCostPerHour
+              );
+            }
+          }
+        }
+
+        syncInputs(source);
+        update();
+      };
+
+      fieldNames.forEach((name) => {
+        const refs = fieldElements[name];
+        if (refs?.advanced instanceof HTMLInputElement || refs?.advanced instanceof HTMLSelectElement) {
+          const onAdvancedChange = () => setState(name, refs.advanced.value, 'advanced');
+          refs.advanced.addEventListener('input', onAdvancedChange);
+          refs.advanced.addEventListener('change', onAdvancedChange);
+          if (name === 'annualRevenue' && refs.advanced instanceof HTMLInputElement) {
+            refs.advanced.addEventListener('focus', () => {
+              refs.advanced.value = String(Number(state.annualRevenue));
+            });
+            refs.advanced.addEventListener('blur', () => {
+              setState(name, refs.advanced.value, 'advanced');
+            });
+          }
+        }
+        if (refs?.simple instanceof HTMLInputElement || refs?.simple instanceof HTMLSelectElement) {
+          const onSimpleChange = () => setState(name, refs.simple.value, 'simple');
+          refs.simple.addEventListener('input', onSimpleChange);
+          refs.simple.addEventListener('change', onSimpleChange);
+          if (name === 'annualRevenue' && refs.simple instanceof HTMLInputElement) {
+            refs.simple.addEventListener('focus', () => {
+              refs.simple.value = String(Number(state.annualRevenue));
+            });
+            refs.simple.addEventListener('blur', () => {
+              setState(name, refs.simple.value, 'simple');
+            });
+          }
+        }
+      });
+
+      const setModeButtonState = (button, active) => {
+        if (!(button instanceof HTMLButtonElement)) return;
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        button.classList.toggle('bg-primary', active);
+        button.classList.toggle('text-white', active);
+        button.classList.toggle('text-default', !active);
+        button.classList.toggle('hover:bg-gray-100', !active);
+        button.classList.toggle('dark:hover:bg-slate-700', !active);
+      };
+
+      let currentMode = 'simple';
+      let simpleResultsUnlocked = false;
+
+      const setResultsVisibility = () => {
+        const showResults = currentMode === 'advanced' || simpleResultsUnlocked;
+
+        if (resultsSection instanceof HTMLElement) {
+          resultsSection.classList.toggle('hidden', !showResults);
+        }
+        if (summarySection instanceof HTMLElement) {
+          summarySection.classList.toggle('hidden', !showResults);
+        }
+      };
+
+      const setMode = (mode) => {
+        currentMode = mode;
+        if (simpleSection instanceof HTMLElement) {
+          simpleSection.classList.toggle('hidden', mode !== 'simple');
+        }
+        if (advancedSection instanceof HTMLElement) {
+          advancedSection.classList.toggle('hidden', mode !== 'advanced');
+        }
+        modeButtons.forEach((button) => {
+          if (!(button instanceof HTMLButtonElement)) return;
+          setModeButtonState(button, button.dataset.downtimeModeBtn === mode);
+        });
+        setResultsVisibility();
+      };
+
+      modeButtons.forEach((button) => {
+        if (!(button instanceof HTMLButtonElement)) return;
+        button.addEventListener('click', () => {
+          const mode = button.dataset.downtimeModeBtn === 'advanced' ? 'advanced' : 'simple';
+          setMode(mode);
+        });
+      });
+
+      const stepItems = Array.from(simpleForm.querySelectorAll('[data-downtime-step]')).sort((a, b) => {
+        const aIndex = Number.parseInt(a.getAttribute('data-downtime-step') || '0', 10);
+        const bIndex = Number.parseInt(b.getAttribute('data-downtime-step') || '0', 10);
+        return aIndex - bIndex;
+      });
+      const stepProgress = widget.querySelector('[data-downtime-step-progress]');
+      const stepBackButton = simpleForm.querySelector('[data-downtime-step-back]');
+      const stepNextButton = simpleForm.querySelector('[data-downtime-step-next]');
+      let currentStep = 0;
+
+      const showStep = (stepIndex) => {
+        if (stepItems.length === 0) return;
+        currentStep = clamp(stepIndex, 0, stepItems.length - 1);
+
+        stepItems.forEach((step, index) => {
+          step.classList.toggle('hidden', index !== currentStep);
+        });
+
+        if (stepProgress) {
+          stepProgress.textContent = `Step ${currentStep + 1} of ${stepItems.length}`;
+        }
+
+        if (stepBackButton instanceof HTMLButtonElement) {
+          stepBackButton.disabled = currentStep === 0;
+        }
+
+        if (stepNextButton instanceof HTMLButtonElement) {
+          stepNextButton.textContent = currentStep === stepItems.length - 1 ? 'View Results' : 'Next';
+        }
+      };
+
+      if (stepBackButton instanceof HTMLButtonElement) {
+        stepBackButton.addEventListener('click', () => showStep(currentStep - 1));
+      }
+
+      if (stepNextButton instanceof HTMLButtonElement) {
+        stepNextButton.addEventListener('click', () => {
+          if (currentStep >= stepItems.length - 1) {
+            simpleResultsUnlocked = true;
+            setResultsVisibility();
+            if (resultsSection instanceof HTMLElement) {
+              resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            return;
+          }
+          showStep(currentStep + 1);
+        });
+      }
+
+      setMode('simple');
+      showStep(0);
+      syncInputs();
+      update();
+    });
+  };
+
+  initDowntimeCalculator();
+  document.addEventListener('astro:after-swap', initDowntimeCalculator);
+</script>

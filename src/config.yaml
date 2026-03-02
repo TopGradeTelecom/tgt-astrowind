@@ -11,7 +11,7 @@ metadata:
   title:
     default: Top Grade Tech
     template: '%s -- Top Grade Tech'
-  description: 'US-based managed IT, networking, and telecom solutions built on reliability through simplicity.'
+  description: 'US-based managed IT, cybersecurity, and communications services focused on preventing downtime, thwarting attacks, and protecting business revenue.'
   robots:
     index: true
     follow: true

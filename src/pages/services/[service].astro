@@ -1,0 +1,88 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { servicePageList, servicePages, type ServicePageData } from '~/data/service-pages';
+import { getPermalink } from '~/utils/permalinks';
+
+interface Props {
+  servicePage: ServicePageData;
+}
+
+export function getStaticPaths() {
+  return servicePageList.map((servicePage) => ({
+    params: { service: servicePage.slug },
+    props: { servicePage },
+  }));
+}
+
+const { servicePage } = Astro.props as Props;
+
+const metadata = {
+  title: servicePage.metaTitle,
+  description: servicePage.metaDescription,
+};
+
+const categoryTagline =
+  servicePage.category === 'IT'
+    ? 'IT Service'
+    : servicePage.category === 'Communications'
+      ? 'Communications Service'
+      : 'Security Service';
+
+const relatedServices = servicePage.related
+  .map((slug) => servicePages[slug])
+  .filter((entry): entry is ServicePageData => Boolean(entry))
+  .map((entry) => ({
+    title: entry.title,
+    description: entry.relatedSummary,
+    icon: entry.icon,
+    callToAction: {
+      text: 'View service',
+      href: getPermalink(`/services/${entry.slug}`),
+      variant: 'link' as const,
+    },
+  }));
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline={categoryTagline}
+    title={servicePage.title}
+    subtitle={servicePage.heroSubtitle}
+    actions={[
+      { variant: 'primary', text: 'Talk to an Expert', href: '/contact' },
+      { variant: 'secondary', text: 'View All Services', href: '/services' },
+    ]}
+  />
+
+  <Features2
+    title={servicePage.scopeTitle}
+    subtitle={servicePage.scopeSubtitle}
+    columns={3}
+    items={servicePage.included}
+  />
+
+  <Content items={servicePage.outcomes} columns={1} image={servicePage.image}>
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-3">
+        {`How We Approach ${servicePage.title}`}
+      </h2>
+      <p>{servicePage.approach}</p>
+    </Fragment>
+  </Content>
+
+  {
+    relatedServices.length > 0 && (
+      <Features2 title="Related Services" subtitle={servicePage.relatedSummary} columns={3} items={relatedServices} />
+    )
+  }
+
+  <CallToAction
+    title={`Plan Your ${servicePage.title} Initiative`}
+    subtitle={`Share your priorities and we will map a practical rollout plan for ${servicePage.title.toLowerCase()}.`}
+    actions={[{ variant: 'primary', text: 'Request a Conversation', href: '/contact' }]}
+  />
+</Layout>

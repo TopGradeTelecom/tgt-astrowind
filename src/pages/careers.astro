@@ -1,0 +1,115 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Careers',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="Careers"
+    title="Build your career at Top Grade Tech"
+    subtitle="Join a team that helps businesses stay secure, connected, and productive through practical IT, cybersecurity, and communications services."
+    callToAction={{
+      variant: 'primary',
+      text: 'Apply Now',
+      href: '/contact#form',
+    }}
+    callToAction2={{
+      text: 'View Services',
+      href: '/services',
+    }}
+  />
+
+  <Features2
+    title="Why Work With Us"
+    subtitle="We invest in people who are curious, accountable, and focused on outcomes for clients."
+    columns={3}
+    items={[
+      {
+        title: 'Meaningful Client Impact',
+        description: 'Work directly on projects that improve uptime, security, and team productivity for real businesses.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Professional Growth',
+        description: 'Build skills across managed IT, networking, cybersecurity, and collaboration platforms.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Supportive Team Culture',
+        description: 'Collaborate with teammates who value ownership, communication, and consistent follow-through.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Modern Tooling',
+        description: 'Use proven platforms and operational playbooks to deliver dependable service outcomes.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Clear Expectations',
+        description: 'Operate in an environment with clear priorities, measurable goals, and defined responsibilities.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Customer-First Mindset',
+        description: 'Help organizations solve practical business challenges with technology that works.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Typical Roles"
+    subtitle="Role availability changes over time, but these are common positions we hire for."
+    columns={3}
+    items={[
+      {
+        title: 'Help Desk Technician',
+        description: 'Provide frontline support, troubleshooting, and ticket resolution for managed clients.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Network Engineer',
+        description: 'Design and maintain reliable network infrastructure, redundancy, and connectivity.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Systems Administrator',
+        description: 'Manage servers, endpoints, identity, and Microsoft 365 environments.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Cybersecurity Analyst',
+        description: 'Monitor threats, support incident response, and improve client security posture.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Project Engineer',
+        description: 'Execute migrations, rollouts, and infrastructure projects on time and on scope.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Account Manager',
+        description: 'Coordinate with clients, align service delivery, and support long-term planning.',
+        icon: 'tabler:user-star',
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Interested in joining the team?"
+    subtitle="Send us your resume and tell us how you can contribute to Top Grade Tech."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Submit Your Resume',
+        href: '/contact#form',
+      },
+    ]}
+  />
+</Layout>

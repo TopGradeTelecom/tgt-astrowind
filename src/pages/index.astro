@@ -11,7 +11,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Top Grade Tech -- Managed IT, Security, and Communications',
+  title: 'Top Grade Tech -- Managed IT, Cybersecurity, and Business Continuity',
   ignoreTitleTemplate: true,
 };
 ---
@@ -31,16 +31,19 @@ const metadata = {
     image={{ src: '~/assets/images/shutterstock_345985838-optimized.jpg', alt: 'Top Grade Tech Hero Image' }}
   >
     <Fragment slot="title">
-      Premier <span class="hidden xl:inline">US-Based</span>
-      <span class="text-accent dark:text-white"> Customer Support</span>
+      <span>
+        <span class="text-default dark:text-white">Reliability</span>
+        <span class="font-medium text-muted dark:text-slate-400"> through </span>
+        <span class="text-default dark:text-white">Simplicity</span>
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Top Grade Tech</span> delivers reliability through simplicity with managed IT, cybersecurity, and communications solutions.</span
+        <span class="font-semibold">Top Grade Tech</span> helps you prevent downtime, thwart attacks, and protect revenue with managed IT, cybersecurity, and communications built for continuity.</span
       >
       <span class="block mb-1 sm:hidden font-bold text-blue-600">Top Grade Tech: Reliability Through Simplicity.</span>
-      Trusted by businesses across the US for managed IT services, premium hardware solutions, and fully managed telecom services with unrivaled support.
+      Trusted by businesses across the US for proactive support, cyber defense, and communications systems that keep operations moving without interruption.
     </Fragment>
   </Hero>
 
@@ -54,40 +57,40 @@ const metadata = {
     id="features"
     tagline="Core Services"
     title="Everything You Need to Run Securely"
-    subtitle="Managed IT, cybersecurity, and communications services designed to keep your business operating efficiently."
+    subtitle="Managed IT, cybersecurity, and communications services engineered to reduce outages, stop threats, and protect revenue-critical operations."
     items={[
       {
         title: 'Managed IT Services',
         description:
-          '24/7 monitoring, proactive maintenance, patching, and endpoint management to keep your systems healthy.',
+          '24/7 monitoring, proactive maintenance, patching, and endpoint management to prevent outages before they disrupt revenue.',
         icon: 'tabler:headset',
       },
       {
         title: 'IT Service Desk',
-        description: 'Responsive support for your team, from password resets to complex technical escalations.',
+        description: 'Rapid-response support that restores productivity fast and limits operational disruption.',
         icon: 'tabler:lifebuoy',
       },
       {
         title: 'Cybersecurity',
         description:
-          'Threat monitoring, endpoint protection, and security best practices that reduce risk and improve resilience.',
+          'Threat monitoring, layered defenses, and incident readiness that disrupt attacks before they impact operations.',
         icon: 'tabler:shield-check',
       },
       {
         title: 'Cloud & Microsoft 365',
         description:
-          'Email, collaboration, and cloud productivity solutions that keep your team connected anywhere.',
+          'Email, collaboration, and cloud productivity platforms that keep teams working securely from any location.',
         icon: 'tabler:phone',
       },
       {
         title: 'Video Conferencing',
-        description: 'Modern conferencing and meeting tools that improve collaboration and reduce travel.',
+        description: 'Reliable meeting platforms that keep client, vendor, and internal communication flowing.',
         icon: 'tabler:video',
       },
       {
         title: 'Physical Security',
         description:
-          'Video surveillance, access control, and intelligent sensors for a safer and more secure workplace.',
+          'Video surveillance, access control, and sensors that protect sites and support uninterrupted operations.',
         icon: 'tabler:network',
       },
     ]}
@@ -98,19 +101,19 @@ const metadata = {
   <Content
     isReversed
     tagline="Our Approach"
-    title="Proactive, Documented, and Measurable"
+    title="Proactive, Hardened, and Measurable"
     items={[
       {
         title: 'Monitoring and Alerting',
-        description: 'We watch your critical systems 24/7 and address issues before they impact operations.',
+        description: 'We watch critical systems 24/7 and resolve issues before they become downtime events.',
       },
       {
         title: 'Lifecycle Management',
-        description: 'Patch, update, and optimize devices on a predictable schedule.',
+        description: 'Patch, update, and harden systems on a disciplined schedule to reduce failure and exploit risk.',
       },
       {
         title: 'Structured Service Desk',
-        description: 'Tiered support that keeps response times fast and resolutions clear.',
+        description: 'Tiered response and documented escalation paths that shorten outages and protect productivity.',
       },
     ]}
     image={{
@@ -120,7 +123,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Reliability Through Simplicity</h3>
-      We believe the best technology is the technology that works seamlessly, requires minimal management, and delivers maximum peace of mind.
+      We design and operate technology to keep your business online, protected, and revenue-generating.
     </Fragment>
 
     <Fragment slot="bg">
@@ -135,19 +138,19 @@ const metadata = {
     items={[
       {
         title: 'Add-On Services',
-        description: 'Backup, cloud infrastructure, and advanced security tooling that scale with your needs.',
+        description: 'Backup, cloud infrastructure, and security tooling that reduce outage impact and speed recovery.',
       },
       {
         title: 'Collaboration Tools',
-        description: 'Microsoft 365 and meeting platforms that reduce friction across teams.',
+        description: 'Microsoft 365 and meeting platforms that keep critical teams aligned during daily work and incidents.',
       },
       {
         title: 'Infrastructure and Connectivity',
-        description: 'Network planning, hardware, and connectivity support built for reliability.',
+        description: 'Network planning and connectivity engineered for resilient, always-on operations.',
       },
       {
         title: 'Security and Compliance',
-        description: 'Policies, monitoring, and controls that help reduce risk and protect data.',
+        description: 'Policies, monitoring, and controls that block threats and safeguard critical business data.',
       },
     ]}
     image={{
@@ -155,7 +158,7 @@ const metadata = {
       alt: 'Top Grade Tech Services',
     }}
   >
-    <Fragment slot="content">Enterprise-grade solutions, simplified for your business.</Fragment>
+    <Fragment slot="content">Enterprise-grade protection and continuity, simplified for your business.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -168,23 +171,23 @@ const metadata = {
     isReversed
     isAfterContent
     tagline="Security Solutions"
-    title="Protect People, Places, and Assets"
+    title="Protect People, Places, and Revenue"
     items={[
       {
         title: 'Video Surveillance',
-        description: 'Cloud-managed cameras with searchable footage and actionable alerts.',
+        description: 'Cloud-managed cameras with searchable footage and live alerts for faster response.',
       },
       {
         title: 'Access Control',
-        description: 'Modern door access systems with centralized management.',
+        description: 'Modern door access systems with centralized policies that reduce unauthorized risk.',
       },
       {
         title: 'Environmental Sensors',
-        description: 'Real-time monitoring for safety, occupancy, and facility insights.',
+        description: 'Real-time monitoring for safety events that could disrupt operations.',
       },
       {
         title: 'Mobile Surveillance',
-        description: 'Rapid-deploy security options for remote sites and temporary locations.',
+        description: 'Rapid-deploy security options to protect temporary sites and prevent downtime.',
       },
     ]}
     image={{
@@ -194,7 +197,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise-Grade Solutions</h3>
-      Tailored IT, network, and telecom services designed for businesses that demand reliability and performance.
+      Integrated physical and cyber controls that strengthen continuity across every location.
     </Fragment>
 
     <Fragment slot="bg">
@@ -206,28 +209,28 @@ const metadata = {
 
   <Features2
     title="Who Do We Help"
-    subtitle="Industry-focused solutions built for uptime, security, and continuity."
+    subtitle="Industry-focused solutions designed to prevent downtime, withstand attacks, and protect revenue continuity."
     tagline="Industries"
     columns={4}
     items={[
       {
         title: 'Hospitals & Healthcare',
-        description: 'Secure systems that support patient care, compliance, and uptime.',
+        description: 'Secure, resilient systems that support patient care, compliance, and uninterrupted clinical operations.',
         icon: 'tabler:heart-rate-monitor',
       },
       {
         title: 'Education & Schools',
-        description: 'Reliable networks and support for staff, students, and devices.',
+        description: 'Reliable networks and proactive support that keep classrooms, testing, and administration online.',
         icon: 'tabler:school',
       },
       {
         title: 'Retail & Warehouse',
-        description: 'Connectivity, security, and systems that keep operations moving.',
+        description: 'Connectivity and security controls that keep transactions, inventory, and fulfillment running.',
         icon: 'tabler:building-warehouse',
       },
       {
         title: 'Construction',
-        description: 'Mobile-ready tech, jobsite connectivity, and secure access.',
+        description: 'Mobile-ready tech, jobsite connectivity, and secure access for continuous field operations.',
         icon: 'tabler:crane',
       },
     ]}
@@ -235,37 +238,37 @@ const metadata = {
 
   <Features2
     title="Why Choose Top Grade Tech"
-    subtitle="US-based support with clear processes and accountable service."
+    subtitle="US-based accountability focused on uptime, security, and protecting business revenue."
     tagline="Core Strengths"
     items={[
       {
         title: '24/7 US-Based Support',
-        description: 'Real people, real support. Our US-based team is always available when you need us.',
+        description: 'Real people, real support, 24/7/365 to resolve issues before they become business interruptions.',
         icon: 'flat-color-icons:approval',
       },
       {
         title: 'Proactive Monitoring',
-        description: 'Continuous monitoring helps prevent outages and reduce downtime.',
+        description: 'Continuous monitoring and response reduce outage frequency and recovery time.',
         icon: 'flat-color-icons:database',
       },
       {
         title: 'Scalable Services',
-        description: 'Add or adjust services as your needs evolve.',
+        description: 'Scale protection and support as revenue-critical systems grow.',
         icon: 'flat-color-icons:currency-exchange',
       },
       {
         title: 'Expert Team',
-        description: 'Certified technicians with deep experience across IT, security, and communications.',
+        description: 'Certified technicians who design for uptime, defense-in-depth, and operational resilience.',
         icon: 'flat-color-icons:business-contact',
       },
       {
         title: 'Predictable Pricing',
-        description: 'Clear monthly costs and straightforward scoping.',
+        description: 'Predictable costs for proactive protection and continuity planning.',
         icon: 'flat-color-icons:advertising',
       },
       {
         title: 'Seamless Migration',
-        description: 'Onboarding plans that minimize disruption and accelerate adoption.',
+        description: 'Structured onboarding that minimizes transition risk and preserves day-one operations.',
         icon: 'flat-color-icons:template',
       },
     ]}
@@ -278,29 +281,29 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Getting Started with Top Grade Tech"
+    title="How We Keep Operations Running"
     items={[
       {
         title: 'Step 1: <span class="font-medium">Discovery</span>',
         description:
-          "We review your current environment and priorities to map the right solution mix.",
+          'We identify downtime risks, attack paths, and revenue-critical dependencies in your environment.',
         icon: 'tabler:headset',
       },
       {
         title: 'Step 2: <span class="font-medium">Plan</span>',
         description:
-          'We build a phased plan for managed IT, security, and communications improvements.',
+          'We build a phased continuity plan with prioritized controls for uptime, security, and recovery.',
         icon: 'tabler:pencil',
       },
       {
         title: 'Step 3: <span class="font-medium">Launch</span>',
         description:
-          'We deploy, train your staff, and provide ongoing support.',
+          'We implement, test, and train your team so operations stay protected without interruption.',
         icon: 'tabler:school',
       },
       {
         title: 'Ready to Grow!',
-        description: 'Focus on your business while we handle day-to-day operations.',
+        description: 'Focus on revenue while we continuously protect availability and performance.',
         icon: 'tabler:check',
       },
     ]}
@@ -314,29 +317,29 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Get answers to common questions about Top Grade Tech's managed IT, networks, and telecom solutions."
+    subtitle="Get answers about how Top Grade Tech prevents downtime, blocks attacks, and protects revenue continuity."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
         title: 'Why should I choose Top Grade Tech over other IT providers?',
         description:
-          'We deliver US-based support, proactive monitoring, and a full stack of IT, security, and communications services built around reliability through simplicity.',
+          'We combine 24/7 support, proactive operations, and layered cybersecurity to keep systems available and revenue-producing.',
       },
       {
         title: 'Do you provide 24/7 support?',
         description:
-          'Yes! Our US-based support team is available 24/7/365 to assist with any issues, ensuring your business stays running without interruption.',
+          'Yes. Our US-based support team is available 24/7/365 for incident response and issue resolution so your operations keep running.',
       },
       {
         title: 'What if I currently use another IT provider?',
         description:
-          'We specialize in seamless migrations from other providers. Our team will handle the transition with minimal downtime and provide comprehensive training for your staff.',
+          'We run structured migrations with discovery, staged cutovers, and rollback planning to minimize downtime risk.',
       },
       {
         title: 'How do you ensure data security and compliance?',
         description:
-          'We implement enterprise-grade security measures, conduct regular monitoring, and ensure compliance with industry standards and regulations relevant to your business.',
+          'We apply layered security controls, continuous monitoring, and policy enforcement mapped to your compliance requirements.',
       },
       {
         title: 'What areas do you service?',
@@ -345,8 +348,7 @@ const metadata = {
       },
       {
         title: 'How do I get started?',
-        description:
-          "Simply contact us at (855) 947-0067 (toll-free) or (719) 766-0944 (local), email info@topgradetech.com, or visit us at 2001 Oakshire Lane, Suite C, Pueblo, CO 81001. We'll schedule a consultation to discuss your needs.",
+        description: 'Visit our <a href="/contact" class="underline">Contact page</a> to get started.',
       },
     ]}
   />
@@ -364,16 +366,16 @@ const metadata = {
       {
         variant: 'secondary',
         text: 'Email Us',
-        href: 'mailto:info@topgradetech.com',
+        href: 'mailto:support@topgradetech.com',
       },
     ]}
   >
     <Fragment slot="title">
-      Ready to Experience<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Top Grade Tech Support?</span>
+      Keep Revenue-Critical Operations<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Running with Top Grade Tech</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Let our US-based team handle your IT infrastructure so you can focus on growing your business.<br class="hidden md:inline" />Contact us today for a free consultation.
+      Let our US-based team prevent downtime, thwart attacks, and keep your business moving without interruption.<br class="hidden md:inline" />Contact us today for a free conversation.
     </Fragment>
   </CallToAction>
 </Layout>
