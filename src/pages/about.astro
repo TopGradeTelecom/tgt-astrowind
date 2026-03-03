@@ -1,184 +1,91 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { headerData } from '~/navigation';
 
 const metadata = {
   title: 'About us',
 };
+
+const getStartedLink = headerData.actions?.find((action) => action.text === 'Get Started')?.href;
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
     tagline="About us"
+    title="Top Grade is more than a name. It is our standard."
+    subtitle="We are a locally owned and operated Southern Colorado team delivering managed IT, networking, and structured cabling solutions built for reliability and long-term value."
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      alt: 'Top Grade Tech team collaboration',
     }}
-  >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
-    </Fragment>
-  </Hero>
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <section class="max-w-5xl mx-auto px-4 md:px-6 py-12 md:py-16">
+    <div class="rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 md:p-10">
+      <div class="mx-auto max-w-4xl space-y-8">
+        <div class="space-y-3">
+          <h2 class="m-0 text-lg font-semibold text-default leading-tight">Locally owned in Southern Colorado</h2>
+          <p class="m-0 text-muted leading-relaxed">
+          We are proud to be a locally owned and operated business serving Southern Colorado. What started as a
+          one-man operation has grown into a team of skilled technicians with over 30 years of combined experience in
+          technical support and networking. Our adaptability and problem-solving approach help us deliver exceptional
+          results, even when it means going the extra mile.
+          </p>
+        </div>
+        <div class="space-y-3 pt-3 md:pt-4">
+          <h2 class="m-0 text-lg font-semibold text-default leading-tight">Built for reliability and long-term value</h2>
+          <p class="m-0 text-muted leading-relaxed">
+          We specialize in managed IT services, including computer repair, networking, and structured data cabling.
+          Over the years, we have corrected countless subpar setups and strengthened our expertise across multiple
+          disciplines. Instead of cutting corners, we focus on reliable, future-ready, low-maintenance solutions
+          tailored to your environment.
+          </p>
+        </div>
+        <div class="space-y-3 pt-3 md:pt-4">
+          <h2 class="m-0 text-lg font-semibold text-default leading-tight">Support for businesses and individuals</h2>
+          <p class="m-0 text-muted leading-relaxed">
+          Whether you are a small business that needs dependable IT support or an individual facing a tech issue, we
+          can help. From managing complex networks to repairing broken laptops, we deliver efficient, effective service
+          that keeps your technology running smoothly.
+          </p>
+        </div>
+        <div class="space-y-3 pt-3 md:pt-4">
+          <h2 class="m-0 text-lg font-semibold text-default leading-tight">Let us handle the tech</h2>
+          <p class="m-0 text-muted leading-relaxed">
+          Do not let technical challenges slow your business down. Let us handle your day-to-day IT needs so you can
+          stay focused on what you do best. Contact us to schedule an appointment and experience the Top Grade
+          difference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+  <Features2
+    title="What We Deliver"
+    subtitle="Practical IT services designed for stability, maintainability, and long-term business continuity."
     columns={3}
-    isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+        title: 'Managed IT Services',
+        description: 'Proactive support, monitoring, and maintenance to reduce disruptions and improve uptime.',
+        icon: 'tabler:settings',
       },
       {
-        title: 'Interior Design',
+        title: 'Networking & Repair',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          'Design, troubleshooting, and remediation for business networks, endpoints, and day-to-day technical issues.',
+        icon: 'tabler:network',
       },
       {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+        title: 'Structured Data Cabling',
+        description: 'Standards-based cabling work that is clean, scalable, and easier to support over time.',
+        icon: 'tabler:plug-connected',
       },
     ]}
   />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
 
   <Features2
     title="Our locations"
@@ -196,23 +103,32 @@ const metadata = {
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
     title="Support Channels"
     tagline="Contact us"
     columns={2}
     items={[
       {
-        title: 'Ticket Email',
-        description: '<a href="mailto:support@topgradetech.com" class="underline">support@topgradetech.com</a>',
-        icon: 'tabler:mail',
+        title: 'Technical support',
+        description:
+          'For incidents, outages, and troubleshooting:<br /><br />Ticket Email: <a href="mailto:support@topgradetech.com" class="underline">support@topgradetech.com</a><br />Toll-Free: <a href="tel:+18559470067" class="underline">(855) 947-0067</a>',
+        icon: 'tabler:headset',
       },
       {
-        title: 'Call us',
+        title: 'Sales and appointments',
         description:
-          'Toll-Free: <a href="tel:+18559470067" class="underline">(855) 947-0067</a><br />Pueblo HQ: <a href="tel:+17197660944" class="underline">(719) 766-0944</a><br />Denver Office: <a href="tel:+17208807521" class="underline">(720) 880-7521</a>',
-        icon: 'tabler:headset',
+          'Pueblo HQ: <a href="tel:+17197660944" class="underline">(719) 766-0944</a><br />Denver Office: <a href="tel:+17208807521" class="underline">(720) 880-7521</a>',
+        icon: 'tabler:calendar-event',
+        ...(getStartedLink
+          ? {
+              callToAction: {
+                text: 'Get Started',
+                href: getStartedLink,
+                target: '_blank',
+                variant: 'primary',
+              },
+            }
+          : {}),
       },
     ]}
   />

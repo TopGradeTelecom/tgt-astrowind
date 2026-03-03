@@ -19,363 +19,540 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '#contact',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/shutterstock_345985838-optimized.jpg', alt: 'Top Grade Tech Hero Image' }}
-  >
-    <Fragment slot="title">
-      <span>
-        <span class="text-default dark:text-white">Reliability</span>
-        <span class="font-medium text-muted dark:text-slate-400"> through </span>
-        <span class="text-default dark:text-white">Simplicity</span>
-      </span>
-    </Fragment>
+  <div data-home-scrollfx="zoom">
+    <Hero
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Contact Us',
+          href: '#contact',
+        },
+        { text: 'Learn more', href: '#features' },
+      ]}
+      image={{ src: '~/assets/images/shutterstock_345985838-optimized.jpg', alt: 'Top Grade Tech Hero Image' }}
+    >
+      <Fragment slot="title">
+        <span>
+          <span class="text-default dark:text-white">Reliability</span>
+          <span class="font-medium text-muted dark:text-slate-400"> through </span>
+          <span class="text-default dark:text-white">Simplicity</span>
+        </span>
+      </Fragment>
 
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">Top Grade Tech</span> helps you prevent downtime, thwart attacks, and protect revenue with managed IT, cybersecurity, and communications built for continuity.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Top Grade Tech: Reliability Through Simplicity.</span>
-      Trusted by businesses across the US for proactive support, cyber defense, and communications systems that keep operations moving without interruption.
-    </Fragment>
-  </Hero>
+      <Fragment slot="subtitle">
+        <span class="hidden sm:inline">
+          <span class="font-semibold">Top Grade Tech</span> helps you prevent downtime, thwart attacks, and protect revenue with managed IT, cybersecurity, and communications built for continuity.</span
+        >
+        <span class="block mb-1 sm:hidden font-bold text-blue-600">Top Grade Tech: Reliability Through Simplicity.</span>
+        Trusted by businesses across the US for proactive support, cyber defense, and communications systems that keep operations moving without interruption.
+      </Fragment>
+    </Hero>
+  </div>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Our Promise:" description="Reliability through Simplicity" />
+  <div data-home-scrollfx="up">
+    <Note title="Our Promise:" description="Reliability through Simplicity" />
+  </div>
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline="Core Services"
-    title="Everything You Need to Run Securely"
-    subtitle="Managed IT, cybersecurity, and communications services engineered to reduce outages, stop threats, and protect revenue-critical operations."
-    items={[
-      {
-        title: 'Managed IT Services',
-        description:
-          '24/7 monitoring, proactive maintenance, patching, and endpoint management to prevent outages before they disrupt revenue.',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'IT Service Desk',
-        description: 'Rapid-response support that restores productivity fast and limits operational disruption.',
-        icon: 'tabler:lifebuoy',
-      },
-      {
-        title: 'Cybersecurity',
-        description:
-          'Threat monitoring, layered defenses, and incident readiness that disrupt attacks before they impact operations.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Cloud & Microsoft 365',
-        description:
-          'Email, collaboration, and cloud productivity platforms that keep teams working securely from any location.',
-        icon: 'tabler:phone',
-      },
-      {
-        title: 'Video Conferencing',
-        description: 'Reliable meeting platforms that keep client, vendor, and internal communication flowing.',
-        icon: 'tabler:video',
-      },
-      {
-        title: 'Physical Security',
-        description:
-          'Video surveillance, access control, and sensors that protect sites and support uninterrupted operations.',
-        icon: 'tabler:network',
-      },
-    ]}
-  />
+  <div data-home-scrollfx="up">
+    <Features
+      id="features"
+      tagline="Core Services"
+      title="Everything You Need to Run Securely"
+      subtitle="Managed IT, cybersecurity, and communications services engineered to reduce outages, stop threats, and protect revenue-critical operations."
+      items={[
+        {
+          title: 'Managed IT Services',
+          description:
+            '24/7 monitoring, proactive maintenance, patching, and endpoint management to prevent outages before they disrupt revenue.',
+          icon: 'tabler:headset',
+        },
+        {
+          title: 'IT Service Desk',
+          description: 'Rapid-response support that restores productivity fast and limits operational disruption.',
+          icon: 'tabler:lifebuoy',
+        },
+        {
+          title: 'Cybersecurity',
+          description:
+            'Threat monitoring, layered defenses, and incident readiness that disrupt attacks before they impact operations.',
+          icon: 'tabler:shield-check',
+        },
+        {
+          title: 'Cloud & Microsoft 365',
+          description:
+            'Email, collaboration, and cloud productivity platforms that keep teams working securely from any location.',
+          icon: 'tabler:phone',
+        },
+        {
+          title: 'Video Conferencing',
+          description: 'Reliable meeting platforms that keep client, vendor, and internal communication flowing.',
+          icon: 'tabler:video',
+        },
+        {
+          title: 'Physical Security',
+          description:
+            'Video surveillance, access control, and sensors that protect sites and support uninterrupted operations.',
+          icon: 'tabler:network',
+        },
+      ]}
+    />
+  </div>
 
   <!-- Content Widget **************** -->
 
-  <Content
-    isReversed
-    tagline="Our Approach"
-    title="Proactive, Hardened, and Measurable"
-    items={[
-      {
-        title: 'Monitoring and Alerting',
-        description: 'We watch critical systems 24/7 and resolve issues before they become downtime events.',
-      },
-      {
-        title: 'Lifecycle Management',
-        description: 'Patch, update, and harden systems on a disciplined schedule to reduce failure and exploit risk.',
-      },
-      {
-        title: 'Structured Service Desk',
-        description: 'Tiered response and documented escalation paths that shorten outages and protect productivity.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Top Grade Tech Solutions',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Reliability Through Simplicity</h3>
-      We design and operate technology to keep your business online, protected, and revenue-generating.
-    </Fragment>
+  <div data-home-scrollfx="left">
+    <Content
+      isReversed
+      tagline="Our Approach"
+      title="Proactive, Hardened, and Measurable"
+      items={[
+        {
+          title: 'Monitoring and Alerting',
+          description: 'We watch critical systems 24/7 and resolve issues before they become downtime events.',
+        },
+        {
+          title: 'Lifecycle Management',
+          description: 'Patch, update, and harden systems on a disciplined schedule to reduce failure and exploit risk.',
+        },
+        {
+          title: 'Structured Service Desk',
+          description: 'Tiered response and documented escalation paths that shorten outages and protect productivity.',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        alt: 'Top Grade Tech Solutions',
+      }}
+    >
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Reliability Through Simplicity</h3>
+        We design and operate technology to keep your business online, protected, and revenue-generating.
+      </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'Add-On Services',
-        description: 'Backup, cloud infrastructure, and security tooling that reduce outage impact and speed recovery.',
-      },
-      {
-        title: 'Collaboration Tools',
-        description: 'Microsoft 365 and meeting platforms that keep critical teams aligned during daily work and incidents.',
-      },
-      {
-        title: 'Infrastructure and Connectivity',
-        description: 'Network planning and connectivity engineered for resilient, always-on operations.',
-      },
-      {
-        title: 'Security and Compliance',
-        description: 'Policies, monitoring, and controls that block threats and safeguard critical business data.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Top Grade Tech Services',
-    }}
-  >
-    <Fragment slot="content">Enterprise-grade protection and continuity, simplified for your business.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+  </div>
 
   <!-- Content Widget **************** -->
 
-  <Content
-    isReversed
-    isAfterContent
-    tagline="Security Solutions"
-    title="Protect People, Places, and Revenue"
-    items={[
-      {
-        title: 'Video Surveillance',
-        description: 'Cloud-managed cameras with searchable footage and live alerts for faster response.',
-      },
-      {
-        title: 'Access Control',
-        description: 'Modern door access systems with centralized policies that reduce unauthorized risk.',
-      },
-      {
-        title: 'Environmental Sensors',
-        description: 'Real-time monitoring for safety events that could disrupt operations.',
-      },
-      {
-        title: 'Mobile Surveillance',
-        description: 'Rapid-deploy security options to protect temporary sites and prevent downtime.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Top Grade Tech Enterprise Solutions',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise-Grade Solutions</h3>
-      Integrated physical and cyber controls that strengthen continuity across every location.
-    </Fragment>
+  <div data-home-scrollfx="right">
+    <Content
+      isAfterContent
+      items={[
+        {
+          title: 'Add-On Services',
+          description: 'Backup, cloud infrastructure, and security tooling that reduce outage impact and speed recovery.',
+        },
+        {
+          title: 'Collaboration Tools',
+          description: 'Microsoft 365 and meeting platforms that keep critical teams aligned during daily work and incidents.',
+        },
+        {
+          title: 'Infrastructure and Connectivity',
+          description: 'Network planning and connectivity engineered for resilient, always-on operations.',
+        },
+        {
+          title: 'Security and Compliance',
+          description: 'Policies, monitoring, and controls that block threats and safeguard critical business data.',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+        alt: 'Top Grade Tech Services',
+      }}
+    >
+      <Fragment slot="content">Enterprise-grade protection and continuity, simplified for your business.</Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+  </div>
+
+  <!-- Content Widget **************** -->
+
+  <div data-home-scrollfx="left">
+    <Content
+      isReversed
+      isAfterContent
+      tagline="Security Solutions"
+      title="Protect People, Places, and Revenue"
+      items={[
+        {
+          title: 'Video Surveillance',
+          description: 'Cloud-managed cameras with searchable footage and live alerts for faster response.',
+        },
+        {
+          title: 'Access Control',
+          description: 'Modern door access systems with centralized policies that reduce unauthorized risk.',
+        },
+        {
+          title: 'Environmental Sensors',
+          description: 'Real-time monitoring for safety events that could disrupt operations.',
+        },
+        {
+          title: 'Mobile Surveillance',
+          description: 'Rapid-deploy security options to protect temporary sites and prevent downtime.',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        alt: 'Top Grade Tech Enterprise Solutions',
+      }}
+    >
+      <Fragment slot="content">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise-Grade Solutions</h3>
+        Integrated physical and cyber controls that strengthen continuity across every location.
+      </Fragment>
+
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Content>
+  </div>
 
   <!-- Features2 Widget - Service Offerings *** -->
 
-  <Features2
-    title="Who Do We Help"
-    subtitle="Industry-focused solutions designed to prevent downtime, withstand attacks, and protect revenue continuity."
-    tagline="Industries"
-    columns={4}
-    items={[
-      {
-        title: 'Hospitals & Healthcare',
-        description: 'Secure, resilient systems that support patient care, compliance, and uninterrupted clinical operations.',
-        icon: 'tabler:heart-rate-monitor',
-      },
-      {
-        title: 'Education & Schools',
-        description: 'Reliable networks and proactive support that keep classrooms, testing, and administration online.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Retail & Warehouse',
-        description: 'Connectivity and security controls that keep transactions, inventory, and fulfillment running.',
-        icon: 'tabler:building-warehouse',
-      },
-      {
-        title: 'Construction',
-        description: 'Mobile-ready tech, jobsite connectivity, and secure access for continuous field operations.',
-        icon: 'tabler:crane',
-      },
-    ]}
-  />
+  <div data-home-scrollfx="up">
+    <Features2
+      title="Who Do We Help"
+      subtitle="Industry-focused solutions designed to prevent downtime, withstand attacks, and protect revenue continuity."
+      tagline="Industries"
+      columns={4}
+      items={[
+        {
+          title: 'Hospitals & Healthcare',
+          description: 'Secure, resilient systems that support patient care, compliance, and uninterrupted clinical operations.',
+          icon: 'tabler:heart-rate-monitor',
+        },
+        {
+          title: 'Education & Schools',
+          description: 'Reliable networks and proactive support that keep classrooms, testing, and administration online.',
+          icon: 'tabler:school',
+        },
+        {
+          title: 'Retail & Warehouse',
+          description: 'Connectivity and security controls that keep transactions, inventory, and fulfillment running.',
+          icon: 'tabler:building-warehouse',
+        },
+        {
+          title: 'Construction',
+          description: 'Mobile-ready tech, jobsite connectivity, and secure access for continuous field operations.',
+          icon: 'tabler:crane',
+        },
+      ]}
+    />
+  </div>
 
-  <Features2
-    title="Why Choose Top Grade Tech"
-    subtitle="US-based accountability focused on uptime, security, and protecting business revenue."
-    tagline="Core Strengths"
-    items={[
-      {
-        title: '24/7 US-Based Support',
-        description: 'Real people, real support, 24/7/365 to resolve issues before they become business interruptions.',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Proactive Monitoring',
-        description: 'Continuous monitoring and response reduce outage frequency and recovery time.',
-        icon: 'flat-color-icons:database',
-      },
-      {
-        title: 'Scalable Services',
-        description: 'Scale protection and support as revenue-critical systems grow.',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Expert Team',
-        description: 'Certified technicians who design for uptime, defense-in-depth, and operational resilience.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Predictable Pricing',
-        description: 'Predictable costs for proactive protection and continuity planning.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Seamless Migration',
-        description: 'Structured onboarding that minimizes transition risk and preserves day-one operations.',
-        icon: 'flat-color-icons:template',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  <div data-home-scrollfx="up">
+    <Features2
+      title="Why Choose Top Grade Tech"
+      subtitle="US-based accountability focused on uptime, security, and protecting business revenue."
+      tagline="Core Strengths"
+      items={[
+        {
+          title: '24/7 US-Based Support',
+          description: 'Real people, real support, 24/7/365 to resolve issues before they become business interruptions.',
+          icon: 'flat-color-icons:approval',
+        },
+        {
+          title: 'Proactive Monitoring',
+          description: 'Continuous monitoring and response reduce outage frequency and recovery time.',
+          icon: 'flat-color-icons:database',
+        },
+        {
+          title: 'Scalable Services',
+          description: 'Scale protection and support as revenue-critical systems grow.',
+          icon: 'flat-color-icons:currency-exchange',
+        },
+        {
+          title: 'Expert Team',
+          description: 'Certified technicians who design for uptime, defense-in-depth, and operational resilience.',
+          icon: 'flat-color-icons:business-contact',
+        },
+        {
+          title: 'Predictable Pricing',
+          description: 'Predictable costs for proactive protection and continuity planning.',
+          icon: 'flat-color-icons:advertising',
+        },
+        {
+          title: 'Seamless Migration',
+          description: 'Structured onboarding that minimizes transition risk and preserves day-one operations.',
+          icon: 'flat-color-icons:template',
+        },
+      ]}
+    >
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Features2>
+  </div>
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
-    title="How We Keep Operations Running"
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Discovery</span>',
-        description:
-          'We identify downtime risks, attack paths, and revenue-critical dependencies in your environment.',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Plan</span>',
-        description:
-          'We build a phased continuity plan with prioritized controls for uptime, security, and recovery.',
-        icon: 'tabler:pencil',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Launch</span>',
-        description:
-          'We implement, test, and train your team so operations stay protected without interruption.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Ready to Grow!',
-        description: 'Focus on revenue while we continuously protect availability and performance.',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Top Grade Tech Process',
-    }}
-  />
+  <div data-home-scrollfx="right">
+    <Steps
+      title="How We Keep Operations Running"
+      items={[
+        {
+          title: 'Step 1: <span class="font-medium">Discovery</span>',
+          description:
+            'We identify downtime risks, attack paths, and revenue-critical dependencies in your environment.',
+          icon: 'tabler:headset',
+        },
+        {
+          title: 'Step 2: <span class="font-medium">Plan</span>',
+          description:
+            'We build a phased continuity plan with prioritized controls for uptime, security, and recovery.',
+          icon: 'tabler:pencil',
+        },
+        {
+          title: 'Step 3: <span class="font-medium">Launch</span>',
+          description:
+            'We implement, test, and train your team so operations stay protected without interruption.',
+          icon: 'tabler:school',
+        },
+        {
+          title: 'Ready to Grow!',
+          description: 'Focus on revenue while we continuously protect availability and performance.',
+          icon: 'tabler:check',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+        alt: 'Top Grade Tech Process',
+      }}
+    />
+  </div>
 
   <!-- FAQs Widget ******************* -->
 
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Get answers about how Top Grade Tech prevents downtime, blocks attacks, and protects revenue continuity."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why should I choose Top Grade Tech over other IT providers?',
-        description:
-          'We combine 24/7 support, proactive operations, and layered cybersecurity to keep systems available and revenue-producing.',
-      },
-      {
-        title: 'Do you provide 24/7 support?',
-        description:
-          'Yes. Our US-based support team is available 24/7/365 for incident response and issue resolution so your operations keep running.',
-      },
-      {
-        title: 'What if I currently use another IT provider?',
-        description:
-          'We run structured migrations with discovery, staged cutovers, and rollback planning to minimize downtime risk.',
-      },
-      {
-        title: 'How do you ensure data security and compliance?',
-        description:
-          'We apply layered security controls, continuous monitoring, and policy enforcement mapped to your compliance requirements.',
-      },
-      {
-        title: 'What areas do you service?',
-        description:
-          'We provide services throughout the United States with local support teams ready to assist businesses of all sizes.',
-      },
-      {
-        title: 'How do I get started?',
-        description: 'Visit our <a href="/contact" class="underline">Contact page</a> to get started.',
-      },
-    ]}
-  />
+  <div data-home-scrollfx="up">
+    <FAQs
+      title="Frequently Asked Questions"
+      subtitle="Get answers about how Top Grade Tech prevents downtime, blocks attacks, and protects revenue continuity."
+      tagline="FAQs"
+      classes={{ container: 'max-w-6xl' }}
+      items={[
+        {
+          title: 'Why should I choose Top Grade Tech over other IT providers?',
+          description:
+            'We combine 24/7 support, proactive operations, and layered cybersecurity to keep systems available and revenue-producing.',
+        },
+        {
+          title: 'Do you provide 24/7 support?',
+          description:
+            'Yes. Our US-based support team is available 24/7/365 for incident response and issue resolution so your operations keep running.',
+        },
+        {
+          title: 'What if I currently use another IT provider?',
+          description:
+            'We run structured migrations with discovery, staged cutovers, and rollback planning to minimize downtime risk.',
+        },
+        {
+          title: 'How do you ensure data security and compliance?',
+          description:
+            'We apply layered security controls, continuous monitoring, and policy enforcement mapped to your compliance requirements.',
+        },
+        {
+          title: 'What areas do you service?',
+          description:
+            'We provide services throughout the United States with local support teams ready to assist businesses of all sizes.',
+        },
+        {
+          title: 'How do I get started?',
+          description: 'Visit our <a href="/contact" class="underline">Contact page</a> to get started.',
+        },
+      ]}
+    />
+  </div>
 
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
-    id="contact"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Call Us Today',
-        href: 'tel:+18559470067',
-      },
-      {
-        variant: 'secondary',
-        text: 'Email Us',
-        href: 'mailto:support@topgradetech.com',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Keep Revenue-Critical Operations<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Running with Top Grade Tech</span>
-    </Fragment>
+  <div data-home-scrollfx="zoom">
+    <CallToAction
+      id="contact"
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Call Us Today',
+          href: 'tel:+18559470067',
+        },
+        {
+          variant: 'secondary',
+          text: 'Email Us',
+          href: 'mailto:support@topgradetech.com',
+        },
+      ]}
+    >
+      <Fragment slot="title">
+        Keep Revenue-Critical Operations<br class="block sm:hidden" /><span class="sm:whitespace-nowrap"> Running with Top Grade Tech</span>
+      </Fragment>
 
-    <Fragment slot="subtitle">
-      Let our US-based team prevent downtime, thwart attacks, and keep your business moving without interruption.<br class="hidden md:inline" />Contact us today for a free conversation.
-    </Fragment>
-  </CallToAction>
+      <Fragment slot="subtitle">
+        Let our US-based team prevent downtime, thwart attacks, and keep your business moving without interruption.<br class="hidden md:inline" />Contact us today for a free conversation.
+      </Fragment>
+    </CallToAction>
+  </div>
+
+  <style is:global>
+    [data-home-scrollfx] {
+      --home-fx-x: 0px;
+      --home-fx-y: 24px;
+      --home-fx-scale: 1;
+      --home-fx-delay: 0ms;
+      --home-motion-multiplier: 1;
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, 0, 0) scale(1);
+      transition:
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 520ms ease,
+        filter 520ms ease;
+      transition-delay: var(--home-fx-delay);
+      will-change: transform, opacity;
+    }
+
+    [data-home-scrollfx='left'] {
+      --home-fx-x: -40px;
+      --home-fx-y: 0px;
+    }
+
+    [data-home-scrollfx='right'] {
+      --home-fx-x: 40px;
+      --home-fx-y: 0px;
+    }
+
+    [data-home-scrollfx='up'] {
+      --home-fx-x: 0px;
+      --home-fx-y: 28px;
+    }
+
+    [data-home-scrollfx='zoom'] {
+      --home-fx-x: 0px;
+      --home-fx-y: 16px;
+      --home-fx-scale: 0.97;
+    }
+
+    html.home-scrollfx-ready [data-home-scrollfx]:not(.is-visible) {
+      opacity: 0;
+      filter: blur(2px);
+      transform: translate3d(
+          calc(var(--home-fx-x) * var(--home-motion-multiplier)),
+          calc(var(--home-fx-y) * var(--home-motion-multiplier)),
+          0
+        )
+        scale(var(--home-fx-scale));
+    }
+
+    html.home-scrollfx-ready [data-home-scrollfx].is-visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    @media (max-width: 767px) {
+      [data-home-scrollfx] {
+        --home-fx-y: 14px;
+        --home-motion-multiplier: 0.7;
+      }
+
+      [data-home-scrollfx='left'],
+      [data-home-scrollfx='right'] {
+        --home-fx-x: 0px;
+        --home-fx-y: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-home-scrollfx],
+      html.home-scrollfx-ready [data-home-scrollfx],
+      html.home-scrollfx-ready [data-home-scrollfx]:not(.is-visible),
+      html.home-scrollfx-ready [data-home-scrollfx].is-visible {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    const HOME_SCROLL_FX_STATE = '__homeScrollFxState';
+    const HOME_SCROLL_FX_READY_CLASS = 'home-scrollfx-ready';
+
+    const initHomeScrollFx = () => {
+      const sections = Array.from(document.querySelectorAll('[data-home-scrollfx]'));
+      if (sections.length === 0) return;
+
+      const root = document.documentElement;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        root.classList.remove(HOME_SCROLL_FX_READY_CLASS);
+        sections.forEach((section) => section.classList.add('is-visible'));
+        return;
+      }
+
+      const existingState = window[HOME_SCROLL_FX_STATE];
+      if (existingState) {
+        existingState.observer?.disconnect();
+      }
+
+      const state = {
+        observer: null,
+      };
+      window[HOME_SCROLL_FX_STATE] = state;
+      root.classList.add(HOME_SCROLL_FX_READY_CLASS);
+
+      sections.forEach((section, index) => {
+        if (!(section instanceof HTMLElement)) return;
+        const stagger = Math.min(index * 28, 180);
+        section.style.setProperty('--home-fx-delay', `${stagger}ms`);
+        section.classList.remove('is-visible');
+      });
+
+      state.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const target = entry.target;
+            if (!(target instanceof HTMLElement)) return;
+            if (!entry.isIntersecting) return;
+            target.classList.add('is-visible');
+            state.observer?.unobserve(target);
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: '0px 0px -10% 0px',
+        }
+      );
+
+      sections.forEach((section) => {
+        state.observer?.observe(section);
+      });
+
+      // Reveal content already in view after refresh, then keep it static.
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          sections.forEach((section) => {
+            if (!(section instanceof HTMLElement)) return;
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) {
+              section.classList.add('is-visible');
+              state.observer?.unobserve(section);
+            }
+          });
+        });
+      });
+    };
+
+    initHomeScrollFx();
+    document.addEventListener('astro:after-swap', initHomeScrollFx);
+  </script>
 </Layout>

@@ -66,3 +66,7 @@
 - [ ] Complete calculator logic pass first
 - [ ] Review pages in priority order (core pages -> supporting pages -> system routes)
 - [ ] Log findings and fixes directly under each page item as completed notes
+
+## 4) Visual Content
+
+- [ ] Fix stock images (replace with branded/original photography where possible)
