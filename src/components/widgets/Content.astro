@@ -77,10 +77,10 @@ const {
               ) : (
                 <Image
                   class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-                  width={500}
-                  height={500}
-                  widths={[400, 768]}
-                  sizes="(max-width: 768px) 100vw, 432px"
+                  width={640}
+                  height={640}
+                  widths={[640, 960, 1280, 1600, 2048]}
+                  sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1279px) 50vw, 640px"
                   layout="responsive"
                   {...image}
                 />
