@@ -70,3 +70,28 @@
 ## 4) Visual Content
 
 - [ ] Fix stock images (replace with branded/original photography where possible)
+
+## 5) Add Navbar Item: Computer Repair Services
+
+- [ ] Define information architecture:
+  - Decide whether `Computer Repair Services` lives as a new top-level nav item or under `IT`
+  - Confirm URL structure for service detail pages
+- [ ] Add navigation entries in `src/navigation.ts`:
+  - `Computer Repair Services`
+  - `Data Recovery`
+  - `Virus Removal`
+  - `Optimization`
+  - `Custom Gaming Builds`
+- [ ] Add/update service content in `src/data/service-pages.ts` for the new repair category and sub-services
+- [ ] Add/update sections in `src/pages/services.astro` so links land on the right content blocks
+- [ ] Verify dynamic service routing in `src/pages/services/[service].astro` for all new slugs
+- [ ] Add internal links from relevant pages (`/`, `/services`, `/about`) to the new services
+- [ ] SEO pass for each new service page:
+  - Meta title + meta description
+  - H1 and heading structure
+  - Canonical URL
+- [ ] QA desktop/mobile nav behavior:
+  - Header menu
+  - Mega menu (if used)
+  - Footer links
+  - All CTA/service links resolve correctly
