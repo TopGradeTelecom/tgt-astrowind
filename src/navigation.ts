@@ -167,7 +167,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Communications',
+      text: 'Communication',
       mega: {
         viewAllText: 'View All',
         viewAllHref: getPermalink('/services#unified-communications'),
@@ -293,7 +293,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Computer Repair',
+      text: 'Repairs',
       mega: {
         viewAllText: 'View All',
         viewAllHref: getPermalink('/services#computer-repair-services'),
