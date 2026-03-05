@@ -386,11 +386,6 @@ export const footerData = {
         { text: 'Managed IT', href: getPermalink('/services#managed-it') },
         { text: 'Network & Infrastructure', href: getPermalink('/services#network-infrastructure') },
         { text: 'Projects & Strategy', href: getPermalink('/services#projects-strategy') },
-        { text: 'Computer Repair Services', href: getPermalink('/services#computer-repair-services') },
-        { text: 'Data Recovery', href: getPermalink('/services#data-recovery') },
-        { text: 'Virus Removal', href: getPermalink('/services#virus-removal') },
-        { text: 'Optimization', href: getPermalink('/services#optimization') },
-        { text: 'Custom Gaming Builds', href: getPermalink('/services#custom-gaming-builds') },
         { text: 'Cybersecurity', href: getPermalink('/services#cybersecurity-solutions') },
         { text: 'Cloud Productivity Protection', href: getPermalink('/services#cloud-productivity-protection') },
         { text: 'Cloud Email Threat Protection', href: getPermalink('/services#cloud-email-threat-protection') },
@@ -400,7 +395,7 @@ export const footerData = {
       ],
     },
     {
-      title: 'Communications',
+      title: 'Communication',
       links: [
         { text: 'Phone Systems', href: getPermalink('/services#reliable-phone-systems') },
         { text: 'Call Management', href: getPermalink('/services#call-management') },
@@ -415,13 +410,29 @@ export const footerData = {
       ],
     },
     {
+      title: 'Repairs',
+      links: [
+        { text: 'Computer Repair Services', href: getPermalink('/services#computer-repair-services') },
+        { text: 'Data Recovery', href: getPermalink('/services#data-recovery') },
+        { text: 'Virus Removal', href: getPermalink('/services#virus-removal') },
+        { text: 'Optimization', href: getPermalink('/services#optimization') },
+        { text: 'Custom Gaming Builds', href: getPermalink('/services#custom-gaming-builds') },
+      ],
+    },
+    {
       title: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
         { text: 'Careers', href: getPermalink('/careers') },
-        { text: 'Contact', href: getPermalink('/contact') },
         { text: 'Terms', href: getPermalink('/legal') },
         { text: 'Privacy Policy', href: getPermalink('/privacy-policy') },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { text: 'Downtime Calculator', href: getPermalink('/downtime-calculator') },
+        { text: 'Contact Support', href: getPermalink('/contact') },
       ],
     },
   ],
