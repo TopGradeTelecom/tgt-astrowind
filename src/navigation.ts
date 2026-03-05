@@ -23,6 +23,7 @@ export const headerData = {
           { text: 'Network & Infrastructure', href: getPermalink('/services#network-infrastructure') },
           { text: 'Projects & Strategy', href: getPermalink('/services#projects-strategy') },
           { text: 'Cybersecurity', href: getPermalink('/services#cybersecurity-solutions') },
+          { text: 'Cloud Productivity Protection', href: getPermalink('/services#cloud-productivity-protection') },
         ],
         tiles: [
           {
@@ -125,6 +126,36 @@ export const headerData = {
               },
             ],
           },
+          {
+            section: 'Cloud Productivity Protection',
+            items: [
+              {
+                title: 'Cloud Productivity Protection',
+                description: 'Protect cloud email, files, and accounts with layered controls and clear operating standards.',
+                href: getPermalink('/services#cloud-productivity-protection'),
+              },
+              {
+                title: 'Cloud Email Threat Protection',
+                description: 'Reduce phishing, impersonation, and malicious attachment risk across business email.',
+                href: getPermalink('/services#cloud-email-threat-protection'),
+              },
+              {
+                title: 'Cloud Backup and Archiving',
+                description: 'Retain and recover mailbox and file data with policy-driven backup and archive workflows.',
+                href: getPermalink('/services#cloud-backup-archiving'),
+              },
+              {
+                title: 'Managed Security Awareness Program',
+                description: 'Run continuous user training and simulation campaigns that reduce human-driven incidents.',
+                href: getPermalink('/services#managed-security-awareness-program'),
+              },
+              {
+                title: 'Email Signature Management',
+                description: 'Centralize signatures, disclaimers, and campaign banners to keep outbound email consistent.',
+                href: getPermalink('/services#email-signature-management'),
+              },
+            ],
+          },
         ],
       },
       links: [
@@ -132,6 +163,7 @@ export const headerData = {
         { text: 'Network & Infrastructure', href: getPermalink('/services#network-infrastructure') },
         { text: 'Projects & Strategy', href: getPermalink('/services#projects-strategy') },
         { text: 'Cybersecurity', href: getPermalink('/services#cybersecurity-solutions') },
+        { text: 'Cloud Productivity Protection', href: getPermalink('/services#cloud-productivity-protection') },
       ],
     },
     {
@@ -150,17 +182,17 @@ export const headerData = {
             items: [
               {
                 title: 'Reliable Phone Systems',
-                description: 'Cloud and hybrid voice systems built for uptime and call clarity.',
+                description: 'Cloud and hybrid voice systems engineered for round-the-clock reliability and call clarity.',
                 href: getPermalink('/services#reliable-phone-systems'),
               },
               {
-                title: 'Auto Attendants and Call Routing',
-                description: 'Direct callers to the right team quickly with smart call flows.',
+                title: 'Managed Phone Hardware and Provisioning',
+                description: 'Business-grade handsets configured by experts for role-based usability and dependable operation.',
                 href: getPermalink('/services#reliable-phone-systems'),
               },
               {
-                title: 'Business Texting and Voicemail',
-                description: 'Add SMS and voicemail-to-email so teams can respond faster.',
+                title: 'US-Based Support and Staff Training',
+                description: 'Direct access to live specialists plus onboarding and refresher training for your team.',
                 href: getPermalink('/services#reliable-phone-systems'),
               },
             ],
@@ -261,6 +293,67 @@ export const headerData = {
       ],
     },
     {
+      text: 'Computer Repair',
+      mega: {
+        viewAllText: 'View All',
+        viewAllHref: getPermalink('/services#computer-repair-services'),
+        sections: [
+          { text: 'Computer Repair Services', href: getPermalink('/services#computer-repair-services') },
+          { text: 'Malware and Optimization', href: getPermalink('/services#virus-removal') },
+          { text: 'Custom Builds', href: getPermalink('/services#custom-gaming-builds') },
+        ],
+        tiles: [
+          {
+            section: 'Computer Repair Services',
+            items: [
+              {
+                title: 'Computer Repair Services',
+                description: 'Diagnostics and repair support for business and home systems.',
+                href: getPermalink('/services#computer-repair-services'),
+              },
+              {
+                title: 'Data Recovery',
+                description: 'Recover files from failed, corrupted, or inaccessible storage devices.',
+                href: getPermalink('/services#data-recovery'),
+              },
+            ],
+          },
+          {
+            section: 'Malware and Optimization',
+            items: [
+              {
+                title: 'Virus Removal',
+                description: 'Remove malware and harden systems to reduce reinfection risk.',
+                href: getPermalink('/services#virus-removal'),
+              },
+              {
+                title: 'Optimization',
+                description: 'Improve startup speed, responsiveness, and overall system stability.',
+                href: getPermalink('/services#optimization'),
+              },
+            ],
+          },
+          {
+            section: 'Custom Builds',
+            items: [
+              {
+                title: 'Custom Gaming Builds',
+                description: 'Purpose-built gaming desktops tuned for performance, cooling, and reliability.',
+                href: getPermalink('/services#custom-gaming-builds'),
+              },
+            ],
+          },
+        ],
+      },
+      links: [
+        { text: 'Computer Repair Services', href: getPermalink('/services#computer-repair-services') },
+        { text: 'Data Recovery', href: getPermalink('/services#data-recovery') },
+        { text: 'Virus Removal', href: getPermalink('/services#virus-removal') },
+        { text: 'Optimization', href: getPermalink('/services#optimization') },
+        { text: 'Custom Gaming Builds', href: getPermalink('/services#custom-gaming-builds') },
+      ],
+    },
+    {
       text: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
@@ -293,7 +386,17 @@ export const footerData = {
         { text: 'Managed IT', href: getPermalink('/services#managed-it') },
         { text: 'Network & Infrastructure', href: getPermalink('/services#network-infrastructure') },
         { text: 'Projects & Strategy', href: getPermalink('/services#projects-strategy') },
+        { text: 'Computer Repair Services', href: getPermalink('/services#computer-repair-services') },
+        { text: 'Data Recovery', href: getPermalink('/services#data-recovery') },
+        { text: 'Virus Removal', href: getPermalink('/services#virus-removal') },
+        { text: 'Optimization', href: getPermalink('/services#optimization') },
+        { text: 'Custom Gaming Builds', href: getPermalink('/services#custom-gaming-builds') },
         { text: 'Cybersecurity', href: getPermalink('/services#cybersecurity-solutions') },
+        { text: 'Cloud Productivity Protection', href: getPermalink('/services#cloud-productivity-protection') },
+        { text: 'Cloud Email Threat Protection', href: getPermalink('/services#cloud-email-threat-protection') },
+        { text: 'Cloud Backup and Archiving', href: getPermalink('/services#cloud-backup-archiving') },
+        { text: 'Managed Security Awareness Program', href: getPermalink('/services#managed-security-awareness-program') },
+        { text: 'Email Signature Management', href: getPermalink('/services#email-signature-management') },
       ],
     },
     {

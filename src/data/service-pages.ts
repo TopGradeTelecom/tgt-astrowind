@@ -243,6 +243,291 @@ export const servicePages: Record<string, ServicePageData> = {
     related: ['managed-it', 'network-infrastructure', 'it-solutions'],
     relatedSummary: 'Project success depends on the operational foundation around it.',
   },
+  'computer-repair-services': {
+    slug: 'computer-repair-services',
+    title: 'Computer Repair Services',
+    category: 'IT',
+    icon: 'tabler:tool',
+    metaTitle: 'Computer Repair Services',
+    metaDescription:
+      'Computer repair services for diagnostics, hardware repair, malware cleanup, and performance optimization for business and home systems.',
+    heroSubtitle:
+      'Hands-on repair services that restore reliability fast, protect important data, and keep your systems running smoothly.',
+    scopeTitle: 'What Computer Repair Services Covers',
+    scopeSubtitle:
+      'This service combines diagnostics, repair, cleanup, and performance tuning for workstations, laptops, and custom desktops.',
+    included: [
+      {
+        title: 'Hardware and Software Diagnostics',
+        description: 'Root-cause troubleshooting for crashes, boot failures, instability, and slow performance.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Data Recovery and Transfer',
+        description: 'Recover important files from failing systems and migrate data to safe storage.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Virus and Malware Removal',
+        description: 'Remove malicious software and close common reinfection paths.',
+        icon: 'tabler:shield-x',
+      },
+      {
+        title: 'Performance Optimization',
+        description: 'Tune devices for faster startup, smoother workflows, and better stability.',
+        icon: 'tabler:cpu',
+      },
+    ],
+    approach:
+      'We fix the immediate issue, then address the underlying causes so systems stay dependable after the repair is complete.',
+    outcomes: [
+      {
+        title: 'Faster System Recovery',
+        description: 'Devices return to working condition quickly with clear remediation steps.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Protected Critical Files',
+        description: 'Important business and personal data is recovered or safely migrated when possible.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Improved Day-to-Day Performance',
+        description: 'Systems become more responsive and stable for ongoing use.',
+        icon: 'tabler:activity',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_660436612-optimized.jpg',
+      alt: 'Technician repairing desktop hardware and internal computer components',
+    },
+    related: ['data-recovery', 'virus-removal', 'optimization'],
+    relatedSummary: 'Specialized repair services recover data, remove malware, and restore system performance.',
+  },
+  'data-recovery': {
+    slug: 'data-recovery',
+    title: 'Data Recovery',
+    category: 'IT',
+    icon: 'tabler:database',
+    metaTitle: 'Data Recovery Services',
+    metaDescription:
+      'Data recovery services for failed drives, corrupted systems, accidental deletion, and secure migration of recovered files.',
+    heroSubtitle:
+      'Recover important files from damaged or inaccessible systems with a structured process focused on data integrity.',
+    scopeTitle: 'What Data Recovery Covers',
+    scopeSubtitle:
+      'The service addresses diagnosis, recovery strategy, and secure transfer so recovered files are usable and protected.',
+    included: [
+      {
+        title: 'Storage Failure Assessment',
+        description: 'Evaluate drive health, corruption risks, and the most viable recovery approach.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Logical and File-Level Recovery',
+        description: 'Recover deleted, damaged, or inaccessible files from supported storage media.',
+        icon: 'tabler:file-search',
+      },
+      {
+        title: 'Secure Data Migration',
+        description: 'Move recovered data to verified storage with folder structure checks.',
+        icon: 'tabler:folders',
+      },
+    ],
+    approach:
+      'We prioritize data safety first, then recover and validate files using repeatable procedures that reduce further loss risk.',
+    outcomes: [
+      {
+        title: 'Higher Recovery Success Rates',
+        description: 'Methodical diagnostics improve the chances of recovering critical files.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Lower Data Loss Impact',
+        description: 'Recovered files reduce operational and financial disruption after incidents.',
+        icon: 'tabler:lifebuoy',
+      },
+      {
+        title: 'Safer Storage Practices',
+        description: 'Post-recovery guidance helps prevent repeat data-loss events.',
+        icon: 'tabler:shield-check',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_345985838-optimized.jpg',
+      alt: 'Enterprise storage and server infrastructure used for data protection and recovery',
+    },
+    related: ['virus-removal', 'optimization', 'computer-repair-services'],
+    relatedSummary: 'Data recovery is strongest when paired with malware cleanup and performance stabilization.',
+  },
+  'virus-removal': {
+    slug: 'virus-removal',
+    title: 'Virus Removal',
+    category: 'IT',
+    icon: 'tabler:shield-x',
+    metaTitle: 'Virus and Malware Removal',
+    metaDescription:
+      'Virus and malware removal services that clean infected systems, restore stability, and harden endpoints against reinfection.',
+    heroSubtitle:
+      'Remove active malware, repair affected systems, and restore trustworthy operation with practical endpoint hardening.',
+    scopeTitle: 'What Virus Removal Covers',
+    scopeSubtitle:
+      'This service includes containment, malware cleanup, system validation, and preventive hardening steps.',
+    included: [
+      {
+        title: 'Threat Containment and Isolation',
+        description: 'Stop spread quickly by isolating infected systems and controlling risky activity.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Malware Cleanup and Remediation',
+        description: 'Remove malicious files, startup persistence, and suspicious processes.',
+        icon: 'tabler:shield-x',
+      },
+      {
+        title: 'Post-Cleanup Hardening',
+        description: 'Apply patching and security configuration updates to reduce reinfection risk.',
+        icon: 'tabler:shield-check',
+      },
+    ],
+    approach:
+      'We remove the threat, verify system stability, and apply practical safeguards so machines stay clean after remediation.',
+    outcomes: [
+      {
+        title: 'Restored System Trust',
+        description: 'Devices return to known-good state with verified remediation actions.',
+        icon: 'tabler:checklist',
+      },
+      {
+        title: 'Reduced Reinfection Risk',
+        description: 'Hardening and cleanup standards close common attack paths.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Less Operational Disruption',
+        description: 'Faster containment and cleanup shortens malware-related downtime.',
+        icon: 'tabler:clock-check',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_1240832179-optimized.jpg',
+      alt: 'Security operations staff monitoring threats and incident response workflows',
+    },
+    related: ['data-recovery', 'optimization', 'computer-repair-services'],
+    relatedSummary: 'Malware cleanup pairs with data recovery and optimization to fully restore endpoint health.',
+  },
+  optimization: {
+    slug: 'optimization',
+    title: 'Computer Optimization',
+    category: 'IT',
+    icon: 'tabler:cpu',
+    metaTitle: 'Computer Optimization Services',
+    metaDescription:
+      'Computer optimization services that improve speed, responsiveness, and stability for laptops and desktops.',
+    heroSubtitle:
+      'Tune systems for faster performance and better reliability with practical, measurable optimization workflows.',
+    scopeTitle: 'What Computer Optimization Covers',
+    scopeSubtitle:
+      'The service focuses on performance bottlenecks, startup overhead, storage health, and operating system tuning.',
+    included: [
+      {
+        title: 'Startup and Process Tuning',
+        description: 'Reduce unnecessary startup load and resource-heavy background services.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Storage and System Cleanup',
+        description: 'Reclaim disk space and correct system clutter that slows operation.',
+        icon: 'tabler:trash',
+      },
+      {
+        title: 'Performance Baseline Validation',
+        description: 'Measure before-and-after improvements for speed and stability.',
+        icon: 'tabler:chart-bar',
+      },
+    ],
+    approach:
+      'We apply targeted optimizations based on bottleneck analysis instead of one-size-fits-all cleanup scripts.',
+    outcomes: [
+      {
+        title: 'Faster Boot and Launch Times',
+        description: 'Systems start and open applications with less delay.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Smoother Daily Workflows',
+        description: 'Users see more consistent responsiveness during normal operations.',
+        icon: 'tabler:activity',
+      },
+      {
+        title: 'Longer Hardware Usability',
+        description: 'Optimized configurations help extend practical device lifespan.',
+        icon: 'tabler:device-desktop',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_660436612-optimized.jpg',
+      alt: 'Technician tuning and upgrading desktop computer hardware for better performance',
+    },
+    related: ['virus-removal', 'custom-gaming-builds', 'computer-repair-services'],
+    relatedSummary: 'Optimization keeps repaired systems responsive and ready for heavier workloads.',
+  },
+  'custom-gaming-builds': {
+    slug: 'custom-gaming-builds',
+    title: 'Custom Gaming Builds',
+    category: 'IT',
+    icon: 'tabler:device-desktop',
+    metaTitle: 'Custom Gaming PC Builds',
+    metaDescription:
+      'Custom gaming PC build services with part selection, assembly, cooling design, and performance tuning.',
+    heroSubtitle:
+      'Build high-performance gaming systems with component planning, clean assembly, and stability-focused tuning.',
+    scopeTitle: 'What Custom Gaming Builds Covers',
+    scopeSubtitle:
+      'The service includes design consultation, part compatibility planning, assembly standards, and post-build tuning.',
+    included: [
+      {
+        title: 'Component Selection and Compatibility',
+        description: 'Match CPU, GPU, RAM, storage, and cooling to performance and budget goals.',
+        icon: 'tabler:checklist',
+      },
+      {
+        title: 'Precision Assembly and Cable Management',
+        description: 'Build systems with clean internal layout, airflow, and maintainability in mind.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Performance and Stability Tuning',
+        description: 'Validate thermals and tune system settings for reliable high-load operation.',
+        icon: 'tabler:cpu',
+      },
+    ],
+    approach:
+      'We design each build around your target games, settings, and upgrade path so performance stays strong over time.',
+    outcomes: [
+      {
+        title: 'Higher Gaming Performance',
+        description: 'Optimized component choices deliver smoother frame rates and responsiveness.',
+        icon: 'tabler:arrow-up-right',
+      },
+      {
+        title: 'Clean and Serviceable Build Quality',
+        description: 'Structured assembly makes maintenance and upgrades easier.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Reliable Thermals Under Load',
+        description: 'Cooling and airflow design reduce throttling and instability.',
+        icon: 'tabler:activity',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_1089987056-optimized.jpg',
+      alt: 'High-performance custom gaming PC build with advanced cooling and cable management',
+    },
+    related: ['optimization', 'computer-repair-services', 'data-recovery'],
+    relatedSummary: 'Custom builds benefit from ongoing optimization and trusted repair support.',
+  },
   'cybersecurity-solutions': {
     slug: 'cybersecurity-solutions',
     title: 'Cybersecurity',
@@ -519,6 +804,297 @@ export const servicePages: Record<string, ServicePageData> = {
     related: ['cybersecurity-solutions', 'vulnerability-scanning', 'backup-recovery'],
     relatedSummary: 'User readiness complements technical controls and recovery planning.',
   },
+  'cloud-productivity-protection': {
+    slug: 'cloud-productivity-protection',
+    title: 'Cloud Productivity Protection',
+    category: 'IT',
+    icon: 'tabler:shield-lock',
+    metaTitle: 'Cloud Productivity Protection Services',
+    metaDescription:
+      'Cloud productivity protection services for email security, account hardening, backup resilience, and user-risk reduction.',
+    heroSubtitle:
+      'Protect cloud email, shared files, and user identities with layered controls designed for daily operations, not one-time projects.',
+    scopeTitle: 'What Cloud Productivity Protection Covers',
+    scopeSubtitle:
+      'This service aligns account security, email defense, retention strategy, and user training into one operating model.',
+    included: [
+      {
+        title: 'Account and Access Hardening',
+        description: 'Baseline policies for authentication, access control, and privilege reduction.',
+        icon: 'tabler:key',
+      },
+      {
+        title: 'Email Threat and Impersonation Defense',
+        description: 'Layered controls that reduce phishing, spoofing, and malicious payload delivery.',
+        icon: 'tabler:mail-check',
+      },
+      {
+        title: 'Recovery and Compliance Readiness',
+        description: 'Retention, backup, and audit workflows that support fast restoration and governance.',
+        icon: 'tabler:database',
+      },
+    ],
+    approach:
+      'We start with how teams actually communicate and share information, then apply security and recovery controls that protect those workflows.',
+    outcomes: [
+      {
+        title: 'Lower Account Takeover Risk',
+        description: 'Stronger access controls and detection reduce identity compromise opportunities.',
+        icon: 'tabler:user-shield',
+      },
+      {
+        title: 'Fewer Email-Borne Incidents',
+        description: 'Threat filtering and impersonation controls lower user exposure to malicious content.',
+        icon: 'tabler:mail-check',
+      },
+      {
+        title: 'Faster Restoration',
+        description: 'Structured retention and recovery processes shorten disruption after deletion or attack.',
+        icon: 'tabler:refresh',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_1515878150-optimized.jpg',
+      alt: 'IT team managing cloud collaboration security and operational controls',
+    },
+    related: [
+      'cloud-email-threat-protection',
+      'cloud-backup-archiving',
+      'managed-security-awareness-program',
+    ],
+    relatedSummary:
+      'These focused services strengthen email defense, data resilience, and user-risk reduction in cloud environments.',
+  },
+  'cloud-email-threat-protection': {
+    slug: 'cloud-email-threat-protection',
+    title: 'Cloud Email Threat Protection',
+    category: 'IT',
+    icon: 'tabler:mail-check',
+    metaTitle: 'Cloud Email Threat Protection',
+    metaDescription:
+      'Cloud email threat protection services for phishing defense, impersonation controls, and malicious attachment containment.',
+    heroSubtitle:
+      'Protect business email from phishing, impersonation, and payload-driven attacks with policy-driven filtering and rapid response workflows.',
+    scopeTitle: 'What Cloud Email Threat Protection Covers',
+    scopeSubtitle:
+      'The service blends preventive filtering, user reporting workflows, and incident response coordination for business email.',
+    included: [
+      {
+        title: 'Impersonation and Spoofing Controls',
+        description: 'Domain alignment, sender validation, and policy tuning to reduce trust-based abuse.',
+        icon: 'tabler:user-scan',
+      },
+      {
+        title: 'Malicious Link and Attachment Defense',
+        description: 'Automated analysis and blocking policies for suspicious content before user interaction.',
+        icon: 'tabler:link-off',
+      },
+      {
+        title: 'Inbox Incident Response Workflow',
+        description: 'Coordinated triage and remediation steps for suspicious email reports.',
+        icon: 'tabler:alarm',
+      },
+    ],
+    approach:
+      'Email security succeeds when prevention, user reporting, and remediation are operated as one process with clear ownership.',
+    outcomes: [
+      {
+        title: 'Reduced Phishing Exposure',
+        description: 'Users receive fewer high-risk messages in active inboxes.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Faster Threat Containment',
+        description: 'Reported email incidents are triaged and remediated before widespread impact.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Stronger Trust in Business Email',
+        description: 'Policy alignment improves message authenticity and reduces spoofing risk.',
+        icon: 'tabler:mail-check',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_739285162-optimized.jpg',
+      alt: 'Security analyst reviewing suspicious business email events',
+    },
+    related: [
+      'managed-security-awareness-program',
+      'cloud-backup-archiving',
+      'cloud-productivity-protection',
+    ],
+    relatedSummary: 'Email controls are strongest when paired with user training and recovery planning.',
+  },
+  'cloud-backup-archiving': {
+    slug: 'cloud-backup-archiving',
+    title: 'Cloud Backup and Archiving',
+    category: 'IT',
+    icon: 'tabler:database-export',
+    metaTitle: 'Cloud Backup and Archiving Services',
+    metaDescription:
+      'Cloud backup and archiving services for mailbox and file retention, point-in-time recovery, and compliance-ready restoration.',
+    heroSubtitle:
+      'Protect cloud mailbox and file data with resilient backup, policy-based retention, and tested restoration workflows.',
+    scopeTitle: 'What Cloud Backup and Archiving Covers',
+    scopeSubtitle:
+      'This service addresses backup frequency, archive retention, and restore execution for business-critical cloud data.',
+    included: [
+      {
+        title: 'Mailbox and File Backup Coverage',
+        description: 'Automated backup for core collaboration data with retention by business priority.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Archive and Legal Hold Controls',
+        description: 'Policy-driven retention to support discovery, governance, and audit requirements.',
+        icon: 'tabler:archive',
+      },
+      {
+        title: 'Point-in-Time Restore Validation',
+        description: 'Regular test restores to verify backup integrity and recovery speed.',
+        icon: 'tabler:clock',
+      },
+    ],
+    approach:
+      'We align retention and backup depth to operational risk so recovery is practical during real incidents, not theoretical.',
+    outcomes: [
+      {
+        title: 'Faster Data Recovery',
+        description: 'Structured restore playbooks reduce downtime after deletion, corruption, or compromise.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Lower Data Loss Risk',
+        description: 'Retention policies and backup cadence protect against both user error and malicious activity.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Better Compliance Support',
+        description: 'Archived records and restore evidence support legal and governance workflows.',
+        icon: 'tabler:file-analytics',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_345985838-optimized.jpg',
+      alt: 'Operations team validating cloud data backup and archive retention controls',
+    },
+    related: ['cloud-email-threat-protection', 'cloud-productivity-protection', 'backup-recovery'],
+    relatedSummary: 'Cloud data resilience improves when recovery planning and email security are coordinated.',
+  },
+  'managed-security-awareness-program': {
+    slug: 'managed-security-awareness-program',
+    title: 'Managed Security Awareness Program',
+    category: 'IT',
+    icon: 'tabler:school',
+    metaTitle: 'Managed Security Awareness Program',
+    metaDescription:
+      'Managed security awareness services with phishing simulations, role-based training, and behavior reporting.',
+    heroSubtitle:
+      'Build measurable user-risk reduction through continuous training, realistic simulations, and actionable coaching.',
+    scopeTitle: 'What Managed Security Awareness Covers',
+    scopeSubtitle:
+      'The program combines campaigns, role-aware learning paths, and reporting loops that drive behavior change.',
+    included: [
+      {
+        title: 'Phishing Simulation Program',
+        description: 'Ongoing simulations calibrated to threat trends and department-level risk patterns.',
+        icon: 'tabler:mail-exclamation',
+      },
+      {
+        title: 'Role-Based Awareness Training',
+        description: 'Targeted content by function, data exposure, and access level.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Behavior Reporting and Coaching',
+        description: 'Performance insights and focused coaching for teams that need reinforcement.',
+        icon: 'tabler:chart-dots-2',
+      },
+    ],
+    approach:
+      'Security awareness is managed as an operational program with regular cycles, clear metrics, and leadership visibility.',
+    outcomes: [
+      {
+        title: 'Lower Human-Error Incident Rate',
+        description: 'Users identify suspicious activity earlier and avoid high-risk actions.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Stronger Reporting Culture',
+        description: 'Potential attacks are escalated sooner, improving containment speed.',
+        icon: 'tabler:alarm',
+      },
+      {
+        title: 'Continuous Risk Improvement',
+        description: 'Campaign data guides program tuning over time instead of one-time training events.',
+        icon: 'tabler:trending-up',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_1927499990-optimized.jpg',
+      alt: 'Business users participating in a managed security awareness session',
+    },
+    related: ['cloud-email-threat-protection', 'cloud-productivity-protection', 'security-awareness-training'],
+    relatedSummary:
+      'User training programs are most effective when coordinated with email defenses and broader security operations.',
+  },
+  'email-signature-management': {
+    slug: 'email-signature-management',
+    title: 'Email Signature Management',
+    category: 'IT',
+    icon: 'tabler:signature',
+    metaTitle: 'Email Signature Management Services',
+    metaDescription:
+      'Email signature management services for centralized branding, disclaimers, campaign banners, and policy enforcement.',
+    heroSubtitle:
+      'Standardize outbound email signatures, legal disclaimers, and marketing banners across the organization with centralized control.',
+    scopeTitle: 'What Email Signature Management Covers',
+    scopeSubtitle:
+      'The service handles template governance, role-based assignment, and controlled updates to outbound email identity.',
+    included: [
+      {
+        title: 'Central Signature Template Governance',
+        description: 'Maintain approved templates with controlled fields for consistency and compliance.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Role-Based Branding and Disclaimers',
+        description: 'Apply department and role-specific legal and brand elements automatically.',
+        icon: 'tabler:badge',
+      },
+      {
+        title: 'Campaign Banner Scheduling',
+        description: 'Coordinate time-bound promotions and announcements across all outbound signatures.',
+        icon: 'tabler:calendar-time',
+      },
+    ],
+    approach:
+      'Signature management works best as a governed process with clear approval flows and integration into employee lifecycle changes.',
+    outcomes: [
+      {
+        title: 'Consistent Outbound Branding',
+        description: 'Customer-facing email has uniform identity and formatting across teams.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Stronger Disclaimer Compliance',
+        description: 'Required legal language is applied reliably without manual user effort.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'Faster Organization-Wide Updates',
+        description: 'Template changes can be rolled out centrally without touching each mailbox.',
+        icon: 'tabler:send',
+      },
+    ],
+    image: {
+      src: '~/assets/images/shutterstock_1254815659-optimized.jpg',
+      alt: 'Marketing and operations teams managing standardized email signature templates',
+    },
+    related: ['cloud-productivity-protection', 'cloud-email-threat-protection', 'managed-security-awareness-program'],
+    relatedSummary:
+      'Signature governance complements cloud email security and user-risk programs by standardizing outbound communication.',
+  },
   'unified-communications': {
     slug: 'unified-communications',
     title: 'Unified Communications',
@@ -526,9 +1102,9 @@ export const servicePages: Record<string, ServicePageData> = {
     icon: 'tabler:messages',
     metaTitle: 'Unified Communications Services',
     metaDescription:
-      'Unified communications services that combine voice, messaging, and collaboration for reliable customer and team communication.',
+      'Unified communications services that combine voice, messaging, and collaboration with fully managed telecom operations and US-based support.',
     heroSubtitle:
-      'Bring calling, messaging, and collaboration into one dependable environment that scales with your operations.',
+      'Bring calling, messaging, and collaboration into one dependable environment with live support and managed operations built to scale.',
     scopeTitle: 'What Unified Communications Covers',
     scopeSubtitle:
       'The service aligns phone systems, call workflows, and collaboration tools into a single communication strategy.',
@@ -548,9 +1124,14 @@ export const servicePages: Record<string, ServicePageData> = {
         description: 'Teams and document workflows connected for smoother internal coordination.',
         icon: 'tabler:brand-teams',
       },
+      {
+        title: 'Fully Managed Telecom Operations',
+        description: 'Day-to-day administration, change requests, and provider coordination handled by our team.',
+        icon: 'tabler:briefcase',
+      },
     ],
     approach:
-      'We design communications around real call patterns and team workflows so technology supports service quality.',
+      'We design communications around real call patterns and workflows, then run operations with live US-based support so your team is not stuck managing telecom complexity.',
     outcomes: [
       {
         title: 'Improved Caller Experience',
@@ -563,9 +1144,9 @@ export const servicePages: Record<string, ServicePageData> = {
         icon: 'tabler:phone-check',
       },
       {
-        title: 'Better Team Coordination',
-        description: 'Voice, chat, and file collaboration are aligned across departments.',
-        icon: 'tabler:users-group',
+        title: 'Reduced Telecom Management Burden',
+        description: 'A managed operating model removes day-to-day telecom administration from internal teams.',
+        icon: 'tabler:clipboard-check',
       },
     ],
     image: {
@@ -582,45 +1163,61 @@ export const servicePages: Record<string, ServicePageData> = {
     icon: 'tabler:phone',
     metaTitle: 'Business Phone Systems',
     metaDescription:
-      'Business phone system services for cloud and hybrid voice with routing, texting, and voicemail integrations.',
+      'Business phone system services with managed hardware, tailored provisioning, US-based support, and staff training.',
     heroSubtitle:
-      'Modern phone systems built for reliability, clear routing, and better responsiveness across front-line teams.',
+      'Modern phone systems built for dependable uptime, intuitive usability, and fully managed telecom operations.',
     scopeTitle: 'What Phone Systems Covers',
     scopeSubtitle:
-      'The focus is dependable calling, flexible routing, and communication continuity during busy periods.',
+      'The service combines reliable voice infrastructure, tailored phone setup, live support, and training so teams can communicate with confidence.',
     included: [
       {
-        title: 'Cloud and Hybrid Voice Deployment',
-        description: 'Phone platform design based on coverage, reliability, and growth needs.',
+        title: 'Cloud and Hybrid Voice Engineering',
+        description: 'Voice platform architecture designed for availability, clear call quality, and predictable operations.',
         icon: 'tabler:phone-plus',
       },
       {
-        title: 'Auto Attendants and Routing',
-        description: 'Call paths that direct customers quickly to the right department.',
-        icon: 'tabler:git-branch',
+        title: 'Business-Grade Phone Hardware',
+        description: 'Professional desk phones and endpoints provisioned for dependable day-to-day performance.',
+        icon: 'tabler:device-imac-check',
       },
       {
-        title: 'Business Texting and Voicemail',
-        description: 'SMS and voicemail-to-email support for faster customer follow-up.',
-        icon: 'tabler:message-circle',
+        title: 'Tailored Endpoint Provisioning',
+        description: 'Role-based button layouts, extensions, and workflows configured for easier adoption.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'US-Based Live Support',
+        description: 'Direct access to skilled support engineers instead of automated call trees.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Staff Training and Adoption',
+        description: 'No-cost onboarding and refresher training to improve confidence and reduce user friction.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Fully Managed Telecom Administration',
+        description: 'Moves, adds, changes, and carrier coordination handled by specialists.',
+        icon: 'tabler:briefcase',
       },
     ],
-    approach: 'Phone systems should be easy to manage and resilient under pressure, not fragile or hard to adjust.',
+    approach:
+      'Phone systems should be easy for users and low-maintenance for leadership. We design for reliability, then operate it as a managed service with clear accountability.',
     outcomes: [
       {
-        title: 'Fewer Missed Opportunities',
-        description: 'Improved routing and coverage reduce dropped and unanswered calls.',
+        title: 'Round-the-Clock Communication Continuity',
+        description: 'Resilient design and active operations reduce communication disruptions across business hours and after-hours.',
         icon: 'tabler:phone-check',
       },
       {
-        title: 'Clearer Front-Desk Workflows',
-        description: 'Reception and service teams get consistent call handling rules.',
-        icon: 'tabler:list-numbers',
+        title: 'Faster User Adoption',
+        description: 'Tailored phone setup and structured training help teams use the system correctly from day one.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Better Customer Responsiveness',
-        description: 'Teams can respond across voice, text, and voicemail from one workflow.',
-        icon: 'tabler:message-2-check',
+        title: 'Lower Internal Telecom Overhead',
+        description: 'A fully managed model removes day-to-day phone administration from your internal staff.',
+        icon: 'tabler:clipboard-check',
       },
     ],
     image: {
@@ -628,7 +1225,7 @@ export const servicePages: Record<string, ServicePageData> = {
       alt: 'Modern VoIP desk phones in a business conference setting',
     },
     related: ['call-management', 'call-recording', 'unified-communications'],
-    relatedSummary: 'Phone performance improves when call operations and analytics are tuned.',
+    relatedSummary: 'Phone reliability improves when managed operations, call controls, and quality workflows are aligned.',
   },
   'call-management': {
     slug: 'call-management',
