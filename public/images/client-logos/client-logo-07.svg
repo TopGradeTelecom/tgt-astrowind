@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-labelledby="title07 desc07">
+  <title id="title07">Placeholder logo for Trailhead Digital</title>
+  <desc id="desc07">A stylized placeholder client logo with geometric icon and text.</desc>
+  <defs>
+    <linearGradient id="bg07" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe4e6" />
+      <stop offset="100%" stop-color="#fecdd3" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="160" rx="20" fill="url(#bg07)" />
+  <rect x="18" y="18" width="284" height="124" rx="16" fill="#ffffff" fill-opacity="0.9" />
+  <path d="M64 103l20-42 20 42h-11l-9-20-9 20z" fill="#be123c" />
+  <text x="132" y="74" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#881337">TRAILHEAD</text>
+  <text x="132" y="97" font-size="12" font-family="Arial, sans-serif" letter-spacing="2" fill="#9f1239">DIGITAL</text>
+</svg>

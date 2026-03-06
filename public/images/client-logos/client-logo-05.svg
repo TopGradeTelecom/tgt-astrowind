@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-labelledby="title05 desc05">
+  <title id="title05">Placeholder logo for Beacon Logistics</title>
+  <desc id="desc05">A stylized placeholder client logo with geometric icon and text.</desc>
+  <defs>
+    <linearGradient id="bg05" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="160" rx="20" fill="url(#bg05)" />
+  <rect x="18" y="18" width="284" height="124" rx="16" fill="#ffffff" fill-opacity="0.9" />
+  <path d="M84 56l20 32H64z" fill="#b45309" />
+  <rect x="77" y="90" width="14" height="16" rx="3" fill="#fef3c7" />
+  <text x="132" y="74" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#78350f">BEACON</text>
+  <text x="132" y="97" font-size="12" font-family="Arial, sans-serif" letter-spacing="2" fill="#92400e">LOGISTICS</text>
+</svg>

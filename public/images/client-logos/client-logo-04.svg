@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-labelledby="title04 desc04">
+  <title id="title04">Placeholder logo for Harbor Networks</title>
+  <desc id="desc04">A stylized placeholder client logo with geometric icon and text.</desc>
+  <defs>
+    <linearGradient id="bg04" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d1fae5" />
+      <stop offset="100%" stop-color="#a7f3d0" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="160" rx="20" fill="url(#bg04)" />
+  <rect x="18" y="18" width="284" height="124" rx="16" fill="#ffffff" fill-opacity="0.9" />
+  <rect x="58" y="56" width="50" height="50" rx="25" fill="#047857" />
+  <path d="M70 80h26M83 67v26" stroke="#d1fae5" stroke-width="6" stroke-linecap="round" />
+  <text x="132" y="74" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#14532d">HARBOR</text>
+  <text x="132" y="97" font-size="12" font-family="Arial, sans-serif" letter-spacing="2" fill="#166534">NETWORKS</text>
+</svg>

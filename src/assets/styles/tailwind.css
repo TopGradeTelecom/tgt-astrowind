@@ -72,6 +72,18 @@
   stroke-width: 2.4;
 }
 
+html.dark svg[data-icon] {
+  color: rgb(226 232 240) !important;
+}
+
+html.dark svg[data-icon] * {
+  stroke: currentColor !important;
+}
+
+html.dark svg[data-icon] [fill]:not([fill='none']) {
+  fill: currentColor !important;
+}
+
 [data-aw-toggle-menu] path {
   @apply transition;
 }

@@ -1,0 +1,153 @@
+---
+import type { Widget } from '~/types';
+
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+interface ClientLogo {
+  src: string;
+  alt: string;
+}
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  logos?: ClientLogo[];
+  speedSeconds?: number;
+}
+
+const {
+  title = 'Trusted by Businesses That Value Reliability',
+  subtitle = 'A snapshot of the organizations we proudly support every day.',
+  tagline = 'Happy Clients',
+  logos = [
+    { src: '/images/client-logos/client-logo-01.svg', alt: 'Placeholder logo for Northview client' },
+    { src: '/images/client-logos/client-logo-02.svg', alt: 'Placeholder logo for Summit client' },
+    { src: '/images/client-logos/client-logo-03.svg', alt: 'Placeholder logo for Riverstone client' },
+    { src: '/images/client-logos/client-logo-04.svg', alt: 'Placeholder logo for Harbor client' },
+    { src: '/images/client-logos/client-logo-05.svg', alt: 'Placeholder logo for Beacon client' },
+    { src: '/images/client-logos/client-logo-06.svg', alt: 'Placeholder logo for Blue Oak client' },
+    { src: '/images/client-logos/client-logo-07.svg', alt: 'Placeholder logo for Trailhead client' },
+    { src: '/images/client-logos/client-logo-08.svg', alt: 'Placeholder logo for Pioneer client' },
+  ],
+  speedSeconds = 64,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props as Props;
+
+const carouselLogos = logos.length > 0 ? logos : [];
+const loopLogos = [...carouselLogos, ...carouselLogos];
+const durationSeconds = Math.max(speedSeconds, 20);
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  {
+    carouselLogos.length > 0 && (
+      <div class="client-carousel-mask" style={`--client-carousel-duration: ${durationSeconds}s;`}>
+        <div class="client-carousel-track">
+          {loopLogos.map((logo, index) => (
+            <figure class="client-carousel-item" aria-hidden={index >= carouselLogos.length ? 'true' : undefined}>
+              <img
+                src={logo.src}
+                alt={index < carouselLogos.length ? logo.alt : ''}
+                loading="lazy"
+                decoding="async"
+                width="220"
+                height="110"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</WidgetWrapper>
+
+<style>
+  .client-carousel-mask {
+    --client-carousel-fade-edge: 10%;
+    --client-carousel-gap: 1rem;
+    margin-top: 1rem;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black var(--client-carousel-fade-edge),
+      black calc(100% - var(--client-carousel-fade-edge)),
+      transparent 100%
+    );
+  }
+
+  .client-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: var(--client-carousel-gap);
+    width: max-content;
+    animation: client-carousel-scroll var(--client-carousel-duration, 64s) linear infinite;
+  }
+
+  .client-carousel-item {
+    align-items: center;
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.95) 0%, rgb(248 250 252 / 0.95) 100%);
+    border: 1px solid rgb(203 213 225 / 0.75);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px -22px rgb(15 23 42 / 0.7);
+    display: flex;
+    flex: 0 0 auto;
+    height: clamp(72px, 8vw, 110px);
+    justify-content: center;
+    padding: 0.75rem;
+    width: clamp(140px, 16vw, 220px);
+  }
+
+  .client-carousel-item img {
+    filter: grayscale(1);
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.78;
+    width: 100%;
+  }
+
+  .client-carousel-mask:hover .client-carousel-track {
+    animation-play-state: paused;
+  }
+
+  :global(.dark) .client-carousel-item {
+    background: linear-gradient(180deg, rgb(30 41 59 / 0.86) 0%, rgb(15 23 42 / 0.86) 100%);
+    border-color: rgb(71 85 105 / 0.7);
+  }
+
+  @keyframes client-carousel-scroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(calc(-50% - (var(--client-carousel-gap) / 2)), 0, 0);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .client-carousel-mask {
+      --client-carousel-fade-edge: 6%;
+      --client-carousel-gap: 0.75rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .client-carousel-mask {
+      mask-image: none;
+      overflow-x: auto;
+    }
+
+    .client-carousel-track {
+      animation: none;
+      transform: none;
+    }
+  }
+</style>

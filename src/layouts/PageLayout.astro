@@ -18,10 +18,37 @@ const { metadata } = Astro.props;
   <slot name="header">
     <Header {...headerData} isSticky showToggleTheme />
   </slot>
-  <main>
+  <main class="aw-page-main">
     <slot />
   </main>
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
 </Layout>
+
+<style is:global>
+  .aw-page-main > section,
+  .aw-page-main > [data-home-scrollfx] {
+    background: transparent;
+  }
+
+  .aw-page-main > section:nth-of-type(even),
+  .aw-page-main > [data-home-scrollfx]:nth-of-type(even) {
+    background: linear-gradient(180deg, rgb(239 246 255 / 0.9) 0%, rgb(239 246 255 / 0.75) 100%);
+  }
+
+  html.dark .aw-page-main > section:nth-of-type(even),
+  html.dark .aw-page-main > [data-home-scrollfx]:nth-of-type(even) {
+    background: linear-gradient(180deg, rgb(11 31 58 / 0.46) 0%, rgb(8 21 41 / 0.34) 100%);
+  }
+
+  .aw-page-main > section.aw-alt-bg,
+  .aw-page-main > [data-home-scrollfx].aw-alt-bg {
+    background: linear-gradient(180deg, rgb(239 246 255 / 0.9) 0%, rgb(239 246 255 / 0.75) 100%);
+  }
+
+  html.dark .aw-page-main > section.aw-alt-bg,
+  html.dark .aw-page-main > [data-home-scrollfx].aw-alt-bg {
+    background: linear-gradient(180deg, rgb(11 31 58 / 0.46) 0%, rgb(8 21 41 / 0.34) 100%);
+  }
+</style>

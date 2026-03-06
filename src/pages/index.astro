@@ -2,13 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import ClientCarousel from '~/components/widgets/ClientCarousel.astro';
 
 const metadata = {
   title: 'Top Grade Tech -- Managed IT, Cybersecurity, and Business Continuity',
@@ -49,10 +49,16 @@ const metadata = {
     </Hero>
   </div>
 
-  <!-- Note Widget ******************* -->
+  <!-- Happy Clients Carousel ******** -->
 
   <div data-home-scrollfx="up">
-    <Note title="Our Promise:" description="Reliability through Simplicity" />
+    <ClientCarousel
+      id="happy-clients"
+      tagline="Happy Clients"
+      title="Trusted by Businesses Across the United States"
+      subtitle="A few of the organizations that count on us for reliable technology operations."
+      speedSeconds={66}
+    />
   </div>
 
   <!-- Features Widget *************** -->
@@ -132,16 +138,12 @@ const metadata = {
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Reliability Through Simplicity</h3>
         We design and operate technology to keep your business online, protected, and revenue-generating.
       </Fragment>
-
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-      </Fragment>
     </Content>
   </div>
 
   <!-- Content Widget **************** -->
 
-  <div data-home-scrollfx="right">
+  <div data-home-scrollfx="right" class="aw-alt-bg">
     <Content
       isAfterContent
       items={[
@@ -168,10 +170,6 @@ const metadata = {
       }}
     >
       <Fragment slot="content">Enterprise-grade protection and continuity, simplified for your business.</Fragment>
-
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-      </Fragment>
     </Content>
   </div>
 
@@ -180,7 +178,6 @@ const metadata = {
   <div data-home-scrollfx="left">
     <Content
       isReversed
-      isAfterContent
       tagline="Security Solutions"
       title="Protect People, Places, and Revenue"
       items={[
@@ -209,10 +206,6 @@ const metadata = {
       <Fragment slot="content">
         <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Enterprise-Grade Solutions</h3>
         Integrated physical and cyber controls that strengthen continuity across every location.
-      </Fragment>
-
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
       </Fragment>
     </Content>
   </div>
@@ -287,11 +280,7 @@ const metadata = {
           icon: 'flat-color-icons:template',
         },
       ]}
-    >
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-      </Fragment>
-    </Features2>
+    />
   </div>
 
   <!-- Steps Widget ****************** -->

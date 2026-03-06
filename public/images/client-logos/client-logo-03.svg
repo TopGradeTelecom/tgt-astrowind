@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-labelledby="title03 desc03">
+  <title id="title03">Placeholder logo for Riverstone Labs</title>
+  <desc id="desc03">A stylized placeholder client logo with geometric icon and text.</desc>
+  <defs>
+    <linearGradient id="bg03" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#bae6fd" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="160" rx="20" fill="url(#bg03)" />
+  <rect x="18" y="18" width="284" height="124" rx="16" fill="#ffffff" fill-opacity="0.9" />
+  <path d="M62 95c7-20 17-30 31-30s24 10 31 30" fill="none" stroke="#0369a1" stroke-width="8" stroke-linecap="round" />
+  <circle cx="78" cy="96" r="7" fill="#0ea5e9" />
+  <circle cx="94" cy="91" r="7" fill="#38bdf8" />
+  <circle cx="110" cy="96" r="7" fill="#7dd3fc" />
+  <text x="132" y="74" font-size="19" font-family="Arial, sans-serif" font-weight="700" fill="#0c4a6e">RIVERSTONE</text>
+  <text x="132" y="97" font-size="12" font-family="Arial, sans-serif" letter-spacing="2" fill="#0369a1">LABS</text>
+</svg>
