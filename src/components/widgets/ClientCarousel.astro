@@ -3,6 +3,35 @@ import type { Widget } from '~/types';
 
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import dsstLogo from '~/assets/images/dsst.webp';
+import pinemelonLogo from '~/assets/images/pinemelon.svg';
+import district70Logo from '~/assets/images/district70.png';
+import collinsAerospaceLogo from '~/assets/images/collins-aerospace.png';
+import raytheonLogo from '~/assets/images/raytheon.svg';
+import aegVisionLogo from '~/assets/images/aeg-vision.png';
+import koaLogo from '~/assets/images/koa.png';
+import homewavLogo from '~/assets/images/homewav.svg';
+import safetyKleenLogo from '~/assets/images/safety-kleen.png';
+import bustangLogo from '~/assets/images/bustang.png';
+import srdaLogo from '~/assets/images/srda.png';
+import atomPhysicsLogo from '~/assets/images/atom-physics.png';
+import copestoneLogo from '~/assets/images/copestone.png';
+import eccoLogo from '~/assets/images/ecco.png';
+import plasmacamLogo from '~/assets/images/plasmacam.svg';
+import jAndBLogo from '~/assets/images/j&b.png';
+import tileHouseLogo from '~/assets/images/tile-house.webp';
+import orchardChurchLogo from '~/assets/images/orchard-church.webp';
+import puebloAnkleAndFootLogo from '~/assets/images/pueblo-ankle-and-foot.webp';
+import homesmartLogo from '~/assets/images/homesmart.svg';
+import wcaLogo from '~/assets/images/wca.webp';
+import allAboutKidsDentalLogo from '~/assets/images/all-about-kids-dental.png';
+import wcncLogo from '~/assets/images/wcnc.webp';
+import andeLogo from '~/assets/images/ande.webp';
+import cascoLogo from '~/assets/images/casco.jpg';
+import iiconLogo from '~/assets/images/iicon.png';
+import connectCharterLogo from '~/assets/images/connect-charter.png';
+import rockyMtnPrepLogo from '~/assets/images/rocky-mtn-prep.webp';
+import greaseMonkeyLogo from '~/assets/images/grease-monkey.svg';
 
 interface ClientLogo {
   src: string;
@@ -17,19 +46,59 @@ interface Props extends Widget {
   speedSeconds?: number;
 }
 
+const shuffleOnce = <T,>(items: T[]): T[] => {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const prioritizeLogos = (items: ClientLogo[]): ClientLogo[] => {
+  const prioritySrcOrder = [dsstLogo.src, wcncLogo.src, raytheonLogo.src, eccoLogo.src];
+  const priorityLogos = prioritySrcOrder
+    .map((src) => items.find((item) => item.src === src))
+    .filter((item): item is ClientLogo => Boolean(item));
+  const prioritySrcs = new Set(priorityLogos.map((item) => item.src));
+  const remaining = items.filter((item) => !prioritySrcs.has(item.src));
+  return [...priorityLogos, ...shuffleOnce(remaining)];
+};
+
 const {
   title = 'Trusted by Businesses That Value Reliability',
   subtitle = 'A snapshot of the organizations we proudly support every day.',
   tagline = 'Happy Clients',
   logos = [
-    { src: '/images/client-logos/client-logo-01.svg', alt: 'Placeholder logo for Northview client' },
-    { src: '/images/client-logos/client-logo-02.svg', alt: 'Placeholder logo for Summit client' },
-    { src: '/images/client-logos/client-logo-03.svg', alt: 'Placeholder logo for Riverstone client' },
-    { src: '/images/client-logos/client-logo-04.svg', alt: 'Placeholder logo for Harbor client' },
-    { src: '/images/client-logos/client-logo-05.svg', alt: 'Placeholder logo for Beacon client' },
-    { src: '/images/client-logos/client-logo-06.svg', alt: 'Placeholder logo for Blue Oak client' },
-    { src: '/images/client-logos/client-logo-07.svg', alt: 'Placeholder logo for Trailhead client' },
-    { src: '/images/client-logos/client-logo-08.svg', alt: 'Placeholder logo for Pioneer client' },
+    { src: dsstLogo.src, alt: 'DSST client logo' },
+    { src: pinemelonLogo.src, alt: 'Pinemelon client logo' },
+    { src: district70Logo.src, alt: 'District 70 client logo' },
+    { src: collinsAerospaceLogo.src, alt: 'Collins Aerospace client logo' },
+    { src: raytheonLogo.src, alt: 'Raytheon client logo' },
+    { src: aegVisionLogo.src, alt: 'AEG Vision client logo' },
+    { src: koaLogo.src, alt: 'KOA client logo' },
+    { src: homewavLogo.src, alt: 'HomeWAV client logo' },
+    { src: safetyKleenLogo.src, alt: 'Safety-Kleen client logo' },
+    { src: bustangLogo.src, alt: 'Bustang client logo' },
+    { src: srdaLogo.src, alt: 'SRDA client logo' },
+    { src: atomPhysicsLogo.src, alt: 'Atom Physics client logo' },
+    { src: copestoneLogo.src, alt: 'Copestone client logo' },
+    { src: eccoLogo.src, alt: 'ECCO client logo' },
+    { src: plasmacamLogo.src, alt: 'PlasmaCAM client logo' },
+    { src: jAndBLogo.src, alt: 'J&B client logo' },
+    { src: tileHouseLogo.src, alt: 'Tile House client logo' },
+    { src: orchardChurchLogo.src, alt: 'Orchard Church client logo' },
+    { src: puebloAnkleAndFootLogo.src, alt: 'Pueblo Ankle and Foot client logo' },
+    { src: homesmartLogo.src, alt: 'HomeSmart client logo' },
+    { src: wcaLogo.src, alt: 'WCA client logo' },
+    { src: allAboutKidsDentalLogo.src, alt: 'All About Kids Dental client logo' },
+    { src: wcncLogo.src, alt: "Women's Clinic client logo" },
+    { src: andeLogo.src, alt: 'ANDE client logo' },
+    { src: cascoLogo.src, alt: 'Casco client logo' },
+    { src: iiconLogo.src, alt: 'IICON client logo' },
+    { src: connectCharterLogo.src, alt: 'Connect Charter client logo' },
+    { src: rockyMtnPrepLogo.src, alt: 'Rocky Mountain Prep client logo' },
+    { src: greaseMonkeyLogo.src, alt: 'Grease Monkey client logo' },
   ],
   speedSeconds = 64,
   id,
@@ -38,7 +107,7 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props as Props;
 
-const carouselLogos = logos.length > 0 ? logos : [];
+const carouselLogos = logos.length > 0 ? prioritizeLogos(logos) : [];
 const loopLogos = [...carouselLogos, ...carouselLogos];
 const durationSeconds = Math.max(speedSeconds, 20);
 ---
@@ -89,13 +158,13 @@ const durationSeconds = Math.max(speedSeconds, 20);
     align-items: center;
     gap: var(--client-carousel-gap);
     width: max-content;
-    animation: client-carousel-scroll var(--client-carousel-duration, 64s) linear infinite;
+    animation: none;
   }
 
   .client-carousel-item {
     align-items: center;
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.95) 0%, rgb(248 250 252 / 0.95) 100%);
-    border: 1px solid rgb(203 213 225 / 0.75);
+    background: linear-gradient(180deg, rgb(148 163 184 / 0.9) 0%, rgb(100 116 139 / 0.92) 100%);
+    border: 1px solid rgb(71 85 105 / 0.65);
     border-radius: 0.75rem;
     box-shadow: 0 8px 24px -22px rgb(15 23 42 / 0.7);
     display: flex;
@@ -107,14 +176,18 @@ const durationSeconds = Math.max(speedSeconds, 20);
   }
 
   .client-carousel-item img {
-    filter: grayscale(1);
     height: 100%;
     object-fit: contain;
-    opacity: 0.78;
+    opacity: 1;
     width: 100%;
   }
 
-  .client-carousel-mask:hover .client-carousel-track {
+  .client-carousel-mask.is-running .client-carousel-track {
+    animation: client-carousel-scroll var(--client-carousel-duration, 64s) linear infinite;
+    animation-play-state: running;
+  }
+
+  .client-carousel-mask.is-running:hover .client-carousel-track {
     animation-play-state: paused;
   }
 
@@ -148,6 +221,53 @@ const durationSeconds = Math.max(speedSeconds, 20);
     .client-carousel-track {
       animation: none;
       transform: none;
+      transition: none;
     }
   }
 </style>
+
+<script is:inline>
+  (() => {
+    const FLAG = '__clientCarouselVisibilityBound';
+    if (window[FLAG]) return;
+    window[FLAG] = true;
+
+    const startWhenVisible = () => {
+      const masks = Array.from(document.querySelectorAll('.client-carousel-mask'));
+      if (masks.length === 0) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        masks.forEach((mask) => {
+          mask.classList.add('is-running');
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const target = entry.target;
+            if (!(target instanceof HTMLElement)) return;
+            target.classList.add('is-running');
+            observer.unobserve(target);
+          });
+        },
+        {
+          threshold: 0.25,
+          rootMargin: '0px 0px -12% 0px',
+        }
+      );
+
+      masks.forEach((mask) => {
+        if (!(mask instanceof HTMLElement)) return;
+        mask.classList.remove('is-running');
+        observer.observe(mask);
+      });
+    };
+
+    startWhenVisible();
+    document.addEventListener('astro:after-swap', startWhenVisible);
+  })();
+</script>
