@@ -229,8 +229,10 @@ const durationSeconds = Math.max(speedSeconds, 20);
 <script is:inline>
   (() => {
     const FLAG = '__clientCarouselVisibilityBound';
+    const START_DELAY_MS = 1800;
     if (window[FLAG]) return;
     window[FLAG] = true;
+    const pendingStarts = new WeakMap();
 
     const startWhenVisible = () => {
       const masks = Array.from(document.querySelectorAll('.client-carousel-mask'));
@@ -247,11 +249,27 @@ const durationSeconds = Math.max(speedSeconds, 20);
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
             const target = entry.target;
             if (!(target instanceof HTMLElement)) return;
-            target.classList.add('is-running');
-            observer.unobserve(target);
+
+            if (!entry.isIntersecting) {
+              const pendingStart = pendingStarts.get(target);
+              if (pendingStart !== undefined) {
+                window.clearTimeout(pendingStart);
+                pendingStarts.delete(target);
+              }
+              return;
+            }
+
+            if (target.classList.contains('is-running') || pendingStarts.has(target)) return;
+
+            const startTimer = window.setTimeout(() => {
+              target.classList.add('is-running');
+              pendingStarts.delete(target);
+              observer.unobserve(target);
+            }, START_DELAY_MS);
+
+            pendingStarts.set(target, startTimer);
           });
         },
         {
@@ -262,6 +280,11 @@ const durationSeconds = Math.max(speedSeconds, 20);
 
       masks.forEach((mask) => {
         if (!(mask instanceof HTMLElement)) return;
+        const pendingStart = pendingStarts.get(mask);
+        if (pendingStart !== undefined) {
+          window.clearTimeout(pendingStart);
+          pendingStarts.delete(mask);
+        }
         mask.classList.remove('is-running');
         observer.observe(mask);
       });
