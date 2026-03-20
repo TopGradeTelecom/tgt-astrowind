@@ -1,0 +1,402 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import threeCxImage from '~/assets/images/3cx.png';
+import ccieImage from '~/assets/images/ccie.png';
+import ccnaImage from '~/assets/images/ccna.jpg';
+import ccnpImage from '~/assets/images/ccnp.png';
+import comptiaAImage from '~/assets/images/comptia-a.webp';
+import comptiaNetworkImage from '~/assets/images/comptia-network.webp';
+import comptiaSecurityImage from '~/assets/images/comptia-security.webp';
+import alarmImage from '~/assets/images/alarm.png';
+import asteriskImage from '~/assets/images/asterisk.png';
+import bogenImage from '~/assets/images/bogen.png';
+import googleAdminImage from '~/assets/images/google-admin.png';
+import hipaaImage from '~/assets/images/hipaa.jpg';
+import iProImage from '~/assets/images/i-pro.svg';
+import kantechImage from '~/assets/images/kantech.jpg';
+import microsoftExpertImage from '~/assets/images/microsoft-expert.svg';
+import nistImage from '~/assets/images/nist.webp';
+import paxtonImage from '~/assets/images/paxton.svg';
+import pdkImage from '~/assets/images/pdk.svg';
+import pciImage from '~/assets/images/pci.png';
+import valcomImage from '~/assets/images/valcom.webp';
+import type { CallToAction as CTA } from '~/types';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { headerData } from '~/navigation';
+
+interface CertificationImage {
+  src: string;
+  alt: string;
+}
+
+interface CertificationItem {
+  title: string;
+  icon: string;
+  images?: CertificationImage[];
+  overview: string;
+  benefits: string[];
+}
+
+const metadata = {
+  title: 'Certifications',
+};
+
+const getStartedLink = headerData.actions?.find((action) => action.text === 'Get Started')?.href;
+
+const certifications: CertificationItem[] = [
+  {
+    title: 'Cisco Certified Network Administrator (CCNA)',
+    icon: 'tabler:route-square-2',
+    images: [{ src: ccnaImage.src, alt: 'Cisco Certified Network Administrator certification badge' }],
+    overview:
+      'CCNA validates skills for configuring, operating, securing, and troubleshooting business networks across routing, switching, and core connectivity services.',
+    benefits: [
+      'Network designs stay better aligned to uptime, segmentation, and future growth.',
+      'Issue isolation moves faster when switches, firewalls, or WAN links create user-facing problems.',
+      'Routing, VLAN, and baseline network security changes roll out with more consistency.',
+    ],
+  },
+  {
+    title: 'Cisco Certified Network Professional (CCNP)',
+    icon: 'tabler:route-square-2',
+    images: [{ src: ccnpImage.src, alt: 'Cisco Certified Network Professional certification badge' }],
+    overview:
+      'CCNP validates deeper expertise in enterprise networking, routing, switching, resilient design, and advanced troubleshooting across more complex production environments.',
+    benefits: [
+      'Complex, segmented networks get deeper engineering coverage across sites, vendors, and dependencies.',
+      'Advanced routing, switching, and infrastructure issues can be worked through with more rigor.',
+      'Planning for high-performance, resilient environments becomes more deliberate and defensible.',
+    ],
+  },
+  {
+    title: 'Cisco Certified Internetwork Expert (CCIE)',
+    icon: 'tabler:route-square-2',
+    images: [{ src: ccieImage.src, alt: 'Cisco Certified Internetwork Expert certification badge' }],
+    overview:
+      'CCIE represents expert-level networking knowledge across architecture, implementation, optimization, and advanced troubleshooting for highly demanding enterprise environments.',
+    benefits: [
+      'Architectural decisions benefit from expert-level depth in complex network environments.',
+      'Escalation-grade troubleshooting and optimization receive deeper technical coverage.',
+      'Mission-critical infrastructure can be designed or remediated with higher confidence.',
+    ],
+  },
+  {
+    title: 'CompTIA Network+',
+    icon: 'tabler:network',
+    images: [{ src: comptiaNetworkImage.src, alt: 'CompTIA Network+ certification badge' }],
+    overview:
+      'Network+ demonstrates broad, vendor-neutral knowledge of network infrastructure, connectivity, cabling, troubleshooting, and support operations.',
+    benefits: [
+      'Day-to-day troubleshooting stays practical across mixed-vendor environments and ISP handoffs.',
+      'Switching, wireless, cabling, and documentation standards are easier to apply correctly.',
+      'Core networking fundamentals remain solid during support, maintenance, and expansion work.',
+    ],
+  },
+  {
+    title: 'CompTIA Security+',
+    icon: 'tabler:shield-lock',
+    images: [{ src: comptiaSecurityImage.src, alt: 'CompTIA Security+ certification badge' }],
+    overview:
+      'Security+ validates core cybersecurity knowledge across threats, vulnerabilities, identity, access control, incident response, and risk management.',
+    benefits: [
+      'Security decisions stay more disciplined around endpoints, accounts, email, and network access.',
+      'Technical controls and user practices remain better aligned to business risk reduction.',
+      'Suspicious activity and policy gaps can be prioritized with clearer context.',
+    ],
+  },
+  {
+    title: 'CompTIA A+',
+    icon: 'tabler:device-laptop',
+    images: [{ src: comptiaAImage.src, alt: 'CompTIA A+ certification badge' }],
+    overview:
+      'A+ validates technical support skills across computers, operating systems, hardware, peripherals, troubleshooting, and end-user service operations.',
+    benefits: [
+      'Endpoint issues are diagnosed more reliably across laptops, workstations, peripherals, and operating systems.',
+      'Recovery from hardware failures and performance problems happens faster.',
+      'Day-to-day support stays more consistent across the devices your staff relies on.',
+    ],
+  },
+  {
+    title: 'NIST Cybersecurity Framework',
+    icon: 'tabler:clipboard-check',
+    images: [{ src: nistImage.src, alt: 'NIST framework logo' }],
+    overview:
+      'NIST knowledge supports the use of structured cybersecurity frameworks for identifying risks, protecting systems, detecting issues, responding to incidents, and recovering operations.',
+    benefits: [
+      'Security controls map more cleanly to a recognized framework for managing cyber risk.',
+      'Documented practices, policy development, and control maturity planning become easier to structure.',
+      'Long-term decisions around safeguards, response planning, and resilience stay more consistent.',
+    ],
+  },
+  {
+    title: 'HIPAA Compliance',
+    icon: 'tabler:building-hospital',
+    images: [{ src: hipaaImage.src, alt: 'HIPAA compliance logo' }],
+    overview:
+      'HIPAA knowledge supports work in healthcare environments where privacy, security safeguards, administrative controls, and protected health information handling all matter.',
+    benefits: [
+      'Technical decisions stay better aligned to healthcare privacy and security expectations.',
+      'Restricted-access environments benefit from more defensible data-handling practices.',
+      'Planning around systems that touch protected health information carries clearer compliance context.',
+    ],
+  },
+  {
+    title: 'PCI Compliance',
+    icon: 'tabler:credit-card',
+    images: [{ src: pciImage.src, alt: 'PCI compliance logo' }],
+    overview:
+      'PCI compliance knowledge supports secure handling of payment card data through stronger access controls, system hardening, monitoring, and documented security practices.',
+    benefits: [
+      'Technical safeguards map more cleanly to payment card data protection requirements.',
+      'Networks, devices, and workflows that handle cardholder data benefit from tighter planning.',
+      'Segmentation and operational controls can be shaped with clearer PCI context.',
+    ],
+  },
+  {
+    title: 'Microsoft 365 Certified: Administrator Expert',
+    icon: 'tabler:apps',
+    images: [{ src: microsoftExpertImage.src, alt: 'Microsoft 365 Administrator Expert certification badge' }],
+    overview:
+      'This certification validates advanced Microsoft 365 administration skills across tenant operations, identity, productivity services, security controls, and enterprise governance.',
+    benefits: [
+      'Tenant-wide Microsoft 365 administration stays more consistent across users, policies, and services.',
+      'Identity, collaboration, compliance, and day-to-day cloud operations are easier to support cleanly.',
+      'Service reliability improves through more disciplined Microsoft 365 management.',
+    ],
+  },
+  {
+    title: 'Google Workspace Admin',
+    icon: 'tabler:brand-google',
+    images: [{ src: googleAdminImage.src, alt: 'Google Workspace Admin logo' }],
+    overview:
+      'Google Workspace administration knowledge supports secure management of users, collaboration tools, policies, email services, and day-to-day cloud operations across Google environments.',
+    benefits: [
+      'Users, groups, settings, and security policies stay better organized in Google Workspace.',
+      'Gmail, Drive, Meet, and adjacent productivity services receive steadier administrative support.',
+      'Account security and configuration changes can be managed with clearer oversight.',
+    ],
+  },
+  {
+    title: 'Paxton Certified',
+    icon: 'tabler:door-enter',
+    images: [{ src: paxtonImage.src, alt: 'Paxton certification logo' }],
+    overview:
+      'Paxton certification validates platform knowledge for access control hardware, software setup, credentialing, user permissions, and day-to-day door management.',
+    benefits: [
+      'Access control deployments stay cleaner and more policy-driven.',
+      'Door groups, schedules, permissions, and reporting needs are easier to administer consistently.',
+      'Changes across offices, suites, and shared spaces land with fewer avoidable issues.',
+    ],
+  },
+  {
+    title: 'Kantech Certified',
+    icon: 'tabler:door-enter',
+    images: [{ src: kantechImage.src, alt: 'Kantech certification logo' }],
+    overview:
+      'Kantech certification supports access control deployments involving controllers, credentials, permissions, schedules, and day-to-day administrative workflows.',
+    benefits: [
+      'Controller, credential, and door policy workflows are easier to configure correctly.',
+      'Secure entry processes across offices and facilities stay more structured.',
+      'Live access systems can be adjusted with clearer operational awareness.',
+    ],
+  },
+  {
+    title: 'PDK Certified',
+    icon: 'tabler:door',
+    images: [{ src: pdkImage.src, alt: 'PDK certification logo' }],
+    overview:
+      'PDK certification validates platform familiarity for modern access control deployments, credential management, cloud administration, and connected entry systems.',
+    benefits: [
+      'Cloud-managed access control environments are easier to support day to day.',
+      'Permissions, schedules, mobile credentials, and admin policies can be managed more consistently.',
+      'Platform changes roll out with fewer configuration surprises.',
+    ],
+  },
+  {
+    title: 'Alarm.com Certified',
+    icon: 'tabler:shield-check',
+    images: [{ src: alarmImage.src, alt: 'Alarm.com certification logo' }],
+    overview:
+      'Alarm.com certification demonstrates platform familiarity for monitored security solutions, device setup, alerting, automation, and account management.',
+    benefits: [
+      'Monitored security features, user access, and notifications are implemented more consistently.',
+      'Mobile visibility and alert workflows stay better aligned to daily operations.',
+      'Sensors, cameras, and automation logic can be configured with fewer avoidable gaps.',
+    ],
+  },
+  {
+    title: 'i-PRO Certified',
+    icon: 'tabler:camera',
+    images: [{ src: iProImage.src, alt: 'i-PRO certification logo' }],
+    overview:
+      'i-PRO certification supports the deployment and administration of professional video surveillance systems, camera settings, recording workflows, and site visibility tools.',
+    benefits: [
+      'Camera configuration, retention settings, and surveillance operations are easier to manage well.',
+      'Video coverage and monitoring workflows stay more closely aligned to incident review needs.',
+      'Surveillance systems remain more reliable for practical day-to-day business use.',
+    ],
+  },
+  {
+    title: 'Bogen Certified',
+    icon: 'tabler:microphone-2',
+    images: [{ src: bogenImage.src, alt: 'Bogen certification logo' }],
+    overview:
+      'Bogen certification supports paging, public address, and audio communication systems used for announcements, alerts, and facility-wide communication.',
+    benefits: [
+      'Paging zones, amplifier settings, and audio distribution plans are easier to support.',
+      'Communication systems for safety, operations, and daily coordination stay more intentional.',
+      'Facility audio deployments remain more dependable over time.',
+    ],
+  },
+  {
+    title: 'Valcom Certified',
+    icon: 'tabler:speakerphone',
+    images: [{ src: valcomImage.src, alt: 'Valcom certification logo' }],
+    overview:
+      'Valcom certification supports audio paging, mass notification, and communication systems that connect operational messaging with real facility needs.',
+    benefits: [
+      'Paging, notification, and audio communication workflows are easier to configure consistently.',
+      'Coverage and usability stay better aligned to operational response requirements.',
+      'Voice notification systems can be deployed with fewer avoidable issues across shared facilities.',
+    ],
+  },
+  {
+    title: 'Asterisk Certified',
+    icon: 'tabler:phone-call',
+    images: [{ src: asteriskImage.src, alt: 'Asterisk certification logo' }],
+    overview:
+      'Asterisk certification supports business phone system administration, call routing, extensions, trunks, voicemail, and day-to-day voice platform management.',
+    benefits: [
+      'Call flow design, extension management, and telephony troubleshooting become easier to manage well.',
+      'Business voice features, routing logic, and reliability settings stay more consistent.',
+      'Phone systems that support daily operations can be maintained with greater confidence.',
+    ],
+  },
+  {
+    title: '3CX Certified',
+    icon: 'tabler:phone',
+    images: [{ src: threeCxImage.src, alt: '3CX certification logo' }],
+    overview:
+      '3CX certification validates knowledge for administering modern business phone systems, user settings, call handling, integrations, and platform configuration.',
+    benefits: [
+      'User provisioning, ring groups, queues, and calling workflows are easier to manage cleanly.',
+      'Hosted and on-premise 3CX rollouts align more closely to real operational needs.',
+      'Calling, mobility, and routing workflows stay more reliable over time.',
+    ],
+  },
+];
+
+const ctaActions: CTA[] = [];
+
+if (getStartedLink) {
+  ctaActions.push({
+    variant: 'primary',
+    text: 'Get Started',
+    href: getStartedLink,
+    target: '_blank',
+  });
+}
+
+ctaActions.push({
+  variant: 'secondary',
+  text: 'Call Us Today: (855) 947-0067',
+  href: 'tel:+18559470067',
+});
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline="About us"
+    title="Certifications and Compliance"
+    subtitle="Credentials that support our work across networking, cybersecurity, compliance, Microsoft 365, Google Workspace, endpoint support, physical security, surveillance, and facility communications."
+  />
+
+  <section id="certifications" class="pb-4 md:pb-6">
+    <div class="mx-auto max-w-6xl px-4 md:px-6">
+      <div class="rounded-3xl border border-gray-200 bg-gradient-to-br from-white via-slate-50 to-blue-50 p-6 md:p-10 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950">
+        <div class="max-w-4xl space-y-4">
+          <p class="m-0 text-sm font-semibold uppercase tracking-widest text-secondary dark:text-blue-200">
+            Our credentials
+          </p>
+          <h2 class="m-0 text-3xl font-bold tracking-tight text-default dark:text-white sm:text-4xl">
+            Verified expertise across the systems, platforms, and compliance requirements your business depends on
+          </h2>
+          <p class="m-0 text-base leading-8 text-muted">
+            These credentials reflect formal training across networking, security, cloud administration, compliance,
+            access control, surveillance, and facility communication systems. We use that depth to design, secure, and
+            support the environments that keep your business running.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 md:py-10">
+    <div class="mx-auto max-w-6xl px-4 md:px-6">
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {
+          certifications.map((item) => (
+            <article class="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 md:p-7">
+              {
+                item.images && item.images.length > 0 && (
+                  <div class="mb-6 overflow-hidden rounded-2xl border border-gray-200 bg-slate-50 px-4 py-6 dark:border-slate-700 dark:bg-slate-950/40">
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                      {item.images.map((image) => (
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          class={item.images && item.images.length > 1 ? 'h-20 w-auto max-w-[45%] object-contain md:h-24' : 'h-28 w-full object-contain md:h-32'}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )
+              }
+
+              <div class="flex items-start gap-4">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-secondary dark:bg-blue-500/15 dark:text-blue-200">
+                  <Icon name={item.icon} class="h-6 w-6" />
+                </div>
+                <div>
+                  <h2 class="m-0 text-xl font-semibold leading-tight text-default dark:text-white">{item.title}</h2>
+                </div>
+              </div>
+
+              <div class="mt-6 space-y-5">
+                <div class="space-y-2">
+                  <h3 class="m-0 text-sm font-semibold uppercase tracking-widest text-gray-900 dark:text-slate-200">
+                    What it covers
+                  </h3>
+                  <p class="m-0 text-sm leading-7 text-muted">{item.overview}</p>
+                </div>
+
+                <div class="space-y-3">
+                  <h3 class="m-0 text-sm font-semibold uppercase tracking-widest text-gray-900 dark:text-slate-200">
+                    What it means for you
+                  </h3>
+                  <ul class="m-0 space-y-2 pl-5 text-sm leading-7 text-muted">
+                    {item.benefits.map((benefit) => <li>{benefit}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction actions={ctaActions}>
+    <Fragment slot="title">Need a certified team for your next project?</Fragment>
+
+    <Fragment slot="subtitle">
+      From network infrastructure and cloud administration to compliance, access control, surveillance, and paging
+      systems, we deliver solutions backed by verified technical training.
+    </Fragment>
+  </CallToAction>
+</Layout>

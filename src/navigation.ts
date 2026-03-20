@@ -357,6 +357,7 @@ export const headerData = {
       text: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
+        { text: 'Certifications', href: getPermalink('/about/certifications') },
         { text: 'Careers', href: getPermalink('/careers') },
         { text: 'Privacy Policy', href: getPermalink('/privacy-policy') },
         { text: 'Terms', href: getPermalink('/legal') },
@@ -423,6 +424,7 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About', href: getPermalink('/about') },
+        { text: 'Certifications', href: getPermalink('/about/certifications') },
         { text: 'Careers', href: getPermalink('/careers') },
         { text: 'Terms', href: getPermalink('/legal') },
         { text: 'Privacy Policy', href: getPermalink('/privacy-policy') },
