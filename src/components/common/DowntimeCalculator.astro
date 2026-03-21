@@ -1,5 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const industryOptions = [
+  { value: 'general', label: 'General Business' },
+  { value: 'healthcare', label: 'Healthcare' },
+  { value: 'education', label: 'Education' },
+  { value: 'retail', label: 'Retail' },
+  { value: 'legal', label: 'Legal' },
+  { value: 'accounting', label: 'Accounting' },
+  { value: 'financial', label: 'Financial' },
+  { value: 'nonprofits', label: 'Non-Profits' },
+  { value: 'custom', label: 'Custom Estimate' },
+];
 ---
 
 <section
@@ -159,11 +171,13 @@ import { Icon } from 'astro-icon/components';
             data-downtime-simple-input
             data-field="industryBenchmark"
           >
-            <option value="general" selected>General Business</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="education">Education</option>
-            <option value="retail">Retail</option>
-            <option value="custom">Custom Estimate</option>
+            {
+              industryOptions.map(({ value, label }) => (
+                <option value={value} selected={value === 'general'}>
+                  {label}
+                </option>
+              ))
+            }
           </select>
           <span class="block mt-1 text-[0.6875rem] text-muted">
             Selecting an industry pre-fills conservative labor cost and downtime defaults. You can still adjust all
@@ -185,8 +199,9 @@ import { Icon } from 'astro-icon/components';
             data-field="annualDowntimeHours"
           />
           <span class="block mt-1 text-[0.6875rem] text-muted">
-            Choose your industry conservative baseline above as a starting point (General 69, Healthcare 69 baseline,
-            Education 142, Retail 148 hours/year), then adjust for your environment.
+            Choose your industry conservative baseline above as a starting point (General 69, Healthcare 69, Education
+            142, Retail 148, Legal 69, Accounting 69, Financial 69, Non-Profits 69 hours/year), then adjust for your
+            environment.
           </span>
         </label>
       </div>
@@ -220,11 +235,13 @@ import { Icon } from 'astro-icon/components';
             name="industryBenchmark"
             data-downtime-input
           >
-            <option value="general" selected>General Business</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="education">Education</option>
-            <option value="retail">Retail</option>
-            <option value="custom">Custom Estimate</option>
+            {
+              industryOptions.map(({ value, label }) => (
+                <option value={value} selected={value === 'general'}>
+                  {label}
+                </option>
+              ))
+            }
           </select>
           <span class="block mt-1 text-[0.6875rem] text-muted">
             Selecting an industry pre-fills conservative labor cost and downtime defaults. You can still adjust all
@@ -356,8 +373,9 @@ import { Icon } from 'astro-icon/components';
             data-downtime-input
           />
           <span class="block mt-1 text-[0.6875rem] text-muted">
-            Choose your industry conservative baseline above as a starting point (General 69, Healthcare 69 baseline,
-            Education 142, Retail 148 hours/year), then adjust for your environment.
+            Choose your industry conservative baseline above as a starting point (General 69, Healthcare 69, Education
+            142, Retail 148, Legal 69, Accounting 69, Financial 69, Non-Profits 69 hours/year), then adjust for your
+            environment.
           </span>
         </label>
       </div>
@@ -407,24 +425,34 @@ import { Icon } from 'astro-icon/components';
   </p>
 </section>
 
-<script is:inline>
-  const initDowntimeCalculator = () => {
-    const widgets = document.querySelectorAll('[data-downtime-widget]');
-    const allowedCurrencies = new Set(['USD', 'CAD', 'EUR', 'GBP', 'AUD']);
-    const benchmarkProfiles = {
-      general: { defaultHours: 69, defaultEmployeeCostPerHour: 38.98 },
-      healthcare: { defaultHours: 69, defaultEmployeeCostPerHour: 43.55 },
-      education: { defaultHours: 142, defaultEmployeeCostPerHour: 49.78 },
-      retail: { defaultHours: 148, defaultEmployeeCostPerHour: 23.6 },
-      custom: { defaultHours: 69 },
-    };
-    const mspBenchmarkProfiles = {
-      general: { incidentReduction: 0.86, fasterRecovery: 0.62 },
-      healthcare: { incidentReduction: 0.9, fasterRecovery: 0.7 },
-      education: { incidentReduction: 0.88, fasterRecovery: 0.65 },
-      retail: { incidentReduction: 0.94, fasterRecovery: 0.85 },
-      custom: { incidentReduction: 0.9, fasterRecovery: 0.75 },
-    };
+  <script is:inline>
+    const initDowntimeCalculator = () => {
+      const widgets = document.querySelectorAll('[data-downtime-widget]');
+      const allowedCurrencies = new Set(['USD', 'CAD', 'EUR', 'GBP', 'AUD']);
+      const generalBenchmarkDefaults = { defaultHours: 69, defaultEmployeeCostPerHour: 38.98 };
+      const benchmarkProfiles = {
+        general: generalBenchmarkDefaults,
+        healthcare: { defaultHours: 69, defaultEmployeeCostPerHour: 43.55 },
+        education: { defaultHours: 142, defaultEmployeeCostPerHour: 49.78 },
+        retail: { defaultHours: 148, defaultEmployeeCostPerHour: 23.6 },
+        legal: generalBenchmarkDefaults,
+        accounting: generalBenchmarkDefaults,
+        financial: generalBenchmarkDefaults,
+        nonprofits: generalBenchmarkDefaults,
+        custom: { defaultHours: 69 },
+      };
+      const generalMspBenchmark = { incidentReduction: 0.86, fasterRecovery: 0.62 };
+      const mspBenchmarkProfiles = {
+        general: generalMspBenchmark,
+        healthcare: { incidentReduction: 0.9, fasterRecovery: 0.7 },
+        education: { incidentReduction: 0.88, fasterRecovery: 0.65 },
+        retail: { incidentReduction: 0.94, fasterRecovery: 0.85 },
+        legal: generalMspBenchmark,
+        accounting: generalMspBenchmark,
+        financial: generalMspBenchmark,
+        nonprofits: generalMspBenchmark,
+        custom: { incidentReduction: 0.9, fasterRecovery: 0.75 },
+      };
     const allowedBenchmarks = new Set(Object.keys(benchmarkProfiles));
     const fieldNames = [
       'currency',
